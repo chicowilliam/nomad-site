@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T11:58:45.924186+00:00",
+  "title": "Design System: Nomad",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel claro"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Preto profundo"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superfície escura"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Cinza de apoio"
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Linha estrutural"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display editorial",
+        "purpose": "Título de abertura; ajustar composição no mobile."
+      },
+      "headline": {
+        "displayName": "Título de seção",
+        "purpose": "Marcos da narrativa com peso leve e tracking compacto."
+      },
+      "body": {
+        "displayName": "Leitura",
+        "purpose": "Copy comercial, explicações e formulário."
+      },
+      "label": {
+        "displayName": "Microtexto",
+        "purpose": "Índices, coordenadas, categorias e legendas editoriais."
+      }
+    },
+    "shadows": [
+      {
+        "name": "project-window",
+        "value": "0 3cqw 6cqw #0002",
+        "purpose": "Separar janelas de mockup de sua base; não aplicar genericamente à interface."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-editorial",
+        "value": "cubic-bezier(.16,1,.3,1)",
+        "purpose": "Desaceleração das máscaras e microinterações."
+      },
+      {
+        "name": "reveal-mask",
+        "value": "900ms",
+        "purpose": "Revelar texto e mídia quando entram no viewport."
+      },
+      {
+        "name": "control-state",
+        "value": "300ms",
+        "purpose": "Resposta de contraste em controles."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Conteúdo permanece visível; remover transições e deslocamentos decorativos."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-phone",
+        "value": "374px"
+      },
+      {
+        "name": "contact-fields",
+        "value": "600px"
+      },
+      {
+        "name": "mobile",
+        "value": "767px"
+      },
+      {
+        "name": "contact-layout",
+        "value": "1024px"
+      },
+      {
+        "name": "tablet",
+        "value": "1100px"
+      },
+      {
+        "name": "wide-desktop",
+        "value": "1700px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão escuro",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Ação principal sobre a superfície clara.",
+      "html": "<button class=\"ds-button ds-button-dark\">Quero escalar meu negócio<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:space-between;gap:26px;min-height:52px;padding:16px 21px;border:0;border-radius:0;font-family:var(--body, sans-serif);font-size:12px;font-weight:600;line-height:1.5;cursor:pointer;transition:background .3s,color .3s}.ds-button svg{transition:transform .5s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover svg{transform:translate(3px,-3px)}.ds-button:focus-visible{outline:2px solid currentColor;outline-offset:6px}.ds-button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-button,.ds-button svg{transition:none}.ds-button:hover svg,.ds-button:active{transform:none}}.ds-button-dark{background:var(--ink,#0a0a0a);color:var(--paper,#f2f2f0)}.ds-button-dark:hover{background:#343431}"
+    },
+    {
+      "name": "Botão claro",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Ação principal sobre a superfície escura.",
+      "html": "<button class=\"ds-button ds-button-light\">Começar um projeto<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:space-between;gap:26px;min-height:52px;padding:16px 21px;border:0;border-radius:0;font-family:var(--body, sans-serif);font-size:12px;font-weight:600;line-height:1.5;cursor:pointer;transition:background .3s,color .3s}.ds-button svg{transition:transform .5s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover svg{transform:translate(3px,-3px)}.ds-button:focus-visible{outline:2px solid currentColor;outline-offset:6px}.ds-button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-button,.ds-button svg{transition:none}.ds-button:hover svg,.ds-button:active{transform:none}}.ds-button-light{background:var(--paper,#f2f2f0);color:var(--ink,#0a0a0a)}.ds-button-light:hover{background:#c8c8c1}"
+    },
+    {
+      "name": "Campo editorial",
+      "kind": "input",
+      "refersTo": "contact-input",
+      "description": "Label persistente, superfície transparente e linha inferior.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-email\">Seu e-mail *</label><input id=\"ds-email\" type=\"email\" autocomplete=\"email\" placeholder=\"voce@empresa.com.br\" required /></div>",
+      "css": ".ds-field{padding:20px;background:var(--ink,#0a0a0a);font-family:var(--body,sans-serif)}.ds-field label{display:block;color:#dededb;font-size:13px;line-height:1.5;margin-bottom:11px}.ds-field input{display:block;width:100%;min-height:48px;padding:10px 0 13px;border:0;border-bottom:1px solid #626260;border-radius:0;background:transparent;color:var(--paper,#f2f2f0);font:inherit;font-size:16px;line-height:1.6;transition:border-color .22s}.ds-field input::placeholder{color:#969693;opacity:1}.ds-field input:hover{border-bottom-color:#a3a3a0}.ds-field input:focus-visible{outline:2px solid var(--paper,#f2f2f0);outline-offset:5px;border-bottom-color:var(--paper,#f2f2f0)}"
+    },
+    {
+      "name": "Navegação editorial",
+      "kind": "nav",
+      "description": "Links mínimos integrados ao fundo com sublinhado no hover.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação de exemplo\"><a href=\"#projetos\">Projetos</a><a href=\"#solucoes\">Soluções</a><a href=\"#processo\">Processo</a></nav>",
+      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:35px;background:var(--paper,#f2f2f0);color:var(--ink,#0a0a0a);padding:24px;font-family:var(--body,sans-serif);font-size:11px}.ds-nav a{position:relative;color:inherit;text-decoration:none;padding:10px 0}.ds-nav a:after{content:\"\";position:absolute;bottom:5px;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-nav a:hover:after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:2px solid currentColor;outline-offset:6px}"
+    },
+    {
+      "name": "Solução em linha",
+      "kind": "custom",
+      "description": "Acordeão amplo com categoria, número e conteúdo sem grade de cards.",
+      "html": "<details class=\"ds-solution\"><summary><span>01</span><strong>PRESENÇA</strong><i aria-hidden=\"true\">+</i></summary><p>Posicionamento, SEO e experiência construídos para transformar visitantes em oportunidades.</p></details>",
+      "css": ".ds-solution{padding:0 20px;background:var(--ink,#0a0a0a);color:var(--paper,#f2f2f0);border-block:1px solid #353531;font-family:var(--body,sans-serif)}.ds-solution summary{display:flex;align-items:center;gap:26px;min-height:110px;cursor:pointer;list-style:none;transition:color .3s}.ds-solution summary::-webkit-details-marker{display:none}.ds-solution summary>span{font-size:10px;color:#a5a59e}.ds-solution strong{font-family:var(--display,sans-serif);font-size:clamp(28px,5vw,46px);font-weight:400;letter-spacing:-.04em}.ds-solution i{margin-left:auto;font-size:24px;font-style:normal}.ds-solution[open] i{transform:rotate(45deg)}.ds-solution summary:hover{color:#babbb3}.ds-solution summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}.ds-solution p{max-width:490px;margin:0 0 30px 42px;font-size:16px;line-height:1.8;color:#c2c2ba}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Arquitetura para escalar.",
+    "overview": "A precisão de engenharia encontra composição editorial. Tipografia ocupa espaço, linhas organizam relações e objetos metálicos representam partes conectadas. O acabamento vem de proporção, espaço e contraste.",
+    "keyCharacteristics": [
+      "Assimetria editorial",
+      "Hero claro e narrativa escura",
+      "Títulos leves e compactos",
+      "Superfícies retas",
+      "Arte integrada à composição"
+    ],
+    "rules": [
+      {
+        "name": "Paleta da agência",
+        "body": "Manter a identidade acromática. Cores presentes nos mockups pertencem aos conceitos.",
+        "section": "colors"
+      },
+      {
+        "name": "Escala tipográfica",
+        "body": "Peso 400 e tracking negativo nos títulos. Recompôr as quebras para cada classe de viewport.",
+        "section": "typography"
+      },
+      {
+        "name": "Profundidade contextual",
+        "body": "Concentrar profundidade na escultura e nos mockups; organizar a interface com planos tonais e linhas.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Usar tipografia e espaço como estrutura.",
+      "Manter conceitos identificados.",
+      "Preservar contraste, teclado e foco.",
+      "Aplicar movimento reduzido."
+    ],
+    "donts": [
+      "Não repetir cards idênticos.",
+      "Não adicionar neon, glow ou blobs à identidade.",
+      "Não inventar prova social.",
+      "Não afirmar envio sem confirmação."
+    ]
+  }
+}

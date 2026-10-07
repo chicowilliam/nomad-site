@@ -1,78 +1,76 @@
-# Nomad — engenharia digital
+# Guarda-Chuva — domínio digital para gastronomia
 
-Site editorial da Nomad, estúdio de soluções digitais em Belo Horizonte. A home apresenta sites, e-commerce, sistemas e automação como estrutura para vender, organizar a operação e crescer.
-
-Construído com React 19, TypeScript, Vite 7 e Tailwind CSS 4. A direção visual e os componentes usam CSS próprio. Space Grotesk Variable e Manrope Variable são servidas localmente pelo pacote de fontes. O projeto gera arquivos estáticos e não depende de banco de dados, backend ou segredos para rodar.
+Rebrand do projeto existente em React 19, TypeScript, Vite 7 e Tailwind CSS 4. A home apresenta sites, cardápios digitais, delivery, reservas, sistemas e automações para restaurantes, bares e negócios gastronômicos. CSS próprio, Instrument Sans e DM Sans locais, GSAP/ScrollTrigger e Lenis.
 
 ## Desenvolvimento
 
-Use Node.js 24 e npm. A instalação respeita `package-lock.json`:
+Node.js 24 e npm, sem backend, banco de dados ou credenciais para rodar:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-O Vite disponibiliza o servidor na porta 5173, salvo se estiver ocupada. Use o checkout existente; cada tarefa do ambiente de nuvem já é isolada e não precisa de outro worktree.
+Use o checkout existente em `/workspace/nomad-site`. Cada tarefa da nuvem já é isolada.
 
-## Build e verificações
+## Verificação e build
 
 ```sh
-npm run check
+npm run lint
+npm run typecheck
 npm run build
-npm run preview -- --host 0.0.0.0 --port 4173
+npm run preview -- --port 4173
 ```
 
-`check` executa a verificação TypeScript. `build` executa TypeScript e gera a versão de produção em `dist/`. `preview` permite inspecionar esse build localmente; ele não publica o site.
-
-Com o preview ativo em outro terminal:
+Em outro terminal, com o preview ativo:
 
 ```sh
 npm run test:e2e
 ```
 
-O script usa Playwright e espera o site em `http://127.0.0.1:4173`. Use `BASE_URL` para testar outro endereço. O ambiente de nuvem disponibiliza Chromium em `/usr/bin/chromium`; `CHROMIUM_PATH` permite indicar outro executável quando necessário. O comando executa a validação automatizada; seus resultados dependem da versão atual do build.
+O teste usa Playwright e Chromium em `/usr/bin/chromium`. `CHROMIUM_PATH` altera o executável, `BASE_URL` altera o endereço e `SCREENSHOTS=false` desativa capturas. Verifica oito resoluções, overflow, imagens, semântica, menu e foco, seis soluções, conceito Mesa, briefing, GSAP, Lenis, resize, movimento reduzido e refresh em âncora. Relatórios e capturas locais ficam em `.impeccable/review/`, ignorada pelo Git. `check` permanece como alias da verificação TypeScript.
 
-## Conteúdo e configuração
+## Conteúdo e contato
 
-Edite `src/data/site.ts` para atualizar marca, localização, contatos, textos, serviços, projetos, processo e metadados. A hierarquia visual vive em `src/App.tsx`; os tokens e layouts principais ficam em `src/styles/global.css`.
+Edite `src/data/site.ts`. Não há WhatsApp, domínio, e-mail ou perfil social oficial confirmado no repositório.
 
-| Configuração | Onde editar | Comportamento |
-| --- | --- | --- |
-| Marca, localização e SEO | `brand` e `seo` | Identidade, metadados e dados estruturados |
-| WhatsApp | `brand.whatsapp` | Número internacional completo ou URL `https://wa.me/…` |
-| E-mail | `brand.email` | Prepara uma mensagem no aplicativo do visitante |
-| Instagram e LinkedIn | `brand.instagram` e `brand.linkedin` | Exibe apenas os links configurados |
-| Recebimento por formulário | `contact.formEndpoint` | Envia JSON por POST e aguarda confirmação HTTP |
-| Projetos | `projects` | Conteúdo dos três conceitos de aplicação |
-| Prova social | `clientData` | Clientes e depoimentos reais, com autorização de uso |
+| Campo | Uso |
+| --- | --- |
+| `brand.whatsapp` | Número internacional completo ou URL `https://wa.me/…`; ativa CTA direto |
+| `brand.email` | Canal de e-mail para o briefing |
+| `brand.instagram` | Link real no rodapé |
+| `contact.formEndpoint` | Endpoint que recebe JSON e confirma o envio por HTTP |
+| `projects` | Conteúdo do conceito Mesa; substituir por cases autorizados |
+| `services` | Soluções e opções do briefing |
 
-Diamond, Mesa e Axis são **conceitos demonstrativos**, não clientes ou entregas reais. Objetivos de projeto não representam resultados alcançados. `clientData` permanece vazio até haver conteúdo verificável.
+O CTA final abre WhatsApp quando configurado. Sem esse canal, abre um briefing local. O formulário prioriza endpoint, WhatsApp, e-mail e download TXT. WhatsApp/e-mail exigem confirmação no aplicativo do visitante. O download não transmite dados. Um endpoint externo precisa permitir CORS quando necessário; nunca coloque segredos no frontend ou em `VITE_*`.
 
-O formulário funciona agora como preparação de briefing: valida os dados e oferece um arquivo TXT para download, sem transmiti-los. Ao configurar um destino, a prioridade é endpoint, WhatsApp e e-mail. WhatsApp e e-mail exigem que o visitante conclua o envio no aplicativo correspondente. Um endpoint externo precisa aceitar o JSON e permitir o domínio do site via CORS, quando aplicável. Não coloque credenciais, chaves privadas ou segredos no frontend ou em variáveis `VITE_*`.
+Mesa é um **conceito demonstrativo**, sem alegação de cliente real, entrega ou resultado comercial. Não inventar prova social.
 
-## Domínio e SEO
+## Motion e acessibilidade
 
-Antes de publicar em produção, configure o domínio público oficial e os canais de contato. Copie `.env.example` para `.env.local` e preencha `VITE_SITE_URL` com a URL oficial completa, incluindo `https://`. Como alternativa, configure `brand.canonicalUrl`. A variável de ambiente tem prioridade.
+`EditorialMotion.tsx` separa o motor de animação do bundle inicial de conteúdo. `useEditorialMotion.ts` usa `useGSAP`, contexts e matchMedia. Um único ticker GSAP chama `lenis.raf(time * 1000)`; os eventos de Lenis atualizam ScrollTrigger. O cleanup remove ticker, listeners, instância, pins e timelines.
 
-O plugin local em `vite.config.ts` gera description, robots, Open Graph, Twitter Card e schema.org `ProfessionalService`. Com um domínio configurado, ele acrescenta canonical, `og:url`, URLs absolutas de compartilhamento e `sitemap.xml`. `robots.txt` é emitido no build; sem domínio, não inclui uma referência fictícia de sitemap. Depois de alterar essa configuração, gere um novo build.
+Headlines revelam por máscara; linhas convergem para o domínio; a jornada do cliente usa pin limitado no desktop e linha vertical sem pin no celular. Imagens têm máscaras e parallax discreto apenas em desktop. `prefers-reduced-motion` mantém conteúdo visível, navegação nativa e remove movimento decorativo. O menu preserva foco, Escape e navegação por teclado.
 
-## Publicação
+## SEO e publicação
+
+Copie `.env.example` para `.env.local` e preencha `VITE_SITE_URL` com a URL oficial completa, ou configure `brand.canonicalUrl`. A variável tem prioridade. Não invente um domínio.
+
+O plugin em `vite.config.ts` produz description, Open Graph, Twitter Card, schema.org `ProfessionalService` e catálogo de `Service`. Sempre gera `robots.txt`. Com o domínio confirmado, gera canonical, `og:url`, imagem absoluta e `sitemap.xml`. Sem o domínio, omite URLs fictícias. `index.html` contém idioma, title e preloads da fonte display e imagem principal.
 
 ```sh
 npm ci
 npm run build
 ```
 
-Publique o conteúdo de `dist/` em uma hospedagem estática com HTTPS. Configure `VITE_SITE_URL` no ambiente de build da hospedagem. A navegação da home usa âncoras; não há rotas de servidor ou serviço persistente para manter. Arquivos estáticos com hash podem receber cache longo; mantenha a atualização do HTML habilitada.
+Publique `dist/` em uma hospedagem estática com HTTPS. Configure o domínio e os contatos antes da publicação oficial. A home usa âncoras, sem rotas de servidor.
 
-## Direção e assets
+## Sistema visual e assets
 
-- `PRODUCT.md`: público, posicionamento, limites dos dados e critérios do produto.
-- `DESIGN.md`: sistema visual extraído da implementação.
-- `.impeccable/design.json`: extensão estruturada de motion, breakpoints e componentes.
-- `public/assets/SOURCES.md`: origem e contexto dos assets visuais.
+- `PRODUCT.md`: público, tese, conteúdo e limites verificáveis.
+- `DESIGN.md` e `.impeccable/design.json`: sistema visual da implementação.
+- `public/assets/SOURCES.md`: origem das fotografias e assets preservados.
+- `scripts/generate-social.mjs`: regenera `public/og-cover.png`.
 
-A escultura cromada do hero e a fotografia do conceito Mesa são imagens geradas para este projeto, otimizadas em WebP. Os mockups dos conceitos são compostos em HTML, CSS e SVG. A arte demonstra aplicações possíveis sem sugerir clientes existentes.
-
-A skill Impeccable orientou composição, hierarquia, responsividade, motion e documentação por suas referências. O launcher binário não estava disponível no ambiente; as instruções e o código do projeto foram consultados diretamente.
+A fotografia do hero e a fotografia do conceito Mesa foram geradas para a composição, otimizadas em WebP. Não representam estabelecimentos reais. O mockup Mesa usa HTML/CSS/SVG do projeto anterior. Impeccable orientou composição, legibilidade, auditoria e documentação; seu launcher não está instalado neste ambiente, por isso as referências foram usadas diretamente.

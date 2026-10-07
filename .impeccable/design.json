@@ -1,75 +1,229 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-06T11:58:45.924186+00:00",
-  "title": "Design System: Nomad",
+  "generatedAt": "2026-10-07T00:51:39.234Z",
+  "title": "Design System: Guarda-Chuva",
   "extensions": {
     "colorMeta": {
       "paper": {
         "role": "neutral",
-        "displayName": "Papel claro"
+        "displayName": "Papel",
+        "tonalRamp": [
+          "oklch(15% 0.0026 106.4)",
+          "oklch(26% 0.0026 106.4)",
+          "oklch(38% 0.0026 106.4)",
+          "oklch(49% 0.0026 106.4)",
+          "oklch(61% 0.0026 106.4)",
+          "oklch(72% 0.0026 106.4)",
+          "oklch(84% 0.0026 106.4)",
+          "oklch(95% 0.0026 106.4)"
+        ]
       },
       "ink": {
         "role": "neutral",
-        "displayName": "Preto profundo"
-      },
-      "surface": {
-        "role": "neutral",
-        "displayName": "Superfície escura"
+        "displayName": "Tinta",
+        "tonalRamp": [
+          "oklch(15% 0.0341 263.4)",
+          "oklch(26% 0.0341 263.4)",
+          "oklch(38% 0.0341 263.4)",
+          "oklch(49% 0.0341 263.4)",
+          "oklch(61% 0.0341 263.4)",
+          "oklch(72% 0.0341 263.4)",
+          "oklch(84% 0.0341 263.4)",
+          "oklch(95% 0.0341 263.4)"
+        ]
       },
       "muted": {
         "role": "neutral",
-        "displayName": "Cinza de apoio"
+        "displayName": "Texto de apoio",
+        "tonalRamp": [
+          "oklch(15% 0.0304 253.7)",
+          "oklch(26% 0.0304 253.7)",
+          "oklch(38% 0.0304 253.7)",
+          "oklch(49% 0.0304 253.7)",
+          "oklch(61% 0.0304 253.7)",
+          "oklch(72% 0.0304 253.7)",
+          "oklch(84% 0.0304 253.7)",
+          "oklch(95% 0.0304 253.7)"
+        ]
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "Azul de endereço",
+        "tonalRamp": [
+          "oklch(15% 0.1929 262.1)",
+          "oklch(26% 0.1929 262.1)",
+          "oklch(38% 0.1929 262.1)",
+          "oklch(49% 0.1929 262.1)",
+          "oklch(61% 0.1929 262.1)",
+          "oklch(72% 0.1929 262.1)",
+          "oklch(84% 0.1929 262.1)",
+          "oklch(95% 0.1929 262.1)"
+        ]
+      },
+      "deep": {
+        "role": "primary",
+        "displayName": "Azul profundo",
+        "tonalRamp": [
+          "oklch(15% 0.1022 258.6)",
+          "oklch(26% 0.1022 258.6)",
+          "oklch(38% 0.1022 258.6)",
+          "oklch(49% 0.1022 258.6)",
+          "oklch(61% 0.1022 258.6)",
+          "oklch(72% 0.1022 258.6)",
+          "oklch(84% 0.1022 258.6)",
+          "oklch(95% 0.1022 258.6)"
+        ]
+      },
+      "wash": {
+        "role": "primary",
+        "displayName": "Azul de fundo",
+        "tonalRamp": [
+          "oklch(15% 0.0165 259.4)",
+          "oklch(26% 0.0165 259.4)",
+          "oklch(38% 0.0165 259.4)",
+          "oklch(49% 0.0165 259.4)",
+          "oklch(61% 0.0165 259.4)",
+          "oklch(72% 0.0165 259.4)",
+          "oklch(84% 0.0165 259.4)",
+          "oklch(95% 0.0165 259.4)"
+        ]
       },
       "rule": {
         "role": "neutral",
-        "displayName": "Linha estrutural"
+        "displayName": "Linha estrutural",
+        "tonalRamp": [
+          "oklch(15% 0.0341 263.4 / 0.12)",
+          "oklch(26% 0.0341 263.4 / 0.12)",
+          "oklch(38% 0.0341 263.4 / 0.12)",
+          "oklch(49% 0.0341 263.4 / 0.12)",
+          "oklch(61% 0.0341 263.4 / 0.12)",
+          "oklch(72% 0.0341 263.4 / 0.12)",
+          "oklch(84% 0.0341 263.4 / 0.12)",
+          "oklch(95% 0.0341 263.4 / 0.12)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Branco",
+        "tonalRamp": [
+          "oklch(15% 0.0000 0)",
+          "oklch(26% 0.0000 0)",
+          "oklch(38% 0.0000 0)",
+          "oklch(49% 0.0000 0)",
+          "oklch(61% 0.0000 0)",
+          "oklch(72% 0.0000 0)",
+          "oklch(84% 0.0000 0)",
+          "oklch(95% 0.0000 0)"
+        ]
+      },
+      "error": {
+        "displayName": "Erro de formulário",
+        "tonalRamp": [
+          "oklch(15% 0.1573 21.3)",
+          "oklch(26% 0.1573 21.3)",
+          "oklch(38% 0.1573 21.3)",
+          "oklch(49% 0.1573 21.3)",
+          "oklch(61% 0.1573 21.3)",
+          "oklch(72% 0.1573 21.3)",
+          "oklch(84% 0.1573 21.3)",
+          "oklch(95% 0.1573 21.3)"
+        ]
       }
     },
     "typographyMeta": {
       "display": {
-        "displayName": "Display editorial",
-        "purpose": "Título de abertura; ajustar composição no mobile."
+        "displayName": "Display da abertura",
+        "purpose": "Quatro linhas agrupadas em duas afirmações; a escala mobile recompõe a leitura sem aumentar o peso."
       },
       "headline": {
         "displayName": "Título de seção",
-        "purpose": "Marcos da narrativa com peso leve e tracking compacto."
+        "purpose": "Base para declarações editoriais, com variações locais de escala por composição."
+      },
+      "title": {
+        "displayName": "Nome de solução",
+        "purpose": "Título das linhas expansíveis de serviços."
       },
       "body": {
         "displayName": "Leitura",
-        "purpose": "Copy comercial, explicações e formulário."
+        "purpose": "Descrições, navegação, controles e formulário; larguras contidas e entrelinhas abertas."
       },
       "label": {
-        "displayName": "Microtexto",
-        "purpose": "Índices, coordenadas, categorias e legendas editoriais."
+        "displayName": "Índice e nota",
+        "purpose": "Caixa alta e números tabulares; não aplicar a escala de microtexto aos nomes do ecossistema."
       }
     },
     "shadows": [
       {
-        "name": "project-window",
+        "name": "domain-address",
+        "value": "0 12px 22px #163a7010",
+        "purpose": "Separar a placa de domínio da fotografia."
+      },
+      {
+        "name": "search-query",
+        "value": "0 7px 20px #163a7007",
+        "purpose": "Separar a consulta ilustrativa do plano pálido."
+      },
+      {
+        "name": "owned-land",
+        "value": "-10px 12px 0 #163a70",
+        "purpose": "Extrusão sólida do terreno próprio."
+      },
+      {
+        "name": "concept-window",
         "value": "0 3cqw 6cqw #0002",
-        "purpose": "Separar janelas de mockup de sua base; não aplicar genericamente à interface."
+        "purpose": "Profundidade contextual da janela do mockup Mesa."
       }
     ],
     "motion": [
       {
         "name": "ease-editorial",
-        "value": "cubic-bezier(.16,1,.3,1)",
-        "purpose": "Desaceleração das máscaras e microinterações."
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Desaceleração CSS de links, botões e expansões."
       },
       {
-        "name": "reveal-mask",
-        "value": "900ms",
-        "purpose": "Revelar texto e mídia quando entram no viewport."
+        "name": "control-response",
+        "value": "220–500ms",
+        "purpose": "Borda do campo (220ms), seta (400ms) e preenchimento do CTA (500ms)."
       },
       {
-        "name": "control-state",
-        "value": "300ms",
-        "purpose": "Resposta de contraste em controles."
+        "name": "heading-reveal",
+        "value": "0.85s / stagger 0.075s / power3.out",
+        "purpose": "Máscara de linhas disparada uma vez ao entrar no viewport."
+      },
+      {
+        "name": "image-reveal",
+        "value": "0.95s / power3.out",
+        "purpose": "Revelação horizontal de mídia."
+      },
+      {
+        "name": "hero-connections",
+        "value": "1.2s",
+        "purpose": "Desenho inicial das linhas da hero."
+      },
+      {
+        "name": "ecosystem-scrub",
+        "value": "0.6",
+        "purpose": "Sincronização das conexões do ecossistema com a rolagem."
+      },
+      {
+        "name": "journey-scrub",
+        "value": "0.7",
+        "purpose": "Progresso da jornada; pin limitado a desktop com avanço de 420px."
+      },
+      {
+        "name": "scroll-owner",
+        "value": "GSAP ticker → lenis.raf(time * 1000)",
+        "purpose": "Lenis autoRaf:false, duração 0.85s; eventos de rolagem atualizam ScrollTrigger. Motor em chunk EditorialMotion separado."
+      },
+      {
+        "name": "motion-cleanup",
+        "value": "useGSAP context + gsap.matchMedia",
+        "purpose": "Desfazer listeners, ticker, Lenis, pins e animações ao mudar condições ou desmontar; menu pausa Lenis."
       },
       {
         "name": "reduced-motion",
         "value": "prefers-reduced-motion: reduce",
-        "purpose": "Conteúdo permanece visível; remover transições e deslocamentos decorativos."
+        "purpose": "Conteúdo visível e âncoras nativas, sem Lenis, pin, revelações decorativas ou parallax; preservar composição estática."
       }
     ],
     "breakpoints": [
@@ -78,105 +232,160 @@
         "value": "374px"
       },
       {
+        "name": "wide-phone-start",
+        "value": "500px"
+      },
+      {
         "name": "contact-fields",
         "value": "600px"
       },
       {
-        "name": "mobile",
+        "name": "mobile-layout-max",
         "value": "767px"
       },
       {
-        "name": "contact-layout",
+        "name": "horizontal-journey-min",
+        "value": "768px"
+      },
+      {
+        "name": "dialog-navigation-max",
+        "value": "900px"
+      },
+      {
+        "name": "desktop-motion-min",
         "value": "1024px"
       },
       {
-        "name": "tablet",
+        "name": "contact-layout-max",
+        "value": "1024px"
+      },
+      {
+        "name": "tablet-layout-max",
         "value": "1100px"
       },
       {
-        "name": "wide-desktop",
+        "name": "wide-desktop-min",
         "value": "1700px"
       }
     ]
   },
   "components": [
     {
-      "name": "Botão escuro",
+      "name": "CTA azul",
       "kind": "button",
-      "refersTo": "button-dark",
-      "description": "Ação principal sobre a superfície clara.",
-      "html": "<button class=\"ds-button ds-button-dark\">Quero escalar meu negócio<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:space-between;gap:26px;min-height:52px;padding:16px 21px;border:0;border-radius:0;font-family:var(--body, sans-serif);font-size:12px;font-weight:600;line-height:1.5;cursor:pointer;transition:background .3s,color .3s}.ds-button svg{transition:transform .5s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover svg{transform:translate(3px,-3px)}.ds-button:focus-visible{outline:2px solid currentColor;outline-offset:6px}.ds-button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-button,.ds-button svg{transition:none}.ds-button:hover svg,.ds-button:active{transform:none}}.ds-button-dark{background:var(--ink,#0a0a0a);color:var(--paper,#f2f2f0)}.ds-button-dark:hover{background:#343431}"
+      "refersTo": "button-primary",
+      "description": "Ação principal; azul profundo entra no hover e a seta acompanha.",
+      "html": "<button class=\"ds-button ds-button-primary\"><span>Quero construir meu domínio</span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:space-between;gap:27px;min-height:54px;padding:17px 23px;border:0;border-radius:0;font-family:var(--body,\"DM Sans Variable\",sans-serif);font-size:13px;font-weight:500;line-height:1.4;position:relative;overflow:hidden;isolation:isolate;cursor:pointer}.ds-button:before{content:\"\";position:absolute;inset:0;z-index:-1;background:var(--deep,#163a70);transform:translateY(102%);transition:transform .5s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover:before{transform:translateY(0)}.ds-button>span,.ds-button svg{transition:transform .4s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover>span{transform:translateX(2px)}.ds-button svg{width:19px}.ds-button:hover svg{transform:translate(3px,-3px)}.ds-button:focus-visible{outline:2px solid var(--blue,#2864db);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button:before,.ds-button>span,.ds-button svg{transition:none}.ds-button:hover>span,.ds-button:hover svg{transform:none}}.ds-button-primary{background:var(--blue,#2864db);color:#fff}"
     },
     {
-      "name": "Botão claro",
+      "name": "Variante clara",
       "kind": "button",
       "refersTo": "button-light",
-      "description": "Ação principal sobre a superfície escura.",
-      "html": "<button class=\"ds-button ds-button-light\">Começar um projeto<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg></button>",
-      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:space-between;gap:26px;min-height:52px;padding:16px 21px;border:0;border-radius:0;font-family:var(--body, sans-serif);font-size:12px;font-weight:600;line-height:1.5;cursor:pointer;transition:background .3s,color .3s}.ds-button svg{transition:transform .5s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover svg{transform:translate(3px,-3px)}.ds-button:focus-visible{outline:2px solid currentColor;outline-offset:6px}.ds-button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){.ds-button,.ds-button svg{transition:none}.ds-button:hover svg,.ds-button:active{transform:none}}.ds-button-light{background:var(--paper,#f2f2f0);color:var(--ink,#0a0a0a)}.ds-button-light:hover{background:#c8c8c1}"
+      "description": "Variante disponível no CSS; o CTA atual do diálogo mobile recebe a versão azul.",
+      "html": "<button class=\"ds-button ds-button-light\"><span>Construir meu espaço digital</span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></button>",
+      "css": ".ds-button{display:inline-flex;align-items:center;justify-content:space-between;gap:27px;min-height:54px;padding:17px 23px;border:0;border-radius:0;font-family:var(--body,\"DM Sans Variable\",sans-serif);font-size:13px;font-weight:500;line-height:1.4;position:relative;overflow:hidden;isolation:isolate;cursor:pointer}.ds-button:before{content:\"\";position:absolute;inset:0;z-index:-1;background:var(--deep,#163a70);transform:translateY(102%);transition:transform .5s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover:before{transform:translateY(0)}.ds-button>span,.ds-button svg{transition:transform .4s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-button:hover>span{transform:translateX(2px)}.ds-button svg{width:19px}.ds-button:hover svg{transform:translate(3px,-3px)}.ds-button:focus-visible{outline:2px solid var(--blue,#2864db);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-button:before,.ds-button>span,.ds-button svg{transition:none}.ds-button:hover>span,.ds-button:hover svg{transform:none}}.ds-button-light{background:var(--paper,#fafaf8);color:var(--ink,#101828)}.ds-button-light:hover{color:#fff}"
     },
     {
-      "name": "Campo editorial",
+      "name": "Link editorial",
+      "kind": "button",
+      "refersTo": "text-link",
+      "description": "Navegação com sublinhado expansível e seta discreta.",
+      "html": "<a class=\"ds-text-link\" href=\"#contato\">Vamos falar da sua casa<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></a>",
+      "css": ".ds-text-link{display:inline-flex;align-items:center;gap:18px;position:relative;padding:9px 0;color:var(--blue,#2864db);font-family:var(--body,\"DM Sans Variable\",sans-serif);font-size:13px;text-decoration:none}.ds-text-link:after{content:\"\";position:absolute;left:0;bottom:3px;width:100%;height:1px;background:currentColor;transform-origin:left;transform:scaleX(.3);transition:transform .45s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-text-link:hover:after{transform:scaleX(1)}.ds-text-link svg{width:16px;height:16px;transition:transform .4s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-text-link:hover svg{transform:translate(3px,-2px)}.ds-text-link:focus-visible{outline:2px solid var(--blue,#2864db);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-text-link:after,.ds-text-link svg{transition:none}.ds-text-link:hover svg{transform:none}}"
+    },
+    {
+      "name": "Campo do briefing",
       "kind": "input",
       "refersTo": "contact-input",
-      "description": "Label persistente, superfície transparente e linha inferior.",
-      "html": "<div class=\"ds-field\"><label for=\"ds-email\">Seu e-mail *</label><input id=\"ds-email\" type=\"email\" autocomplete=\"email\" placeholder=\"voce@empresa.com.br\" required /></div>",
-      "css": ".ds-field{padding:20px;background:var(--ink,#0a0a0a);font-family:var(--body,sans-serif)}.ds-field label{display:block;color:#dededb;font-size:13px;line-height:1.5;margin-bottom:11px}.ds-field input{display:block;width:100%;min-height:48px;padding:10px 0 13px;border:0;border-bottom:1px solid #626260;border-radius:0;background:transparent;color:var(--paper,#f2f2f0);font:inherit;font-size:16px;line-height:1.6;transition:border-color .22s}.ds-field input::placeholder{color:#969693;opacity:1}.ds-field input:hover{border-bottom-color:#a3a3a0}.ds-field input:focus-visible{outline:2px solid var(--paper,#f2f2f0);outline-offset:5px;border-bottom-color:var(--paper,#f2f2f0)}"
+      "description": "Label persistente, superfície transparente e linha inferior; foco azul e 16px no celular.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-email\">Seu e-mail *</label><input id=\"ds-email\" type=\"email\" autocomplete=\"email\" placeholder=\"voce@restaurante.com.br\" required /></div>",
+      "css": ".ds-field{padding:20px;background:var(--paper,#fafaf8);font-family:var(--body,\"DM Sans Variable\",sans-serif);color:var(--ink,#101828)}.ds-field label{display:block;margin-bottom:11px;font-size:13px;line-height:1.5}.ds-field input{display:block;width:100%;min-width:0;min-height:48px;padding:10px 0 13px;border:0;border-bottom:1px solid #9faebe;border-radius:0;background:transparent;color:var(--ink,#101828);font-family:inherit;font-size:15px;line-height:1.6;caret-color:var(--blue,#2864db);transition:border-color 220ms ease}.ds-field input::placeholder{color:#657489;opacity:1}.ds-field input:hover{border-bottom-color:var(--muted,#536070)}.ds-field input:focus-visible{outline:2px solid var(--blue,#2864db);outline-offset:5px;border-bottom-color:var(--blue,#2864db)}@media(max-width:600px){.ds-field input{font-size:16px}}@media(prefers-reduced-motion:reduce){.ds-field input{transition:none}}"
     },
     {
-      "name": "Navegação editorial",
+      "name": "Navegação",
       "kind": "nav",
-      "description": "Links mínimos integrados ao fundo com sublinhado no hover.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Navegação de exemplo\"><a href=\"#projetos\">Projetos</a><a href=\"#solucoes\">Soluções</a><a href=\"#processo\">Processo</a></nav>",
-      "css": ".ds-nav{display:flex;flex-wrap:wrap;gap:35px;background:var(--paper,#f2f2f0);color:var(--ink,#0a0a0a);padding:24px;font-family:var(--body,sans-serif);font-size:11px}.ds-nav a{position:relative;color:inherit;text-decoration:none;padding:10px 0}.ds-nav a:after{content:\"\";position:absolute;bottom:5px;left:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease,cubic-bezier(.16,1,.3,1))}.ds-nav a:hover:after{transform:scaleX(1)}.ds-nav a:focus-visible{outline:2px solid currentColor;outline-offset:6px}"
+      "refersTo": "navigation",
+      "description": "Marca compacta, links discretos e CTA sublinhado. O diálogo mobile acessível pertence à implementação completa.",
+      "html": "<nav class=\"ds-navigation\" aria-label=\"Navegação principal\"><a class=\"ds-wordmark\" href=\"#inicio\" aria-label=\"Guarda-Chuva — início\"><svg width=\"28\" height=\"28\" viewBox=\"0 0 28 28\" fill=\"none\" aria-hidden=\"true\"><path d=\"M3 12 14 4l11 8H3Zm5 0v11m6-11v11m6-11v11M4 24h20\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linejoin=\"round\"/></svg><span>guarda-<br>chuva<sup>®</sup></span></a><div class=\"ds-nav-links\"><a href=\"#solucoes\">Soluções</a><a href=\"#projetos\">Projetos</a></div><a class=\"ds-nav-cta\" href=\"#contato\">Construir meu espaço digital<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></a></nav>",
+      "css": ".ds-navigation{display:flex;align-items:center;gap:26px;padding:20px 24px;background:var(--paper,#fafaf8);color:var(--ink,#101828);font-family:var(--body,\"DM Sans Variable\",sans-serif)}.ds-navigation a{color:inherit;text-decoration:none}.ds-wordmark{display:inline-flex;align-items:center;gap:10px;font-family:var(--display,\"Instrument Sans Variable\",sans-serif);font-size:25px;font-weight:550;line-height:.88;letter-spacing:-.06em}.ds-wordmark svg{color:var(--blue,#2864db);flex-shrink:0}.ds-wordmark sup{font-size:9px;letter-spacing:0;vertical-align:top}.ds-nav-links{display:flex;gap:26px;margin-left:auto;font-size:12px}.ds-nav-links a{padding:9px 0;border-bottom:1px solid transparent;transition:border-color .25s}.ds-nav-links a:hover{border-color:currentColor}.ds-navigation .ds-nav-cta{display:inline-flex;align-items:center;gap:20px;padding:11px 0;border-bottom:1px solid var(--blue,#2864db);color:var(--blue,#2864db);font-size:12px}.ds-nav-cta svg{width:17px}.ds-navigation a:focus-visible{outline:2px solid var(--blue,#2864db);outline-offset:5px}@media(prefers-reduced-motion:reduce){.ds-nav-links a{transition:none}}"
     },
     {
-      "name": "Solução em linha",
+      "name": "Etiqueta de canal",
+      "kind": "chip",
+      "refersTo": "channel-tag",
+      "description": "Identificador explicativo da composição, sem interação de filtro.",
+      "html": "<span class=\"ds-channel\">Google<svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></span>",
+      "css": ".ds-channel{display:inline-flex;align-items:center;gap:20px;padding:10px 13px;border:1px solid #d8e3f4;border-radius:0;background:var(--paper,#fafaf8);color:var(--ink,#101828);font-family:var(--body,\"DM Sans Variable\",sans-serif);font-size:12px;transform:rotate(-5deg)}.ds-channel svg{width:12px;height:12px;color:var(--blue,#2864db)}"
+    },
+    {
+      "name": "Linha de solução",
       "kind": "custom",
-      "description": "Acordeão amplo com categoria, número e conteúdo sem grade de cards.",
-      "html": "<details class=\"ds-solution\"><summary><span>01</span><strong>PRESENÇA</strong><i aria-hidden=\"true\">+</i></summary><p>Posicionamento, SEO e experiência construídos para transformar visitantes em oportunidades.</p></details>",
-      "css": ".ds-solution{padding:0 20px;background:var(--ink,#0a0a0a);color:var(--paper,#f2f2f0);border-block:1px solid #353531;font-family:var(--body,sans-serif)}.ds-solution summary{display:flex;align-items:center;gap:26px;min-height:110px;cursor:pointer;list-style:none;transition:color .3s}.ds-solution summary::-webkit-details-marker{display:none}.ds-solution summary>span{font-size:10px;color:#a5a59e}.ds-solution strong{font-family:var(--display,sans-serif);font-size:clamp(28px,5vw,46px);font-weight:400;letter-spacing:-.04em}.ds-solution i{margin-left:auto;font-size:24px;font-style:normal}.ds-solution[open] i{transform:rotate(45deg)}.ds-solution summary:hover{color:#babbb3}.ds-solution summary:focus-visible{outline:2px solid currentColor;outline-offset:4px}.ds-solution p{max-width:490px;margin:0 0 30px 42px;font-size:16px;line-height:1.8;color:#c2c2ba}"
+      "refersTo": "service-row",
+      "description": "Exemplo do estado aberto: índice, título, capacidades e linha técnica. O aplicativo controla o botão com aria-expanded.",
+      "html": "<article class=\"ds-service\"><button class=\"ds-service-trigger\" aria-expanded=\"true\" aria-controls=\"ds-service-content\"><span class=\"ds-service-number\">01</span><span class=\"ds-service-label\">Sites</span><span class=\"ds-service-minus\" aria-hidden=\"true\">−</span></button><div id=\"ds-service-content\" class=\"ds-service-content\"><h3>Seu endereço na internet.</h3><p>Marca, cardápio e informações em uma estrutura própria.</p></div></article>",
+      "css": ".ds-service{border-block:1px solid #d4dbe5;color:var(--ink,#101828);background:var(--paper,#fafaf8);font-family:var(--body,\"DM Sans Variable\",sans-serif)}.ds-service-trigger{display:grid;grid-template-columns:40px 1fr 24px;align-items:center;gap:18px;width:100%;min-height:108px;padding:27px 0;border:0;background:transparent;text-align:left;cursor:pointer;color:var(--blue,#2864db)}.ds-service-number{font-size:10px;font-weight:500;letter-spacing:.065em}.ds-service-label{font-family:var(--display,\"Instrument Sans Variable\",sans-serif);font-size:clamp(27px,3.05vw,50px);font-weight:450;letter-spacing:-.045em;transition:color .25s}.ds-service-minus{font-size:23px;font-weight:400}.ds-service-trigger:hover .ds-service-label{color:var(--deep,#163a70)}.ds-service-trigger:focus-visible{outline:2px solid var(--blue,#2864db);outline-offset:5px}.ds-service-content{display:grid;grid-template-columns:.9fr 1fr;gap:13%;padding:2px 6% 42px 7.3%}.ds-service-content h3{margin:0;font-family:var(--display,\"Instrument Sans Variable\",sans-serif);font-size:clamp(23px,2.15vw,35px);font-weight:450;letter-spacing:-.035em;line-height:1.2}.ds-service-content p{margin:0;font-size:14px;line-height:1.8;color:var(--muted,#536070)}@media(max-width:767px){.ds-service-trigger{grid-template-columns:24px 1fr 20px;gap:11px;min-height:89px;padding:25px 0}.ds-service-label{font-size:clamp(23px,6.2vw,38px)}.ds-service-content{grid-template-columns:1fr;gap:20px;padding:0 0 30px 35px}}@media(prefers-reduced-motion:reduce){.ds-service-label{transition:none}}"
+    },
+    {
+      "name": "Placa de domínio",
+      "kind": "custom",
+      "refersTo": "domain-address",
+      "description": "Assinatura visual: plano azul levemente rotacionado que reúne os caminhos da composição.",
+      "html": "<div class=\"ds-domain\"><span class=\"ds-domain-note\">O PONTO DE ENCONTRO</span><strong>SEU DOMÍNIO.</strong><div class=\"ds-domain-capabilities\"><span>Cardápio</span><span>Reservas</span><span>Pedidos</span><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"square\"/></svg></div></div>",
+      "css": ".ds-domain{max-width:410px;margin:24px 12px;padding:19px 24px 18px;background:var(--blue,#2864db);color:#fff;border-radius:0;transform:rotate(-4deg);box-shadow:0 12px 22px #163a7010;font-family:var(--body,\"DM Sans Variable\",sans-serif)}.ds-domain-note{font-size:8px;font-weight:500;line-height:1.65;letter-spacing:.065em;color:#e4edff}.ds-domain>strong{display:block;font-family:var(--display,\"Instrument Sans Variable\",sans-serif);font-size:clamp(26px,2.8vw,48px);font-weight:450;letter-spacing:-.05em;line-height:1.4}.ds-domain-capabilities{display:flex;align-items:center;gap:15px;margin-top:8px;padding-top:10px;border-top:1px solid #ffffff55;font-size:9px}.ds-domain-capabilities svg{width:15px;height:15px;margin-left:auto}"
+    },
+    {
+      "name": "Nó do ecossistema",
+      "kind": "custom",
+      "refersTo": "ecosystem-node",
+      "description": "Canal conectado; três colunas e texto de 11px no mobile.",
+      "html": "<div class=\"ds-nodes\"><div class=\"ds-node\"><span class=\"ds-node-dot\"></span>Google</div><div class=\"ds-node\"><span class=\"ds-node-dot\"></span>WhatsApp</div><div class=\"ds-node\"><span class=\"ds-node-dot\"></span>Automações</div></div>",
+      "css": ".ds-nodes{display:flex;flex-wrap:wrap;gap:10px;padding:25px 0;background:var(--paper,#fafaf8)}.ds-node{display:flex;align-items:center;gap:10px;padding:13px 17px;border:1px solid #d8e3f4;background:var(--paper,#fafaf8);color:var(--deep,#163a70);font-family:var(--body,\"DM Sans Variable\",sans-serif);font-size:12px;font-weight:500;letter-spacing:.015em;white-space:nowrap}.ds-node-dot{height:5px;width:5px;flex-shrink:0;border-radius:50%;background:var(--blue,#2864db)}@media(max-width:767px){.ds-nodes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:var(--wash,#edf4ff)}.ds-node{justify-content:center;min-width:0;padding:13px 5px;gap:4px;border:0;background:#f8fbff;font-size:11px;letter-spacing:0}.ds-node-dot{height:4px;width:4px}}"
     }
   ],
   "narrative": {
-    "northStar": "Arquitetura para escalar.",
-    "overview": "A precisão de engenharia encontra composição editorial. Tipografia ocupa espaço, linhas organizam relações e objetos metálicos representam partes conectadas. O acabamento vem de proporção, espaço e contraste.",
+    "northStar": "Um endereço próprio.",
+    "overview": "A Guarda-Chuva traduz estrutura digital em uma composição editorial clara: papel, tipografia leve, fotografia gastronômica e linhas que levam canais a um endereço próprio. A identidade é precisa, acolhedora e segura. A assimetria cria direção; o espaço deixa a proposta respirar.\n\nA superfície clara predomina. O azul identifica ações, conexões e propriedade, com uma única pausa de página inteira na afirmação de marca. Fotografias mostram matéria e apetite; diagramas explicam relações. O acabamento vem de proporção, alinhamento e contraste, sem aparência de dashboard SaaS.",
     "keyCharacteristics": [
-      "Assimetria editorial",
-      "Hero claro e narrativa escura",
-      "Títulos leves e compactos",
-      "Superfícies retas",
-      "Arte integrada à composição"
+      "Papel claro predominante e azul usado com intenção.",
+      "Títulos amplos de peso moderado, composição assimétrica e leitura arejada.",
+      "Fotografia gastronômica integrada a endereços, linhas e nós.",
+      "Superfícies retas, índices discretos e divisões finas.",
+      "Mobile recomposto e movimento subordinado à leitura."
     ],
     "rules": [
       {
-        "name": "Paleta da agência",
-        "body": "Manter a identidade acromática. Cores presentes nos mockups pertencem aos conceitos.",
+        "name": "Azul com função",
+        "body": "Use azul para ação, conexão e domínio próprio. A grande superfície azul pertence à seção de propriedade; preserve o predomínio claro no restante da página.",
         "section": "colors"
       },
       {
-        "name": "Escala tipográfica",
-        "body": "Peso 400 e tracking negativo nos títulos. Recompôr as quebras para cada classe de viewport.",
+        "name": "Escala antes de peso",
+        "body": "Dê força ao título por tamanho, quebra e espaço. Preserve o peso moderado da família display; não compense uma hierarquia fraca com negrito pesado.",
         "section": "typography"
       },
       {
-        "name": "Profundidade contextual",
-        "body": "Concentrar profundidade na escultura e nos mockups; organizar a interface com planos tonais e linhas.",
+        "name": "Profundidade localizada",
+        "body": "Mantenha a interface plana. Reserve sombra para objetos sobrepostos e cenas demonstrativas com uma relação espacial concreta.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Usar tipografia e espaço como estrutura.",
-      "Manter conceitos identificados.",
-      "Preservar contraste, teclado e foco.",
-      "Aplicar movimento reduzido."
+      "Do usar tipografia, espaço, linhas e alinhamento para construir hierarquia.",
+      "Do manter papel claro predominante e reservar grandes planos azuis para a afirmação de propriedade.",
+      "Do recompor a leitura em 390×844 e 430×932, preservando canais legíveis e legenda separada da fotografia.",
+      "Do usar fotos gastronômicas com função editorial e diagramas que expliquem relações reais.",
+      "Do preservar teclado, foco visível, labels persistentes e conteúdo completo com movimento reduzido.",
+      "Do identificar Mesa e a busca ilustrativa como conceitos, sem transformá-los em prova de resultados.",
+      "Do manter a ação de contato coerente com os canais configurados e informar quando o briefing é apenas local."
     ],
     "donts": [
-      "Não repetir cards idênticos.",
-      "Não adicionar neon, glow ou blobs à identidade.",
-      "Não inventar prova social.",
-      "Não afirmar envio sem confirmação."
+      "Don't transformar a página em uma grade de cards iguais ou numa interface genérica de SaaS.",
+      "Don't introduzir neon, glow, blobs ou glassmorphism na identidade.",
+      "Don't usar negrito pesado como linguagem dominante nem substituir o par tipográfico por uma fonte universal.",
+      "Don't reduzir nomes de canais à escala de microlegenda para fazê-los caber no celular.",
+      "Don't aplicar pin, parallax ou rolagem suave quando o visitante pede movimento reduzido.",
+      "Don't inventar clientes, métricas, depoimentos, contatos oficiais ou confirmação de envio."
     ]
   }
 }

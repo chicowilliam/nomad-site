@@ -1,41 +1,39 @@
-# Nomad — direção do produto
+# Guarda-Chuva
 
-## Contexto
+## Produto e público
 
-A Nomad é apresentada como um estúdio de soluções digitais em Belo Horizonte, Brasil. A marca foi inferida do nome do repositório e do conteúdo inicial. O posicionamento solicitado é construir infraestrutura digital para empresas venderem, operarem e crescerem em escala.
+Página oficial de uma agência de soluções digitais de Belo Horizonte dedicada a restaurantes, bares, cafeterias, hamburguerias, pizzarias e deliveries. O público são proprietários e gestores de negócios gastronômicos que precisam ser encontrados, organizar atendimento, receber pedidos e reservas e reduzir trabalho manual.
 
-O público inclui donos de empresas, restaurantes, lojas, imobiliárias, clínicas, profissionais autônomos e negócios que já vendem e precisam organizar ou ampliar sua operação digital.
+## Tese comercial
 
-## Oferta e narrativa
+Assim como o estabelecimento tem um endereço físico, ele precisa de um endereço próprio na internet. Instagram, Google, marketplaces e WhatsApp são canais importantes. O domínio digital reúne marca, site, cardápio, reservas, venda direta e operação em uma estrutura própria.
 
-- Presença: sites institucionais e landing pages orientados a descoberta, autoridade e conversão.
-- Venda: e-commerce e jornadas de compra.
-- Operação: sistemas web personalizados, dashboards e sistemas internos.
-- Escala: automações e integrações que reduzem trabalho manual.
+Não vender código nem prometer ganhos financeiros. Apresentar tecnologia como competência para facilitar descoberta, escolha, pedido e retorno. Delivery próprio complementa marketplaces; não exige abandoná-los. SEO depende de conteúdo, estrutura, relevância, experiência e descoberta local, sem garantia de posição ou atribuição artificial à idade de um domínio.
 
-A home segue uma narrativa editorial: proposta de valor, contexto de negócio, manifesto, soluções, integração de ferramentas, aplicações, valor como ativo, processo, espaço para prova real, contato e assinatura da marca.
+## Jornada da página
 
-A direção visual combina hero claro, seções escuras, tipografia grotesca de grande escala, composições assimétricas, linhas técnicas e formas arquitetônicas. A linguagem comercial fala de vendas, produtividade, controle e autonomia. Tecnologia aparece como competência da agência.
+1. Restaurante e endereço: proposta explícita no primeiro viewport.
+2. Atenção nas redes e domínio próprio: argumento comercial.
+3. Terreno físico e digital: analogia de construção de valor.
+4. Informações dispersas: reconhecer o problema operacional.
+5. Ecossistema: canais convergem para Guarda-Chuva e domínio.
+6. Site, cardápio, delivery, reservas, sistemas e automações.
+7. Encontrar, conhecer, desejar, pedir e voltar.
+8. Descoberta local e informações acessíveis.
+9. Conceito gastronômico Mesa preservado do acervo.
+10. Antes e depois: peças soltas e estrutura própria.
+11. Diagnóstico, estrutura, design, desenvolvimento, lançamento e evolução.
+12. Plataformas trazem clientes; a marca precisa ser do negócio.
+13. Construir o digital: chamada final e contato.
 
-## Fonte única de conteúdo
+## Conteúdo verificável e pendências
 
-`src/data/site.ts` centraliza marca, navegação, textos comerciais, serviços, projetos demonstrativos, processo, dados de clientes, canais de contato e metadados SEO.
+O repositório não contém cases reais, métricas, depoimentos nem contato comercial confirmado. Mesa é um conceito demonstrativo, identificado na interface. Não tratar objetivos como resultados alcançados. Variantes Diamond e Axis do componente de mockups permanecem disponíveis no código existente, mas não são exibidas nesta home especializada.
 
-## Dados confirmados e limites
+`src/data/site.ts` centraliza marca, conteúdo, serviços, projetos, canais e metadados. `brand.whatsapp`, `brand.email`, `brand.instagram` e `brand.canonicalUrl` aguardam dados oficiais. Sem WhatsApp, o CTA abre um briefing validado que salva um TXT no dispositivo e informa que nada foi enviado. Com um WhatsApp válido, o CTA final abre uma conversa com mensagem preparada.
 
-- O código original continha somente o nome “Nomad Site” e uma mensagem provisória.
-- Localização de Belo Horizonte, escopo de serviços e posicionamento vêm do briefing do usuário.
-- Não foram fornecidos domínio público, e-mail, telefone, WhatsApp, Instagram ou LinkedIn oficiais. Seus campos permanecem `null` até confirmação.
-- Não existe endpoint de recebimento de propostas confirmado. A interface deve explicar qualquer ação local de preparação ou cópia de briefing e não afirmar que uma mensagem foi enviada.
-- Não há clientes, projetos entregues, métricas comerciais ou depoimentos verificáveis no repositório.
-- Diamond, Mesa e Axis são **conceitos de aplicação**, não trabalhos para clientes. Devem ser identificados dessa forma em toda apresentação pública.
-- Os objetivos dos conceitos são intenções de projeto, não resultados alcançados.
-- `clientData.clients` e `clientData.testimonials` permanecem vazios. A estrutura aceita conteúdo real, com autorização de uso, posteriormente.
-- Não publicar logos, depoimentos, estrelas, contagens de clientes ou números de crescimento fictícios.
-- Canonical e sitemap precisam do domínio oficial antes da publicação em produção. Não usar domínio inventado.
+## Critérios de qualidade
 
-## Critérios de validação
+Priorizar clareza comercial e acabamento editorial em 390×844 e 430×932, sem perda de impacto em 1440×900 e 1920×1080. Tipografia leve, planos claros, azul preciso, fotografia gastronômica e diagramas têm funções distintas na narrativa. Evitar cards repetidos, neon, efeitos gratuitos e copy genérica.
 
-Verificar build de produção, hierarquia semântica, teclado e foco, contraste, movimento reduzido, menu mobile, ausência de overflow horizontal e funcionamento dos CTAs. Revisar ao menos 390 × 844, 430 × 932, 1440 × 900 e 1920 × 1080, com atenção à composição própria do mobile.
-
-As metas Lighthouse do briefing são Performance ≥ 90, Accessibility ≥ 95, Best Practices ≥ 95 e SEO ≥ 95. Registrar somente medições realmente executadas.
+Navegação por teclado, foco visível, HTML semântico, contraste, zero overflow e movimento reduzido são requisitos. GSAP e Lenis compartilham um único ticker; pins só no desktop. A experiência precisa preservar conteúdo e posição em resize e atualização da página. Metas de laboratório: Performance ≥90, Accessibility ≥95, Best Practices ≥95 e SEO ≥95. Não são promessas sobre hospedagem ou dispositivos reais.

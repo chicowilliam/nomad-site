@@ -1,159 +1,256 @@
 ---
-name: Nomad
-description: Engenharia digital com precisão editorial
+name: Guarda-Chuva
+description: Um endereço próprio na internet para negócios gastronômicos
 colors:
-  paper: "#f2f2f0"
-  ink: "#0a0a0a"
-  surface: "#151515"
-  muted: "#a4a4a0"
-  rule: "#30302e"
+  paper: "#fafaf8"
+  ink: "#101828"
+  muted: "#536070"
+  blue: "#2864db"
+  deep: "#163a70"
+  wash: "#edf4ff"
+  rule: "rgba(16, 24, 40, 0.12)"
+  white: "#ffffff"
+  error: "#9f2530"
 typography:
   display:
-    fontFamily: "Space Grotesk Variable, sans-serif"
-    fontSize: "clamp(90px, 8.6vw, 158px)"
-    fontWeight: 400
-    lineHeight: 0.94
-    letterSpacing: "-0.062em"
+    fontFamily: "Instrument Sans Variable, sans-serif"
+    fontSize: "clamp(52px, 4.62vw, 84px)"
+    fontWeight: 450
+    lineHeight: 1.055
+    letterSpacing: "-0.058em"
   headline:
-    fontFamily: "Space Grotesk Variable, sans-serif"
-    fontSize: "clamp(44px, 5.25vw, 88px)"
-    fontWeight: 400
-    lineHeight: 1.06
+    fontFamily: "Instrument Sans Variable, sans-serif"
+    fontSize: "clamp(43px, 5.15vw, 88px)"
+    fontWeight: 450
+    lineHeight: 1.05
     letterSpacing: "-0.055em"
+  title:
+    fontFamily: "Instrument Sans Variable, sans-serif"
+    fontSize: "clamp(27px, 3.05vw, 50px)"
+    fontWeight: 450
+    letterSpacing: "-0.045em"
   body:
-    fontFamily: "Manrope Variable, sans-serif"
+    fontFamily: "DM Sans Variable, sans-serif"
+    fontSize: "14px"
     fontWeight: 400
+    lineHeight: 1.8
   label:
-    fontFamily: "Manrope Variable, sans-serif"
+    fontFamily: "DM Sans Variable, sans-serif"
     fontSize: "10px"
-    fontWeight: 550
+    fontWeight: 500
     lineHeight: 1.65
-    letterSpacing: "0.075em"
+    letterSpacing: "0.065em"
 rounded:
   square: "0px"
+  node: "50%"
 spacing:
   gutter: "clamp(24px, 4.5vw, 88px)"
-  section: "116px"
+  gutter-mobile: "24px"
+  gutter-compact: "20px"
+  section: "112px"
   section-tablet: "90px"
-  section-mobile: "74px"
+  section-mobile: "68px"
 components:
-  button-dark:
-    backgroundColor: "{colors.ink}"
-    textColor: "{colors.paper}"
+  button-primary:
+    backgroundColor: "{colors.blue}"
+    textColor: "{colors.white}"
     rounded: "{rounded.square}"
-    padding: "16px 21px"
+    padding: "17px 23px"
+  button-primary-hover:
+    backgroundColor: "{colors.deep}"
+    textColor: "{colors.white}"
   button-light:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.ink}"
     rounded: "{rounded.square}"
-    padding: "16px 21px"
+    padding: "17px 23px"
+  text-link:
+    textColor: "{colors.ink}"
+    padding: "9px 0"
   contact-input:
     backgroundColor: "transparent"
-    textColor: "{colors.paper}"
+    textColor: "{colors.ink}"
     rounded: "{rounded.square}"
     padding: "10px 0 13px"
+  navigation:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    height: "94px"
+  channel-tag:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.square}"
+    padding: "10px 13px"
+  service-row:
+    backgroundColor: "transparent"
+    textColor: "{colors.ink}"
+    padding: "27px 0"
+  domain-address:
+    backgroundColor: "{colors.blue}"
+    textColor: "{colors.white}"
+    rounded: "{rounded.square}"
+    padding: "19px 24px 18px"
+  ecosystem-node:
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.deep}"
+    rounded: "{rounded.square}"
+    padding: "13px 17px"
 ---
 
-# Design System: Nomad
+# Design System: Guarda-Chuva
 
 ## Overview
 
-**Creative North Star: “Arquitetura para escalar.”**
+**Creative North Star: "Um endereço próprio."**
 
-A identidade aproxima a precisão de engenharia da composição de um estúdio editorial. Tipografia ocupa espaço, linhas organizam relações e objetos metálicos representam partes que funcionam juntas. A proposta comercial conduz o olhar: estrutura para vender, operar e crescer.
+A Guarda-Chuva traduz estrutura digital em uma composição editorial clara: papel, tipografia leve, fotografia gastronômica e linhas que levam canais a um endereço próprio. A identidade é precisa, acolhedora e segura. A assimetria cria direção; o espaço deixa a proposta respirar.
 
-A linguagem combina preto profundo, papel claro, recortes geométricos e escala tipográfica. A densidade muda entre afirmações amplas e conteúdo de leitura. O acabamento vem de proporção, espaço e contraste. A referência do briefing é reinterpretada como linguagem, sem reproduzir um site existente.
+A superfície clara predomina. O azul identifica ações, conexões e propriedade, com uma única pausa de página inteira na afirmação de marca. Fotografias mostram matéria e apetite; diagramas explicam relações. O acabamento vem de proporção, alinhamento e contraste, sem aparência de dashboard SaaS.
 
-Características principais: assimetria, títulos leves e compactos, superfícies retas, microtextos funcionais e imagens integradas à composição.
+O sistema descreve a implementação atual. Os tokens acima foram extraídos de `src/styles/global.css` e dos componentes; são normativos. `PRODUCT.md` guarda público e conteúdo, enquanto este arquivo orienta decisões visuais. As extensões de movimento, profundidade, breakpoints e exemplos renderizáveis ficam em `.impeccable/design.json`.
+
+**Key Characteristics:**
+
+- Papel claro predominante e azul usado com intenção.
+- Títulos amplos de peso moderado, composição assimétrica e leitura arejada.
+- Fotografia gastronômica integrada a endereços, linhas e nós.
+- Superfícies retas, índices discretos e divisões finas.
+- Mobile recomposto e movimento subordinado à leitura.
 
 ## Colors
 
-A paleta da agência é acromática, com pequenas diferenças de temperatura entre os cinzas.
+Um papel levemente quente recebe tinta azulada, azul nítido e planos azulados quase brancos. A família é clara e precisa, com contraste suficiente para leitura.
 
-- **Paper** (`--paper`): fundo claro de abertura, texto principal sobre preto e botões claros.
-- **Ink** (`--ink`): fundo principal, texto sobre papel e botão de abertura.
-- **Surface** (`--surface`): planos de interface com contraste discreto.
-- **Muted** (`--muted`): textos de apoio e metadados editoriais.
-- **Rule** (`--rule`): linhas estruturais que separam ou conectam conteúdo.
+### Primary
 
-Os mockups dos projetos têm paletas próprias e contidas. Essas cores pertencem aos conceitos apresentados e não se tornam cores de interface da Nomad. Contraste legível prevalece sobre sutileza, sobretudo em legendas e estados interativos.
+- **Azul de endereço** (`blue`): CTAs, trechos decisivos de títulos, conexões, nós e a placa de domínio.
+- **Azul profundo** (`deep`): hover de CTA, legenda da composição e informação estrutural.
+- **Azul de fundo** (`wash`): terreno digital, comparativo, busca ilustrativa e ecossistema mobile.
+
+### Neutral
+
+- **Papel** (`paper`): fundo principal, navegação e etiquetas.
+- **Tinta** (`ink`): títulos e conteúdo principal.
+- **Texto de apoio** (`muted`): parágrafos, metadados e descrições.
+- **Linha estrutural** (`rule`): divisões finas e relações entre blocos; preserve sua transparência.
+- **Branco** (`white`): texto e ícones sobre azul.
+
+O vermelho de erro (`error`) pertence exclusivamente ao feedback do formulário. A paleta quente do conceito Mesa pertence à cena demonstrativa e não substitui as cores da agência.
+
+**The Azul com função Rule.** Use azul para ação, conexão e domínio próprio. A grande superfície azul pertence à seção de propriedade; preserve o predomínio claro no restante da página.
 
 ## Typography
 
-**Display:** Space Grotesk Variable, com fallback sans-serif. **Body:** Manrope Variable, com fallback sans-serif. Ambas são servidas localmente. Não há dependência de Google Fonts em runtime.
+**Display Font:** Instrument Sans Variable, com fallback sans-serif.
 
-Space Grotesk usa peso 400 nos grandes títulos. O tracking negativo e a entrelinha curta fazem parte da construção, sem forçar texto fora do viewport. A hero desktop usa o token `display`; os títulos de seção partem de `headline`, com ajustes locais conforme a composição.
+**Body Font:** DM Sans Variable, com fallback sans-serif. Ambas são locais; não dependem de um provedor de fontes em runtime.
 
-O corpo usa Manrope com entrelinhas generosas e larguras delimitadas por componente. Labels `.micro` usam caixa alta, espaçamento aberto e números tabulares. Dados decorativos não substituem texto principal legível. Inputs usam 16px no mobile para preservar leitura e evitar zoom automático.
+A primeira organiza declarações e relações em grandes proporções; a segunda sustenta leitura, navegação e controles. Tracking compacto, caixa alta editorial e entrelinha curta dão caráter aos títulos, sem aumentar excessivamente o peso.
 
-Na hero mobile, o título é recomposto em três linhas e a escultura recebe altura própria abaixo da tipografia. Os títulos permanecem parte do layout; quebras são decisões editoriais, não efeitos de uma largura fixa aplicada a todas as seções.
+### Hierarchy
+
+- **Display:** título da abertura, com quatro linhas semânticas agrupadas em duas afirmações. No mobile usa `clamp(31px, 8.15vw, 51px)`, entrelinha (1.1) e tracking (-0.05em); há ajuste específico para telas compactas.
+- **Headline:** títulos de seção; o token é a base, com escalas próprias nas afirmações de domínio, jornada, propriedade e rodapé. No mobile a base usa `clamp(35px, 8.8vw, 55px)` e entrelinha (1.08).
+- **Title:** nomes de soluções no acordeão. No mobile usa `clamp(23px, 6.2vw, 38px)`.
+- **Body:** corpo recorrente; composições usam variações de (13–15px), entrelinhas de (1.8–1.9) e larguras contidas, normalmente (290–470px). Inputs sobem para (16px) até o breakpoint de campos.
+- **Label:** índices e notas em caixa alta, com números tabulares. Metadados decorativos podem ser menores. Os nomes do ecossistema mobile usam (11px), peso (500), tracking neutro e nunca herdam a escala mínima de microtexto.
+
+A marca usa peso (550); subtítulos de processo usam (500). Georgia aparece somente no mockup Mesa, como parte da identidade do conceito.
+
+**The Escala antes de peso Rule.** Dê força ao título por tamanho, quebra e espaço. Preserve o peso moderado da família display; não compense uma hierarquia fraca com negrito pesado.
 
 ## Layout
 
-`.section-shell` tem largura máxima de 1720px incluindo gutters fluidos. A composição principal da hero e seu rodapé têm máximo de 1560px. As seções alternam relações próximas de 60/40, offsets, faixas de largura total e pares assimétricos.
+A largura geral máxima é (1720px), incluindo gutters fluidos. A hero e composições internas amplas chegam a (1544px). Relações assimétricas como (1.35fr / 1fr), offsets, colunas estreitas de apoio e faixas de largura total variam o ritmo. Não existe uma grade única para todas as seções.
 
-O espaço padrão entre seções é 116px por lado, reduzido para 90px no tablet e 74px no mobile. Há exceções deliberadas de ritmo nas transições e na área de contato. A coluna do processo permanece fixa durante a leitura em telas grandes e volta ao fluxo no mobile.
+A home atual tem treze seções editoriais: abertura, tese, terreno digital, problema, ecossistema, soluções, jornada, descoberta, conceito Mesa, comparativo, processo, propriedade e contato. Essa sequência é a composição desta página; novas superfícies devem herdar sua gramática, sem copiar obrigatoriamente a sequência.
 
-A grade muda abaixo de 1100px. Até 767px, navegação vira diálogo fullscreen, a escultura ganha posição própria abaixo do título, projetos se tornam composições verticais e detalhes de casos se distribuem em duas colunas compactas. Até 374px, o gutter é 20px. O formulário reorganiza seu cabeçalho até 1024px e seus campos até 600px.
+O respiro padrão entre seções segue os tokens de spacing, com exceções deliberadas nas transições. Até (1100px), reduz-se a escala intermediária. Até (900px), a navegação vira diálogo. Até (767px), a composição principal passa a uma coluna, o título da hero vem antes da imagem e a descrição/CTA vem depois. O gutter mobile é fixo e reduz novamente até (374px).
+
+No celular, o ecossistema passa a três colunas de nós, a jornada vira uma linha vertical, o conceito Mesa empilha imagem e explicação, e o processo deixa de ser sticky. O comparativo preserva duas colunas compactas. O formulário empilha introdução e campos até (1024px), depois seus campos até (600px).
+
+Priorize (390×844) e (430×932) sem perder composição em (1440×900) e (1920×1080). A validação atual também cobre (360×640), (375×812), (768×1024) e (1024×768), sem overflow horizontal. Preserve esse limite ao alterar texto, diagrama ou tipografia.
 
 ## Elevation & Depth
 
-A interface principal usa planos tonais e linhas, com profundidade concentrada na escultura cromada e nos mockups. Não há uma camada genérica de sombras sobre todos os blocos. As janelas dos conceitos podem usar sombra contextual (`0 3cqw 6cqw #0002`) para separar a tela da sua base.
+A interface é plana por padrão. Planos tonais e linhas organizam conteúdo; sombras sutis se restringem à placa de domínio, à consulta ilustrativa e às janelas do mockup. O terreno digital usa uma extrusão sólida, coerente com sua metáfora espacial.
 
-Motion acompanha a leitura: máscara de texto, revelação lateral de imagem e pequenas mudanças de contraste. `--ease` é `cubic-bezier(.16, 1, .3, 1)`. Revelações duram até 900ms; respostas simples de controles são mais rápidas. A opção de movimento reduzido mantém conteúdo visível e remove as transições decorativas.
+### Shadow Vocabulary
+
+- **Placa de domínio** (`0 12px 22px #163a7010`): separa a placa azul da fotografia.
+- **Consulta ilustrativa** (`0 7px 20px #163a7007`): pequena sobreposição sobre o plano pálido.
+- **Terreno próprio** (`-10px 12px 0 #163a70`): extrusão geométrica, sem blur.
+- **Janela de conceito** (`0 3cqw 6cqw #0002`): profundidade contextual dentro do mockup Mesa.
+
+**The Profundidade localizada Rule.** Mantenha a interface plana. Reserve sombra para objetos sobrepostos e cenas demonstrativas com uma relação espacial concreta.
 
 ## Shapes
 
-A forma recorrente é o retângulo de cantos retos. A passagem entre hero e conteúdo escuro usa um recorte diagonal arquitetônico. Linhas de 1px constroem divisões, trilhos e conexões. Círculos pequenos aparecem quando representam nós, status ou parte do próprio mockup; não são uma linguagem de cards arredondados.
+Retângulos de cantos retos, linhas técnicas de (1px), setas finas e pequenos nós circulares formam a linguagem. Bordas não transformam cada grupo de conteúdo em um card. A hero termina com um pequeno recorte diagonal; a fotografia, as etiquetas e a placa de endereço recebem rotações contidas, como peças de uma composição impressa.
+
+A fotografia gastronômica foi criada para esta composição: prato, tecido azul, talheres e mesa clara. Seu corte mantém o alimento reconhecível em cada viewport. A legenda fica abaixo do objeto, com espaço próprio, e não atravessa a placa ou a fotografia.
 
 ## Components
 
-### Buttons
+### Buttons and links
 
-Blocos retangulares, texto legível e seta discreta. O botão escuro pertence ao plano claro; o claro orienta ações sobre fundo escuro. A altura mínima padrão é 52px. Hover altera contraste e desloca a seta poucos pixels. Foco usa contorno visível com afastamento, sem depender da cor de fundo.
+O CTA principal é um retângulo azul com texto branco, seta diagonal e altura mínima de (54px), reduzida a (52px) na base mobile. O CTA final é maior. Hover traz o azul profundo de baixo para cima e desloca texto/seta poucos pixels. Foco usa contorno azul (2px) com afastamento (5px); sobre a navegação inversa o contorno fica branco.
 
-Links textuais têm sublinhado que se revela ou muda de contraste. Links navegam; botões alteram estado ou iniciam uma ação.
+A variante clara existe no CSS; o CTA do diálogo mobile é sobrescrito para azul. Links de texto usam sublinhado que cresce e seta discreta. Use links para navegar e botões para expandir ou executar ações.
 
 ### Navigation
 
-Logo à esquerda, links horizontais e CTA no desktop. A navegação mantém alinhamento com a composição da página e usa contraste adequado ao plano atual. No mobile, um `<dialog>` ocupa a tela, mostra links em grande escala e oferece fechamento por botão ou Escape. O foco retorna ao controle de abertura.
+Cabeçalho fixo, marca à esquerda, links e ação à direita. Uma linha aparece após a rolagem. Sobre a seção de propriedade, cabeçalho e conteúdo assumem a inversão azul/branco. A altura é (94px) no desktop e (84px) no celular.
+
+O menu mobile mantém `dialog` nativo, nome acessível, foco contido, Escape, fechamento ao seguir uma âncora e retorno de foco ao controle de abertura. Controles de abrir/fechar têm (44px). O diálogo ocupa (100dvh) e impede a rolagem da página enquanto aberto.
+
+### Channel tags and domain address
+
+Etiquetas pequenas identificam Google, Instagram, WhatsApp e delivery; linhas finas convergem para a placa azul de domínio. São elementos explicativos, sem comportamento de filtro ou link. A placa contém título amplo, uma nota funcional e uma linha de capacidades. Mantenha a legenda fora da sobreposição.
+
+### Ecosystem
+
+No desktop, canais rodeiam um centro azul e convergem para o domínio por linhas SVG. No celular, os nós passam a uma malha de três colunas, com texto de (11px) e pontos menores. A malha serve a um diagrama específico, não a uma grade genérica de ofertas. O domínio permanece o destino visual.
 
 ### Solutions
 
-Um acordeão editorial de linhas amplas substitui a grade repetida de cards. Número, categoria, descrição da oferta e sinal de expansão constroem a leitura. O estado aberto revela copy, capacidades e geometria própria. `aria-expanded`, `aria-controls` e conteúdo oculto nativo mantêm o comportamento semântico.
+Seis linhas expansíveis, com índice, nome, breve resultado e sinal de expansão. A linha aberta revela descrição, capacidades e CTA; o primeiro item começa aberto. Título e sinal ficam azuis no estado aberto ou hover. O comportamento usa botão, `aria-expanded`, `aria-controls` e `hidden`. No mobile, retire o teaser e distribua o conteúdo em uma coluna.
 
-### Projects
+### Journey and editorial motion
 
-Cada caso combina mockup amplo, nome, segmento, problema, solução e objetivo. A posição da mídia alterna entre os casos, e Axis recebe offset. Diamond, Mesa e Axis são conceitos, com essa informação explícita. Os mockups comunicam o contexto do negócio e não introduzem resultados comerciais fictícios.
+As cinco etapas do cliente compartilham um trilho: horizontal a partir de (768px), vertical abaixo desse limite. O pin existe apenas a partir de (1024px); o processo usa sticky CSS separado. Imagens e títulos revelam por máscara; linhas desenham conexões; o parallax da fotografia é discreto e exclusivo do desktop.
 
-### Operation demo
+`EditorialMotion` carrega o motor em um chunk separado. GSAP, `@gsap/react`, ScrollTrigger e Lenis compartilham um único ticker; Lenis não cria outro RAF. Contexts e matchMedia desfazem listeners, animações e pins em mudança de condição e desmontagem. A abertura do menu pausa Lenis; fontes e imagens provocam recálculo sem ocultar conteúdo.
 
-Um fluxo visual de pedido conecta quatro estados. A simulação é iniciada pelo visitante, usa feedback textual e termina. Não é uma animação permanente nem um sistema conectado a dados reais.
+Com movimento reduzido, não são criados Lenis, revelações decorativas, parallax ou pins. O conteúdo continua visível, as âncoras usam rolagem nativa e a composição estática preserva sua forma. Não use movimento para tornar informação indispensável acessível.
 
-### Contact form
+### Concept and illustrative search
 
-Campos têm superfície transparente e linha inferior. Labels permanecem visíveis; placeholder só oferece exemplo. Validação usa campos nativos, feedback acessível e foco. O formulário aceita endpoint configurado, WhatsApp ou e-mail; sem canais definidos, produz um briefing TXT local e informa que nada foi enviado.
+Mesa combina mockup amplo, descrição editorial e detalhe expansível nativo. Sua identidade pode usar materiais e tipografia próprios dentro da cena. A qualificação como conceito demonstrativo permanece visível; não há case real ou resultado comercial a apresentar. A composição de busca também é identificada como ilustrativa.
 
-### Testimonials
+### Contact fields and feedback
 
-A estrutura acomoda depoimentos reais em blocos editoriais ao lado do título. Sem conteúdo autorizado, o título muda para “A próxima história começa aqui” e a interface apresenta um convite honesto para conversar. Com depoimentos reais em clientData, o título passa a “Quem cresceu com a gente”. Não usar quotes, nomes ou métricas fabricados como prova social.
+Campos transparentes, label persistente, linha inferior, placeholder secundário e foco azul. O erro combina texto vermelho e linha lateral; o botão desabilitado reduz opacidade e informa estado de espera. O formulário mantém validação nativa e feedback acessível.
+
+WhatsApp e domínio oficial continuam sem valores confirmados. O CTA abre WhatsApp quando configurado; no estado atual, expande o briefing e move o foco para o primeiro campo. Sem canal de envio, o visitante baixa um TXT local e recebe uma mensagem explícita de que nada foi enviado. A apresentação acompanha o estado real, sem sugerir contato ou envio inexistente.
 
 ## Do's and Don'ts
 
 ### Do
 
-- Use tipografia, linhas e espaço para estabelecer hierarquia.
-- Preserve a força do contraste entre abertura clara e narrativa escura.
-- Recompose mobile com quebras de linha, offsets e densidade próprios.
-- Mantenha cenas de projeto explicitamente demonstrativas quando não forem cases reais.
-- Garanta teclado, foco visível, labels persistentes e movimento reduzido.
-- Mantenha texto de venda centrado no negócio: receita, conversão, controle e trabalho manual.
+- Do usar tipografia, espaço, linhas e alinhamento para construir hierarquia.
+- Do manter papel claro predominante e reservar grandes planos azuis para a afirmação de propriedade.
+- Do recompor a leitura em 390×844 e 430×932, preservando canais legíveis e legenda separada da fotografia.
+- Do usar fotos gastronômicas com função editorial e diagramas que expliquem relações reais.
+- Do preservar teclado, foco visível, labels persistentes e conteúdo completo com movimento reduzido.
+- Do identificar Mesa e a busca ilustrativa como conceitos, sem transformá-los em prova de resultados.
+- Do manter a ação de contato coerente com os canais configurados e informar quando o briefing é apenas local.
 
 ### Don't
 
-- Não transforme as seções em uma sequência de cards iguais.
-- Não introduza neon, glow, blobs ou glassmorphism na identidade da agência.
-- Não use títulos excessivamente pesados ou Inter como fonte universal.
-- Não substitua arte por ícones gigantes decorativos.
-- Não invente clientes, depoimentos, resultados ou canais de contato.
-- Não faça a interface afirmar que enviou algo sem confirmação do canal de destino.
+- Don't transformar a página em uma grade de cards iguais ou numa interface genérica de SaaS.
+- Don't introduzir neon, glow, blobs ou glassmorphism na identidade.
+- Don't usar negrito pesado como linguagem dominante nem substituir o par tipográfico por uma fonte universal.
+- Don't reduzir nomes de canais à escala de microlegenda para fazê-los caber no celular.
+- Don't aplicar pin, parallax ou rolagem suave quando o visitante pede movimento reduzido.
+- Don't inventar clientes, métricas, depoimentos, contatos oficiais ou confirmação de envio.

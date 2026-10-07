@@ -15,6 +15,12 @@ Prompt:
 
 Create an exquisite art-directed product photograph for a premium Brazilian digital engineering studio website. Image is a single monumental abstract sculpture: three interlocking thick folded rectangular bands of dark gunmetal, brushed aluminum and polished chrome, forming an impossible architectural knot, angular precise folded geometry, a visual metaphor of connected infrastructure. Shape is bold and compact, sculptural, sharp milled edges and rich realistic metal reflections. Three-quarter view from slightly above, object diagonally arranged from bottom left to top right, floating just above a pale warm off-white #F2F2F0 surface with a soft realistic contact shadow. Entire object completely in frame with generous breathing room, landscape 4:3 crop. Background seamless almost uniform warm off-white #F2F2F0. Directional large studio softbox, high-end industrial design photography, subtle grain in brushed metal, exceptionally photorealistic. No text, no lettering, no logos, no gradients in background, no neon, no lights, no glowing, no glass, no spheres, no people, no UI, no decorative extraneous objects. Strong black/white contrast. Iconic sophisticated art, editorial digital studio campaign.
 
+## gastronomy.webp / gastronomy-small.webp
+
+Generated editorial food photograph for Guarda-Chuva. It does not depict an actual client. Original retained at `/workspace/generated_images/exec-44d1798e-a24e-476d-995d-4a999aaf0842.png`. Optimized 1200×1500 and 600×750 WebP derivatives.
+
+Direction: premium gastronomic still life, ivory ceramic plate with a single handmade raviolo, herbs and sauce, cobalt blue linen, silver fork, warm off-white tabletop, soft daylight and generous negative space. No logos or lettering.
+
 ## ../og-cover.png
 
-Browser-rendered composition using the studio sculpture and the locally hosted Space Grotesk font. Reproduce with `node scripts/generate-social.mjs`.
+Browser-rendered Guarda-Chuva composition using the gastronomic image and locally hosted Instrument Sans font. Reproduce with `node scripts/generate-social.mjs`.

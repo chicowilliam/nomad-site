@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Arrow, BrandMark } from "./Icon";
-import { navigation, contact } from "../data/site";
+import { navigation, contact, brand } from "../data/site";
 
 const links = navigation.map(({ label, href }) => [label, href] as const);
 export function Navigation() {
@@ -8,6 +8,7 @@ export function Navigation() {
   const menu = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   useEffect(() => {
+    window.dispatchEvent(new CustomEvent("guarda:menu", { detail: open }));
     if (open) {
       menu.current?.showModal();
       document.body.style.overflow = "hidden";
@@ -17,6 +18,7 @@ export function Navigation() {
     }
     return () => {
       document.body.style.overflow = "";
+      window.dispatchEvent(new CustomEvent("guarda:menu", { detail: false }));
     };
   }, [open]);
   function close() {
@@ -26,9 +28,17 @@ export function Navigation() {
   return (
     <>
       <header className="site-header">
-        <a className="wordmark" href="#inicio" aria-label="Nomad — início">
+        <a
+          className="wordmark"
+          href="#inicio"
+          aria-label={`${brand.displayName.replace("-", "- ")}® — início`}
+        >
           <BrandMark />
-          nomad<span>®</span>
+          <span aria-hidden="true">
+            guarda-
+            <br />
+            chuva<sup>®</sup>
+          </span>
         </a>
         <nav className="desktop-nav" aria-label="Navegação principal">
           {links.map(([label, href]) => (
@@ -57,10 +67,13 @@ export function Navigation() {
         id="mobile-menu"
         ref={menu}
         className="mobile-menu"
+        data-lenis-prevent
         aria-label="Menu principal"
         onKeyDown={(event) => {
           if (event.key !== "Tab") return;
-          const controls = menu.current?.querySelectorAll<HTMLElement>("a[href], button:not([disabled])");
+          const controls = menu.current?.querySelectorAll<HTMLElement>(
+            "a[href], button:not([disabled])",
+          );
           if (!controls?.length) return;
           const first = controls[0];
           const last = controls[controls.length - 1];
@@ -80,7 +93,11 @@ export function Navigation() {
         <div className="mobile-menu-top">
           <span className="wordmark">
             <BrandMark />
-            nomad<span>®</span>
+            <span>
+              guarda-
+              <br />
+              chuva<sup>®</sup>
+            </span>
           </span>
           <button
             onClick={close}
@@ -104,7 +121,11 @@ export function Navigation() {
           {contact.navigationCta}
           <Arrow diagonal />
         </a>
-        <p className="micro">ESTÚDIO DIGITAL / BH — BRASIL</p>
+        <p className="micro">
+          DOMÍNIO DIGITAL PARA GASTRONOMIA
+          <br />
+          BELO HORIZONTE → BRASIL
+        </p>
       </dialog>
     </>
   );

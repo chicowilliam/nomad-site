@@ -87,10 +87,10 @@ export function ContactForm({ id }: ContactFormProps) {
     }
 
     const serviceName =
-      services.find((service) => service.id === payload.service)?.title ??
+      services.find((service) => service.id === payload.service)?.label ??
       "Vamos definir juntos";
     const briefing = [
-      "NOMAD — BRIEFING DE PROJETO",
+      "GUARDA-CHUVA — BRIEFING DE PROJETO",
       "",
       `Nome: ${payload.name}`,
       `Empresa: ${payload.company || "Não informada"}`,
@@ -160,7 +160,7 @@ export function ContactForm({ id }: ContactFormProps) {
     const url = URL.createObjectURL(file);
     const download = document.createElement("a");
     download.href = url;
-    download.download = "nomad-briefing.txt";
+    download.download = "guarda-chuva-briefing.txt";
     document.body.append(download);
     download.click();
     download.remove();
@@ -228,7 +228,7 @@ export function ContactForm({ id }: ContactFormProps) {
             <option value="">Vamos definir juntos</option>
             {services.map((service) => (
               <option key={service.id} value={service.id}>
-                {service.title}
+                {service.label}
               </option>
             ))}
           </select>

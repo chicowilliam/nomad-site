@@ -32,12 +32,7 @@ export function BrandMark() {
       fill="none"
       aria-hidden="true"
     >
-      <path
-        d="M3 23V5h5l12 18h5V5h-5v18L8 5H3"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinejoin="bevel"
-      />
+      <path d="M3 12 14 4l11 8H3Zm5 0v11m6-11v11m6-11v11M4 24h20" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
     </svg>
   );
 }

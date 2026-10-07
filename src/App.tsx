@@ -1,261 +1,257 @@
-import { useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import { Navigation } from "./components/Navigation";
 import { Arrow, BrandMark } from "./components/Icon";
-import { ProjectVisual } from "./components/ProjectVisual";
 import { ContactForm } from "./components/ContactForm";
-import { useEditorialMotion } from "./hooks/useEditorialMotion";
+import { ProjectVisual } from "./components/ProjectVisual";
+import { DomainVisual, EcosystemVisual } from "./components/DomainVisual";
 import {
   brand,
   hero,
-  trust,
-  manifesto,
+  thesis,
+  land,
+  problem,
+  ecosystem,
   services,
+  journey,
+  discovery,
   projects,
-  positioning,
+  comparison,
   process,
-  clientData,
+  ownership,
   contact,
   footer,
   navigation,
   socialLinks,
-  type Project,
+  getWhatsAppUrl,
 } from "./data/site";
 
-function Hero() {
+function Heading({
+  lines,
+  id,
+  className = "",
+  blue = -1,
+}: {
+  lines: string[];
+  id?: string;
+  className?: string;
+  blue?: number;
+}) {
   return (
-    <section className="hero" id="inicio" aria-labelledby="hero-title">
-      <div className="hero-topline micro">
-        <span>{hero.eyebrow}</span>
-        <span className="hero-coordinate">19°55′ S / 43°56′ W</span>
-      </div>
-      <div className="hero-composition">
-        <h1 id="hero-title">
-          <span className="hero-intro">{hero.intro}</span>
-          <span className="hero-line">ESTRUTURA</span>
-          <span className="hero-line">PARA</span>
-          <span className="hero-line">
-            ESCALAR<span className="period">.</span>
-          </span>
-        </h1>
-        <figure className="hero-art">
-          <img
-            src="/assets/structure.webp"
-            srcSet="/assets/structure-small.webp 720w, /assets/structure.webp 1448w"
-            sizes="(max-width: 700px) 100vw, 58vw"
-            width="1448"
-            height="1086"
-            alt="Estrutura escultural de três peças metálicas interligadas, símbolo de uma operação conectada"
-            fetchPriority="high"
-          />
-          <figcaption className="micro">
-            <span>
-              PARTES CONECTADAS.
-              <br />
-              POSSIBILIDADES EXPANDIDAS.
-            </span>
-            <span className="art-cross">+</span>
-          </figcaption>
-        </figure>
-      </div>
-      <div className="hero-bottom">
-        <div className="hero-description">
-          <p>{hero.description}</p>
-          <div className="hero-actions">
-            <a className="button button-dark" href="#contato">
-              {hero.primaryCta}
-              <Arrow diagonal />
-            </a>
-            <a className="underlined-link" href="#projetos">
-              {hero.secondaryCta}
-              <Arrow />
-            </a>
-          </div>
-        </div>
-        <div className="hero-index micro">
-          <span>
-            SITES
-            <br />
-            SYSTEMS
-            <br />
-            AUTOMATION
-          </span>
-          <span>
-            INDEPENDENT STUDIO
-            <br />© {hero.edition}
-          </span>
-        </div>
-      </div>
-      <div className="hero-endline" aria-hidden="true">
-        <span>ENGENHARIA DIGITAL, SEM LIMITES ARTIFICIAIS.</span>
-        <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-          <path d="M0 80H620L705 8H1440" />
-        </svg>
-      </div>
-    </section>
+    <h2 id={id} className={`display ${className}`} data-reveal="heading">
+      {lines.map((line, index) => (
+        <span
+          className={`text-line ${index === blue ? "blue" : ""}`}
+          key={line}
+        >
+          <span data-text-line>{line}</span>
+        </span>
+      ))}
+    </h2>
   );
 }
-
-function Trust() {
+function SectionNote({ left, right }: { left: string; right?: string }) {
   return (
-    <section
-      className="trust-section section-shell"
-      aria-label="Para quem construímos"
-    >
-      <div className="trust-intro">
-        <BrandMark />
-        <p>{trust.statement}</p>
-        <span className="micro">
-          O SEU NEGÓCIO.
-          <br />A PRÓXIMA ESTRUTURA.
-        </span>
-      </div>
-      <div className="sectors">
-        {trust.sectors.map((s) => (
-          <span key={s}>{s}</span>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-const flowSteps = [
-  "Novo pedido recebido",
-  "Pagamento confirmado",
-  "Estoque atualizado",
-  "Entrega programada",
-];
-function OperationDemo() {
-  const [step, setStep] = useState(-1);
-  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
-  const running = step >= 0 && step < 4;
-  useEffect(() => () => timers.current.forEach(clearTimeout), []);
-  function simulate() {
-    timers.current.forEach(clearTimeout);
-    setStep(0);
-    for (let i = 1; i <= 4; i++)
-      timers.current.push(setTimeout(() => setStep(i), i * 650));
-  }
-  return (
-    <div className="operation-demo" data-reveal="mask">
-      <div className="operation-rails" aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </div>
-      <div className="operation-head micro">
-        <span>OPERAÇÃO CONECTADA</span>
-        <span>DEMO / 001</span>
-      </div>
-      <div className="operation-flow">
-        {flowSteps.map((label, index) => (
-          <div
-            key={label}
-            className={`flow-step ${step >= index ? "flow-active" : ""}`}
-          >
-            <span className="flow-node">
-              {step > index ? (
-                <svg viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="m5 10 3 3 7-7" />
-                </svg>
-              ) : (
-                `0${index + 1}`
-              )}
-            </span>
-            <span>{label}</span>
-            <span className="flow-state">
-              {step > index
-                ? "CONCLUÍDO"
-                : step === index
-                  ? "EM CURSO"
-                  : "AGUARDANDO"}
-            </span>
-          </div>
-        ))}
-      </div>
-      <div className="operation-foot">
-        <span className="micro" role="status">
-          {step === 4
-            ? "MENOS TRABALHO MANUAL."
-            : "UM FLUXO. NENHUMA PLANILHA."}
-        </span>
-        <button className="demo-button" onClick={simulate} disabled={running}>
-          {running
-            ? "Conectando…"
-            : step === 4
-              ? "Simular novamente"
-              : "Simular um pedido"}
-          <Arrow />
-        </button>
-      </div>
-      <span className="demo-caption micro">FLUXO ILUSTRATIVO DE AUTOMAÇÃO</span>
+    <div className="section-note micro">
+      <span>{left}</span>
+      {right && <span>{right}</span>}
     </div>
   );
 }
-
-function Manifesto() {
+function Hero() {
   return (
-    <section
-      id="sobre"
-      className="manifesto section-shell section-space"
-      aria-labelledby="manifesto-title"
-    >
-      <div className="section-topline micro">
-        <span>01 / POR QUE EXISTIMOS</span>
-        <span>ESTRATÉGIA + DESIGN + ENGENHARIA</span>
+    <section id="inicio" className="hero" aria-labelledby="hero-title">
+      <div className="hero-top micro">
+        <span>
+          <i />
+          {hero.label}
+        </span>
+        <span>INDEPENDÊNCIA COMEÇA COM UM ENDEREÇO.</span>
       </div>
-      <div className="manifesto-grid">
-        <div className="manifesto-heading">
-          <h2 id="manifesto-title" className="display" data-reveal="text">
-            SE O NEGÓCIO
-            <br />
-            CRESCE,
-            <br />
-            <span className="muted">A TECNOLOGIA</span>
-            <br />
-            CRESCE JUNTO.
-          </h2>
-          <p className="manifesto-support">{manifesto.supporting}</p>
+      <div className="hero-grid">
+        <div className="hero-copy">
+          <h1 id="hero-title">
+            <span className="hero-physical">
+              <span>SEU RESTAURANTE</span>
+              <span>JÁ TEM UM ENDEREÇO.</span>
+            </span>
+            <span className="hero-digital">
+              <span>AGORA ELE PRECISA</span>
+              <span>
+                DE UM NA <em>INTERNET.</em>
+              </span>
+            </span>
+          </h1>
+          <div className="hero-description">
+            <p>{hero.description}</p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#contato">
+                <span>{hero.primaryCta}</span>
+                <Arrow diagonal />
+              </a>
+              <a className="text-link hero-secondary" href="#sobre">
+                {hero.secondaryCta}
+                <Arrow />
+              </a>
+            </div>
+          </div>
         </div>
-        <div className="manifesto-right">
-          <OperationDemo />
-          <div className="manifesto-copy">
-            <p>
-              {manifesto.problems.map((line) => (
-                <span key={line}>
-                  {line}
-                  <br />
-                </span>
-              ))}
-            </p>
-            <p>{manifesto.conclusion}</p>
+        <DomainVisual />
+      </div>
+      <div className="hero-bottom micro">
+        <span>
+          BELO HORIZONTE <Arrow /> BRASIL
+        </span>
+        <span>REST. &nbsp; BAR. &nbsp; DELIVERY. &nbsp; DIGITAL.</span>
+        <a href="#sobre" aria-label="Continue para conhecer a Guarda-Chuva">
+          <span>EXPLORE</span>
+          <Arrow />
+        </a>
+      </div>
+      <div className="hero-cut" aria-hidden="true" />
+    </section>
+  );
+}
+function Thesis() {
+  return (
+    <section id="sobre" className="thesis section-shell section-space">
+      <div className="sector-strip micro">
+        {hero.sectors.map((s) => (
+          <span key={s}>{s}</span>
+        ))}
+      </div>
+      <div className="thesis-grid">
+        <div>
+          <SectionNote left="UM ENDEREÇO PRÓPRIO MUDA TUDO" />
+          <Heading lines={thesis.rented} className="thesis-muted" />
+          <Heading lines={thesis.owned} className="thesis-owned" blue={1} />
+        </div>
+        <div className="thesis-copy">
+          <span className="editorial-cross" aria-hidden="true">
+            +
+          </span>
+          <p className="thesis-changes">
+            {thesis.changes.map((line) => (
+              <span key={line}>{line}</span>
+            ))}
+          </p>
+          <p className="thesis-permanence">Seu domínio continua sendo seu.</p>
+          <p>{thesis.description}</p>
+          <div className="thesis-callout">
+            <p>{thesis.callout}</p>
+            <strong>{thesis.conclusion}</strong>
+            <a className="text-link" href="#contato">
+              Comece pelo seu endereço
+              <Arrow diagonal />
+            </a>
           </div>
         </div>
       </div>
     </section>
   );
 }
-
-function Solutions() {
-  const [active, setActive] = useState<string | null>("presenca");
+function DigitalLand() {
   return (
-    <section
-      id="solucoes"
-      className="solutions section-shell section-space"
-      aria-labelledby="solutions-title"
-    >
-      <div className="section-topline micro">
-        <span>02 / O QUE CONSTRUÍMOS</span>
-        <span>DO PRIMEIRO CLIQUE À OPERAÇÃO INTEIRA</span>
+    <section className="land section-shell section-space">
+      <div className="land-intro">
+        <Heading lines={land.headline} />
+        <div>
+          <Heading lines={land.second} className="land-secondary" blue={0} />
+          <p>{land.description}</p>
+        </div>
       </div>
-      <div className="section-heading-row">
-        <h2 id="solutions-title" className="display" data-reveal="text">
-          SISTEMAS PARA
-          <br />
-          <span className="muted">CRESCER.</span>
-        </h2>
+      <div className="land-map">
+        <div className="land-plane" aria-hidden="true">
+          <div className="land-lot lot-one" />
+          <div className="land-lot lot-two" />
+          <div className="land-lot lot-three" />
+          <div className="land-lot lot-main">
+            <span>
+              SEU
+              <br />
+              ESPAÇO.
+            </span>
+          </div>
+          <div className="land-coordinate">
+            19°55′ S<br />
+            43°56′ W
+          </div>
+          <span className="land-map-label micro">UM LUGAR PARA CONSTRUIR.</span>
+        </div>
+        <div className="land-comparison">
+          <div className="land-comparison-header micro">
+            <span>NO MUNDO FÍSICO</span>
+            <span>NO MUNDO DIGITAL</span>
+          </div>
+          {land.physical.map((value, index) => (
+            <div key={value} className="land-step">
+              <span>{value}</span>
+              <Arrow />
+              <strong>{land.digital[index]}</strong>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+function Problem() {
+  return (
+    <section className="problem section-shell section-space">
+      <SectionNote
+        left="QUANDO A PRESENÇA VIRA RUÍDO"
+        right="DA BUSCA À ESCOLHA"
+      />
+      <div className="problem-grid">
+        <Heading lines={problem.title} />
+        <div className="fragment-list">
+          {problem.items.map((item, index) => (
+            <div className="fragment" key={item}>
+              <span className="micro">0{index + 1}</span>
+              <span>{item}</span>
+              <i aria-hidden="true" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="problem-answer">
+        <p>{problem.conclusion}</p>
+        <span>
+          {problem.answer}
+          <Arrow diagonal />
+        </span>
+      </div>
+    </section>
+  );
+}
+function Ecosystem() {
+  return (
+    <section className="ecosystem section-shell section-space" id="estrutura">
+      <div className="heading-row">
+        <Heading lines={ecosystem.title} blue={1} />
+        <p>{ecosystem.description}</p>
+      </div>
+      <EcosystemVisual />
+      <div className="ecosystem-footer micro">
+        <span>CANAIS CONECTADOS. MARCA CENTRALIZADA.</span>
+        <span>O NEGÓCIO NO CENTRO.</span>
+      </div>
+    </section>
+  );
+}
+function Solutions() {
+  const [active, setActive] = useState<string | null>("site");
+  return (
+    <section id="solucoes" className="solutions section-shell section-space">
+      <SectionNote
+        left="SOLUÇÕES PARA A SUA CASA"
+        right="DO PRIMEIRO CLIQUE AO PRÓXIMO PEDIDO"
+      />
+      <div className="heading-row">
+        <Heading lines={["SEU DOMÍNIO.", "BEM ESTRUTURADO."]} blue={1} />
         <p>
-          O digital deve resolver
-          <br />o que trava seu negócio.
+          O que seu negócio precisa.
+          <br />
+          Tudo conversando entre si.
         </p>
       </div>
       <div className="service-list">
@@ -266,40 +262,32 @@ function Solutions() {
           >
             <button
               className="service-trigger"
+              aria-expanded={active === service.id}
+              aria-controls={`service-${service.id}`}
               onClick={() =>
                 setActive(active === service.id ? null : service.id)
               }
-              aria-expanded={active === service.id}
-              aria-controls={`service-${service.id}`}
             >
               <span className="service-number micro">{service.number}</span>
               <span className="service-label">{service.label}</span>
-              <span className="service-name">{service.title}</span>
+              <span className="service-teaser">{service.outcome}</span>
               <span className="service-plus" aria-hidden="true" />
             </button>
             <div
-              className="service-content"
               id={`service-${service.id}`}
               hidden={active !== service.id}
+              className="service-content"
             >
-              <div
-                className={`service-symbol service-symbol-${service.id}`}
-                aria-hidden="true"
-              >
-                <i />
-                <i />
-                <i />
-                <i />
-              </div>
-              <div className="service-description">
+              <h3>{service.title}</h3>
+              <div>
                 <p>{service.description}</p>
-                <div className="service-capabilities micro">
+                <ul className="service-capabilities">
                   {service.capabilities.map((c) => (
-                    <span key={c}>{c}</span>
+                    <li key={c}>{c}</li>
                   ))}
-                </div>
-                <a className="underlined-link" href="#contato">
-                  {service.outcome}
+                </ul>
+                <a className="text-link" href="#contato">
+                  Vamos construir
                   <Arrow diagonal />
                 </a>
               </div>
@@ -310,203 +298,218 @@ function Solutions() {
     </section>
   );
 }
-
-function Statement() {
+function Journey() {
   return (
-    <section
-      className="statement section-space"
-      aria-labelledby="statement-title"
-    >
-      <div className="statement-top micro">
-        <span>MENOS FRAGMENTAÇÃO.</span>
-        <span>MAIS DIREÇÃO.</span>
+    <section className="journey" aria-labelledby="journey-title">
+      <div className="journey-stage section-shell">
+        <SectionNote left="O CAMINHO ATÉ A SUA MESA" right="CADA ETAPA CONTA" />
+        <Heading id="journey-title" lines={journey.title} blue={2} />
+        <div className="journey-track" aria-label="A jornada do cliente">
+          <div className="journey-line">
+            <span />
+          </div>
+          {journey.steps.map((step, index) => (
+            <div className="journey-step" key={step}>
+              <span className="micro">0{index + 1}</span>
+              <strong>{step}</strong>
+              <i />
+            </div>
+          ))}
+        </div>
       </div>
-      <h2 id="statement-title" className="statement-title" data-reveal="text">
-        <span>SEU NEGÓCIO NÃO</span>
-        <span>PRECISA DE MAIS</span>
-        <span className="statement-strike">FERRAMENTAS.</span>
-        <span className="statement-answer">
-          PRECISA DE
-          <br />
-          <em>UM SISTEMA.</em>
-        </span>
-      </h2>
-      <div className="system-stages micro" aria-label="Do site à escala">
-        <span>SITE</span>
-        <Arrow />
-        <span>PROCESSO</span>
-        <Arrow />
-        <span>SISTEMA</span>
-        <Arrow />
-        <span>ESCALA</span>
-      </div>
-      <span className="statement-mark" aria-hidden="true">
-        N
-      </span>
     </section>
   );
 }
-
-function CaseStudy({ project, index }: { project: Project; index: number }) {
+function Discovery() {
   return (
-    <article className={`case-study case-${project.id}`}>
-      <div className="case-visual" data-reveal="mask">
-        <div className="case-visual-top micro">
-          <span>{project.type}</span>
-          <span>0{index + 1} / 03</span>
+    <section className="discovery section-shell section-space">
+      <div className="search-composition" data-reveal="image">
+        <span className="micro">A PRÓXIMA VISITA COMEÇA NA BUSCA</span>
+        <div className="search-query">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="10" cy="10" r="6" />
+            <path d="m15 15 5 5" />
+          </svg>
+          <span>onde comer perto de mim</span>
+          <span className="search-caret" />
         </div>
-        <ProjectVisual variant={project.id as "diamond" | "mesa" | "axis"} />
-      </div>
-      <div className="case-description">
-        <span className="micro case-segment">{project.segment}</span>
-        <h3>
-          {project.title}
-          <span>®</span>
-        </h3>
-        <p className="case-summary">{project.summary}</p>
-        <dl className="case-facts">
-          <div>
-            <dt>O DESAFIO</dt>
-            <dd>{project.problem}</dd>
-          </div>
-          <div>
-            <dt>A SOLUÇÃO</dt>
-            <dd>{project.solution}</dd>
-          </div>
-        </dl>
-        <details className="case-details">
-          <summary>
-            Explorar conceito
+        <div className="search-result">
+          <div className="search-result-top">
+            <BrandMark />
+            <div>
+              <span>SEU RESTAURANTE</span>
+              <small>Seu endereço na internet</small>
+            </div>
             <Arrow diagonal />
-          </summary>
-          <div>
-            <span className="micro">OBJETIVO</span>
-            <p>{project.objective}</p>
-            <ul>
-              {project.capabilities.map((c) => (
-                <li key={c}>{c}</li>
-              ))}
-            </ul>
-            <p className="case-disclaimer">
-              Estudo demonstrativo. Não representa um cliente ou resultado real.
-            </p>
           </div>
-        </details>
+          <strong>
+            Um lugar para conhecer.
+            <br />
+            Um motivo para voltar.
+          </strong>
+          <p>
+            Cardápio, localização, horários e reservas. As informações que
+            ajudam alguém a escolher sua casa.
+          </p>
+          <div className="search-shortcuts">
+            <span>Cardápio</span>
+            <span>Como chegar</span>
+            <span>Reservar</span>
+          </div>
+        </div>
+        <div className="search-ground">
+          <span className="search-location" />
+          <span className="micro">PRESENÇA LOCAL. ESTRUTURA PRÓPRIA.</span>
+        </div>
+        <small className="search-disclaimer">
+          Composição ilustrativa. Não representa um resultado de busca real.
+        </small>
       </div>
-    </article>
+      <div className="discovery-copy">
+        <Heading lines={discovery.title} />
+        <p>{discovery.description}</p>
+        <ul className="discovery-factors">
+          {discovery.factors.map((factor, index) => (
+            <li key={factor}>
+              <span className="micro">0{index + 1}</span>
+              {factor}
+            </li>
+          ))}
+        </ul>
+        <p className="discovery-note">{discovery.note}</p>
+      </div>
+    </section>
   );
 }
-
 function Projects() {
+  const project = projects[0];
   return (
-    <section
-      id="projetos"
-      className="projects section-shell section-space"
-      aria-labelledby="projects-title"
-    >
-      <div className="section-topline micro">
-        <span>03 / POSSIBILIDADES EM PRÁTICA</span>
-        <span>DESIGN QUE ENCONTRA ENGENHARIA</span>
-      </div>
-      <div className="section-heading-row">
-        <h2 id="projects-title" className="display" data-reveal="text">
-          O QUE MUDA
-          <br />
-          <span className="muted">QUANDO CONECTA.</span>
-        </h2>
+    <section id="projetos" className="projects section-shell section-space">
+      <SectionNote
+        left="DA IDEIA À ESTRUTURA"
+        right="APLICAÇÃO / GASTRONOMIA"
+      />
+      <div className="heading-row">
+        <Heading
+          lines={["NÃO É SÓ PORTFÓLIO.", "É ESTRUTURA", "PARA FUNCIONAR."]}
+          blue={2}
+        />
         <p>
-          Três conceitos de aplicação.
+          Um conceito do acervo.
           <br />
-          Diferentes negócios.
-          <br />A mesma visão de escala.
+          Uma possibilidade para o seu negócio.
         </p>
       </div>
-      <div className="project-list">
-        {projects.map((project, index) => (
-          <CaseStudy key={project.id} project={project} index={index} />
-        ))}
-      </div>
+      <article className="case-study">
+        <div className="case-visual" data-reveal="image">
+          <div className="case-caption micro">
+            <span>{project.type}</span>
+            <span>DESIGN + DESENVOLVIMENTO</span>
+          </div>
+          <ProjectVisual variant="mesa" />
+        </div>
+        <div className="case-description">
+          <span className="micro">{project.segment}</span>
+          <h3>
+            {project.title}
+            <Arrow diagonal />
+          </h3>
+          <p className="case-summary">{project.summary}</p>
+          <dl>
+            <div>
+              <dt>O DESAFIO</dt>
+              <dd>{project.problem}</dd>
+            </div>
+            <div>
+              <dt>A ESTRUTURA</dt>
+              <dd>{project.solution}</dd>
+            </div>
+          </dl>
+          <details className="case-details">
+            <summary>
+              Conhecer o conceito
+              <Arrow diagonal />
+            </summary>
+            <div>
+              <span className="micro">OBJETIVO DO ESTUDO</span>
+              <p>{project.objective}</p>
+              <ul>
+                {project.capabilities.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ul>
+              <p className="case-disclaimer">
+                Estudo demonstrativo do acervo. Não representa um cliente,
+                projeto entregue ou resultado comercial.
+              </p>
+              <span className="micro">INTERFACE WEB / DESIGN RESPONSIVO</span>
+            </div>
+          </details>
+        </div>
+      </article>
     </section>
   );
 }
-
-function Positioning() {
+function Comparison() {
   return (
-    <section
-      className="positioning section-shell section-space"
-      aria-labelledby="positioning-title"
-    >
-      <div className="positioning-grid">
-        <h2 id="positioning-title" className="display" data-reveal="text">
-          O OBJETIVO NÃO É<br />
-          <span className="muted">TER UM SITE.</span>
-          <br />É TER UM ATIVO.
-        </h2>
-        <div className="positioning-copy">
-          <p>
-            {positioning.statements.map((s) => (
-              <span key={s}>
-                {s}
-                <br />
-              </span>
+    <section className="comparison section-shell section-space">
+      <Heading lines={["DEPOIS DA", "GUARDA-CHUVA."]} blue={1} />
+      <div className="comparison-grid">
+        <div className="comparison-before">
+          <span className="micro">ANTES / PEÇAS SOLTAS</span>
+          <ul>
+            {comparison.before.map((item) => (
+              <li key={item}>
+                <span aria-hidden="true">—</span>
+                {item}
+              </li>
             ))}
-          </p>
-          <p>{positioning.conclusion}</p>
+          </ul>
+        </div>
+        <div className="comparison-after">
+          <span className="micro">DEPOIS / ESTRUTURA PRÓPRIA</span>
+          <ul>
+            {comparison.after.map((item) => (
+              <li key={item}>
+                <Arrow />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div className="value-path" data-reveal="line">
-        <svg
-          viewBox="0 0 1200 150"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path d="M0 140C250 140 240 120 400 100S650 140 800 70S1000 30 1200 0" />
-        </svg>
-        {positioning.indicators.map((i, index) => (
-          <div className="value-step" key={i}>
-            <span className="micro">0{index + 1}</span>
-            <h3>{i}</h3>
-            <span className="value-dot" />
-          </div>
-        ))}
-      </div>
     </section>
   );
 }
-
 function Process() {
   return (
-    <section
-      id="processo"
-      className="process section-shell section-space"
-      aria-labelledby="process-title"
-    >
-      <div className="section-topline micro">
-        <span>04 / COMO CHEGAMOS LÁ</span>
-        <span>CLAREZA EM CADA MOVIMENTO</span>
-      </div>
+    <section id="processo" className="process section-shell section-space">
+      <SectionNote
+        left="COMO ACONTECE"
+        right="UM PROCESSO CLARO. DO INÍCIO À EVOLUÇÃO."
+      />
       <div className="process-grid">
         <div className="process-title">
-          <h2 id="process-title" className="display" data-reveal="text">
-            DO GARGALO
-            <br />
-            <span className="muted">AO PRÓXIMO</span>
-            <br />
-            PASSO.
-          </h2>
+          <Heading
+            lines={[
+              "VOCÊ CUIDA",
+              "DO RESTAURANTE.",
+              "A GENTE CUIDA",
+              "DO DIGITAL.",
+            ]}
+            blue={3}
+          />
           <p>
-            Antes de escrever uma linha de código,
-            <br />
-            entendemos o que precisa mudar.
+            Uma boa estrutura começa com uma boa conversa. O resto tem método.
           </p>
-          <a className="underlined-link" href="#contato">
-            Vamos entender seu negócio
+          <a className="text-link" href="#contato">
+            Vamos falar da sua casa
             <Arrow diagonal />
           </a>
         </div>
         <ol className="process-list">
           {process.map((step) => (
-            <li key={step.number} data-reveal="line">
+            <li key={step.number}>
               <span className="process-number">{step.number}</span>
               <div>
                 <h3>{step.title}</h3>
@@ -520,217 +523,188 @@ function Process() {
     </section>
   );
 }
-
-function Testimonials() {
+function Ownership() {
   return (
-    <section
-      className="testimonials section-shell section-space"
-      aria-labelledby="testimonials-title"
-    >
-      <div>
-        <span className="micro">RELAÇÕES QUE CONSTROEM</span>
-        <h2 id="testimonials-title" className="display" data-reveal="text">
-          {clientData.testimonials.length ? "QUEM CRESCEU" : "A PRÓXIMA HISTÓRIA"}
-          <br />
-          <span className="muted">{clientData.testimonials.length ? "COM A GENTE." : "COMEÇA AQUI."}</span>
-        </h2>
-      </div>
-      <div className="testimonials-list">
-        {clientData.testimonials.length ? (
-          clientData.testimonials.map((t) => (
-            <figure className="testimonial" key={t.name}>
-              <blockquote>{t.quote}</blockquote>
-              <figcaption>
-                {t.name}
-                <span>
-                  {t.role} · {t.company}
-                </span>
-              </figcaption>
-            </figure>
-          ))
-        ) : (
-          <div className="testimonial-empty">
-            <p>
-              Boas parcerias começam
-              <br />
-              com uma boa conversa.
-            </p>
-            <span className="testimonial-note">
-              Os relatos de clientes serão publicados aqui, com autorização.
-            </span>
-            <a href="#contato" className="underlined-link">
-              A próxima história pode ser a sua
-              <Arrow diagonal />
-            </a>
+    <section className="ownership section-space" data-theme="blue">
+      <div className="section-shell">
+        <SectionNote
+          left="A REGRA É SIMPLES"
+          right="NÃO CONSTRUA SÓ EM TERRENO ALHEIO"
+        />
+        <Heading lines={ownership.title} />
+        <div className="ownership-bottom">
+          <p>
+            {ownership.platforms.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </p>
+          <p>{ownership.description}</p>
+          <div>
+            {ownership.signature.map((item) => (
+              <strong key={item}>{item}</strong>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
 }
-
 function Contact() {
   const [expanded, setExpanded] = useState(false);
-  const formSection = useRef<HTMLDivElement>(null);
-  function openBrief() {
+  const brief = useRef<HTMLDivElement>(null);
+  const whatsapp = getWhatsAppUrl(contact.message);
+  const openBrief = () => {
     setExpanded(true);
     setTimeout(() => {
-      formSection.current?.scrollIntoView({
-        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "instant"
-          : "smooth",
-        block: "start",
-      });
-      formSection.current
+      brief.current?.scrollIntoView({ behavior: "instant", block: "start" });
+      brief.current
         ?.querySelector<HTMLInputElement>("input")
         ?.focus({ preventScroll: true });
-    }, 50);
-  }
+    }, 30);
+  };
   return (
-    <section
-      id="contato"
-      className="contact section-shell section-space"
-      aria-labelledby="contact-title"
-    >
-      <div className="contact-canvas">
-        <img
-          src="/assets/structure.webp"
-          width="1448"
-          height="1086"
-          alt=""
-          loading="lazy"
-          className="contact-art"
-        />
-        <div className="contact-canvas-top micro">
-          <span>{contact.eyebrow}</span>
-          <span>COMEÇA AQUI ↘</span>
-        </div>
-        <div className="contact-canvas-content">
-          <h2 id="contact-title">
-            SE O PRÓXIMO NÍVEL
+    <section id="contato" className="contact section-shell section-space">
+      <div className="contact-top micro">
+        <span>PRONTO PARA RECEBER NOVOS CLIENTES?</span>
+        <span>BELO HORIZONTE → BRASIL</span>
+      </div>
+      <div className="contact-main">
+        <Heading lines={contact.title} blue={3} />
+        <div className="contact-stamp" aria-hidden="true">
+          <BrandMark />
+          <span aria-hidden="true">
+            SEU
             <br />
-            DA SUA EMPRESA
-            <br />
-            <span>DEPENDE DE TECNOLOGIA,</span>
-            <br />
-            VAMOS CONSTRUÍ-LO.
-          </h2>
-          <div className="contact-canvas-bottom">
-            <button
-              className="button button-light"
-              onClick={openBrief}
-              aria-expanded={expanded}
-              aria-controls="briefing"
-            >
-              {contact.cta}
-              <Arrow diagonal />
-            </button>
-            <p>{contact.description}</p>
-          </div>
+            LUGAR
+            <br />É AQUI.
+          </span>
         </div>
       </div>
-      <div
-        id="briefing"
-        className="briefing"
-        ref={formSection}
-        hidden={!expanded}
-      >
+      <div className="contact-bottom">
+        <p>{contact.description}</p>
+        {whatsapp ? (
+          <a
+            className="button button-primary contact-button"
+            href={whatsapp}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>{contact.cta}</span>
+            <Arrow diagonal />
+          </a>
+        ) : (
+          <button
+            className="button button-primary contact-button"
+            onClick={openBrief}
+            aria-expanded={expanded}
+            aria-controls="briefing"
+          >
+            <span>{contact.cta}</span>
+            <Arrow diagonal />
+          </button>
+        )}
+      </div>
+      <div className="briefing" id="briefing" ref={brief} hidden={!expanded}>
         <ContactForm />
       </div>
     </section>
   );
 }
-
 function Footer() {
   return (
     <footer className="footer section-shell">
       <div className="footer-top">
-        <a className="wordmark" href="#inicio" aria-label="Nomad — início">
+        <a
+          className="wordmark"
+          href="#inicio"
+          aria-label={`${brand.displayName.replace("-", "- ")}® — início`}
+        >
           <BrandMark />
-          nomad<span>®</span>
+          <span>
+            guarda-
+            <br />
+            chuva<sup>®</sup>
+          </span>
         </a>
         <span className="micro">
           {brand.location}
           <br />
           {brand.country}
         </span>
-        <a className="back-top" href="#inicio" aria-label="Voltar ao início">
+        <a href="#inicio" className="back-top" aria-label="Voltar ao início">
           <Arrow diagonal />
         </a>
       </div>
       <div className="footer-main">
-        <div className="footer-statement">
-          {footer.headline.map((s) => (
-            <span key={s}>{s}</span>
+        <p className="footer-statement">
+          {footer.headline.map((line) => (
+            <span key={line}>{line}</span>
           ))}
-        </div>
-        <div className="footer-nav">
-          <p className="micro">EXPLORE</p>
-          {navigation.map((n) => (
-            <a className="text-link" href={n.href} key={n.href}>
-              {n.label}
-            </a>
-          ))}
-          <a className="text-link" href="#contato">
-            Contato
-          </a>
-        </div>
-        <div className="footer-social">
-          <p className="micro">CONEXÕES</p>
+        </p>
+        <nav aria-label="Navegação do rodapé">
+          {navigation
+            .filter((item) =>
+              ["Soluções", "Projetos", "Contato"].includes(item.label),
+            )
+            .map((item) => (
+              <a className="text-link" key={item.href} href={item.href}>
+                {item.label}
+              </a>
+            ))}
           {socialLinks
-            .filter((l) => l.href)
-            .map((l) => (
+            .filter((item) => item.href)
+            .map((item) => (
               <a
                 className="text-link"
-                href={l.href!}
-                key={l.label}
+                key={item.label}
+                href={item.href!}
                 target="_blank"
                 rel="noreferrer"
               >
-                {l.label}
+                {item.label}
                 <Arrow diagonal />
               </a>
             ))}
-          {!socialLinks.some((l) => l.href) && (
-            <a className="text-link" href="#contato">
-              Comece uma conversa
-              <Arrow diagonal />
-            </a>
-          )}
-          <p className="footer-signature">{footer.signature}</p>
-        </div>
+        </nav>
       </div>
       <div className="footer-bottom micro">
-        <span>© 2026 NOMAD. ENGENHARIA DIGITAL.</span>
-        <span>FEITO PARA O PRÓXIMO MOVIMENTO.</span>
-        <a href="#inicio">BH, BRASIL ↗</a>
+        <span>© {new Date().getFullYear()} GUARDA-CHUVA</span>
+        <span>{footer.disciplines.join(" / ")}</span>
+        <span>SEU NEGÓCIO. SEU DOMÍNIO.</span>
       </div>
     </footer>
   );
 }
+const EditorialMotion = lazy(() => import("./components/EditorialMotion"));
 
 export default function App() {
-  useEditorialMotion();
+  const scope = useRef<HTMLDivElement>(null);
   return (
-    <>
+    <div ref={scope}>
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
       <Navigation />
       <main id="conteudo">
         <Hero />
-        <Trust />
-        <Manifesto />
+        <Thesis />
+        <DigitalLand />
+        <Problem />
+        <Ecosystem />
         <Solutions />
-        <Statement />
+        <Journey />
+        <Discovery />
         <Projects />
-        <Positioning />
+        <Comparison />
         <Process />
-        <Testimonials />
+        <Ownership />
         <Contact />
       </main>
       <Footer />
       <div className="scroll-progress" aria-hidden="true" />
-    </>
+      <Suspense fallback={null}>
+        <EditorialMotion scope={scope} />
+      </Suspense>
+    </div>
   );
 }

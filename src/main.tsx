@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "@fontsource-variable/space-grotesk";
-import "@fontsource-variable/manrope";
+import "@fontsource-variable/instrument-sans";
+import "@fontsource-variable/dm-sans";
+import 'lenis/dist/lenis.css';
 import "./styles/global.css";
 import App from "./App";
 

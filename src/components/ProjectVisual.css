@@ -5,7 +5,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  font-family: "Manrope Variable", sans-serif;
+  font-family: "DM Sans Variable", sans-serif;
   pointer-events: none;
 }
 
@@ -96,7 +96,7 @@
 }
 .pv-diamond-logo span {
   display: block;
-  font-family: "Manrope Variable", sans-serif;
+  font-family: "DM Sans Variable", sans-serif;
   font-size: 0.52cqw;
   letter-spacing: 0.43em;
   margin-top: 0.75cqw;
@@ -288,7 +288,7 @@
 }
 .pv-mesa-logo > span {
   display: block;
-  font-family: "Manrope Variable", sans-serif;
+  font-family: "DM Sans Variable", sans-serif;
   font-size: 0.54cqw;
   letter-spacing: 0.19em;
   margin-top: 1.2cqw;
@@ -405,7 +405,7 @@
   color: #f0f2ed;
 }
 .pv-axis-logo {
-  font-family: "Space Grotesk Variable", sans-serif;
+  font-family: "Instrument Sans Variable", sans-serif;
   font-size: 4cqw;
   font-weight: 500;
   letter-spacing: -0.06em;
@@ -537,7 +537,7 @@
   color: #515b4b;
 }
 .pv-axis-heading p {
-  font-family: "Space Grotesk Variable", sans-serif;
+  font-family: "Instrument Sans Variable", sans-serif;
   font-size: 3.2cqw;
   line-height: 1.1;
   letter-spacing: -0.04em;

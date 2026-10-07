@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { brand, seo } from "./src/data/site";
+import { brand, seo, services } from "./src/data/site";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
       react(),
       tailwindcss(),
       {
-        name: "nomad-seo",
+        name: "guarda-chuva-seo",
         transformIndexHtml() {
           const image = canonical
             ? new URL("/og-cover.png", canonical).href
@@ -31,11 +31,30 @@ export default defineConfig(({ mode }) => {
             },
             areaServed: "Brasil",
             knowsAbout: [
-              "Desenvolvimento de sites",
-              "Sistemas web",
-              "E-commerce",
-              "Automação de processos",
+              "Criação de site para restaurante",
+              "Site para bar e delivery",
+              "Cardápio digital",
+              "Sistemas para restaurantes",
+              "Desenvolvimento web em Belo Horizonte",
+              "Automação de operações gastronômicas",
             ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Domínio digital para gastronomia",
+              itemListElement: services.map((service) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: service.label,
+                  description: service.description,
+                  areaServed: "Brasil",
+                  provider: {
+                    "@type": "ProfessionalService",
+                    name: brand.displayName,
+                  },
+                },
+              })),
+            },
             ...(brand.email ? { email: brand.email } : {}),
           };
           return [

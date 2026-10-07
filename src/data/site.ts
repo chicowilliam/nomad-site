@@ -1,15 +1,8 @@
-/**
- * Conteúdo editorial e dados públicos da Nomad.
- * TODO(clientData): substituir os estudos de conceito por trabalhos autorizados.
- * TODO(brand): confirmar domínio e canais oficiais antes da publicação.
- * Dados ausentes permanecem nulos; nenhum contato ou resultado foi inventado.
- */
-
+/** Conteúdo oficial. Contatos e domínio aguardam confirmação; nenhum case ou resultado é inventado. */
 export interface NavigationItem {
   label: string;
   href: string;
 }
-
 export interface Service {
   id: string;
   number: string;
@@ -19,321 +12,357 @@ export interface Service {
   capabilities: string[];
   outcome: string;
 }
-
 export interface Project {
   id: string;
   title: string;
   segment: string;
-  type: "Conceito de aplicação";
+  type: "Conceito de aplicação" | "Projeto";
   summary: string;
   problem: string;
   solution: string;
   objective: string;
   capabilities: string[];
 }
-
 export interface ProcessStep {
   number: string;
   title: string;
   description: string;
   detail: string;
 }
-
-export interface Testimonial {
-  quote: string;
-  name: string;
-  role: string;
-  company: string;
-}
-
-export interface Client {
-  name: string;
-  logo: string;
-  url?: string;
-}
-
-export interface SocialLink {
-  label: string;
-  href: string | null;
-}
-
 export const brand = {
-  name: "nomad",
-  displayName: "Nomad",
-  descriptor: "Engenharia digital",
-  signature: "Estrutura para o próximo movimento.",
+  name: "guarda-chuva",
+  displayName: "Guarda-Chuva",
+  descriptor: "Domínio digital para gastronomia",
+  signature: "Seu negócio. Seu domínio.",
   location: "Belo Horizonte — MG",
   city: "Belo Horizonte",
   country: "Brasil",
   locale: "pt-BR",
-  editorialLocation: "ESTÚDIO DIGITAL / BH — BRASIL",
+  editorialLocation: "BELO HORIZONTE → BRASIL",
   email: null as string | null,
   whatsapp: null as string | null,
   canonicalUrl: null as string | null,
   instagram: null as string | null,
   linkedin: null as string | null,
 };
-
+export function getWhatsAppUrl(message?: string) {
+  if (!brand.whatsapp) return null;
+  const value = brand.whatsapp.trim();
+  let number = value;
+  if (value.startsWith("https://")) {
+    try {
+      const url = new URL(value);
+      if (url.hostname === "wa.me") number = url.pathname.slice(1);
+      else if (url.hostname === "api.whatsapp.com")
+        number = url.searchParams.get("phone") ?? "";
+      else return null;
+    } catch {
+      return null;
+    }
+  }
+  number = number.replace(/[\s()+.-]/g, "");
+  if (!/^[1-9]\d{9,14}$/.test(number)) return null;
+  return `https://wa.me/${number}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
+}
 export const navigation: NavigationItem[] = [
-  { label: "Projetos", href: "#projetos" },
   { label: "Soluções", href: "#solucoes" },
-  { label: "Processo", href: "#processo" },
+  { label: "Projetos", href: "#projetos" },
+  { label: "Como funciona", href: "#processo" },
   { label: "Sobre", href: "#sobre" },
+  { label: "Contato", href: "#contato" },
 ];
-
-export const socialLinks: SocialLink[] = [
-  { label: "Instagram", href: brand.instagram },
-  { label: "LinkedIn", href: brand.linkedin },
-  { label: "WhatsApp", href: brand.whatsapp },
-];
-
 export const hero = {
-  eyebrow: brand.editorialLocation,
-  intro: "Não construímos apenas sites.",
-  headline: ["ESTRUTURA", "PARA ESCALAR."],
+  label: "DOMÍNIO DIGITAL PARA GASTRONOMIA",
+  physical: ["SEU RESTAURANTE", "JÁ TEM UM ENDEREÇO."],
+  digital: ["AGORA ELE PRECISA", "DE UM NA INTERNET."],
   description:
-    "Sites, sistemas e experiências digitais para transformar atenção em vendas e operações manuais em processos escaláveis.",
-  primaryCta: "Quero escalar meu negócio",
-  secondaryCta: "Ver projetos",
-  disciplines: ["SITES", "SYSTEMS", "AUTOMATION"],
-  edition: "2026",
-};
-
-export const trust = {
-  statement:
-    "Projetado para negócios que não querem depender apenas de Instagram e WhatsApp.",
+    "Construímos sites, sistemas e estruturas digitais para restaurantes, bares e deliveries serem encontrados, venderem mais e dependerem menos de plataformas de terceiros.",
+  primaryCta: "Quero construir meu domínio",
+  secondaryCta: "Conhecer a Guarda-Chuva",
+  visualCaption: "Todos os caminhos levam para o seu domínio.",
   sectors: [
     "RESTAURANTES",
-    "VAREJO",
-    "SERVIÇOS",
-    "IMOBILIÁRIO",
-    "PROFISSIONAIS",
+    "BARES",
+    "CAFETERIAS",
+    "HAMBURGUERIAS",
+    "PIZZARIAS",
+    "DELIVERIES",
   ],
 };
-
-export const manifesto = {
-  eyebrow: "01 — O PRÓXIMO MOVIMENTO",
-  headline: ["SE O NEGÓCIO", "CRESCE, A", "TECNOLOGIA", "CRESCE JUNTO."],
-  problems: [
-    "Planilhas quebram.",
-    "Processos manuais consomem tempo.",
-    "Leads se perdem.",
-    "Sites lentos deixam dinheiro na mesa.",
-  ],
-  conclusion: "Transformamos esses gargalos em produto digital.",
-  supporting:
-    "Unimos estratégia, design e engenharia para construir uma operação que acompanha a ambição da sua empresa.",
+export const thesis = {
+  rented: ["VOCÊ ALUGA ATENÇÃO", "NAS REDES."],
+  owned: ["SEU DOMÍNIO", "É SEU."],
+  changes: ["Instagram muda.", "O algoritmo muda.", "As plataformas mudam."],
+  description:
+    "É no seu domínio que sua marca constrói autoridade, aparece no Google, apresenta seu cardápio, recebe clientes e transforma interesse em pedido ou reserva.",
+  callout: "O melhor momento para construir seu espaço na internet foi ontem.",
+  conclusion: "O segundo melhor é agora.",
 };
-
+export const land = {
+  headline: ["TODA EMPRESA PRECISA", "DE UM TERRENO."],
+  second: ["NO DIGITAL", "NÃO É DIFERENTE."],
+  description:
+    "No mundo físico, localização importa. Na internet também. Um domínio próprio, conteúdo relevante e uma estrutura bem construída tornam mais sólido o espaço digital da sua marca.",
+  physical: ["TERRENO", "ENDEREÇO", "ESTRUTURA", "MOVIMENTO", "VALOR"],
+  digital: ["DOMÍNIO", "SITE", "CONTEÚDO", "TRÁFEGO", "AUTORIDADE"],
+};
+export const problem = {
+  title: ["SE O CLIENTE TE PROCURA,", "O QUE ELE ENCONTRA?"],
+  items: [
+    "Instagram desatualizado.",
+    "Cardápio escondido em PDF.",
+    "Google sem informação.",
+    "WhatsApp sobrecarregado.",
+    "Delivery só no marketplace.",
+    "Nenhum lugar centralizando tudo.",
+  ],
+  conclusion: "Isso não é presença digital. São peças soltas.",
+  answer: "A Guarda-Chuva conecta tudo.",
+};
+export const ecosystem = {
+  title: ["TUDO SOB", "A MESMA ESTRUTURA."],
+  description:
+    "Cada canal tem um papel. O seu domínio dá um destino a todos eles.",
+  channels: [
+    "SITE",
+    "CARDÁPIO",
+    "GOOGLE",
+    "DELIVERY",
+    "RESERVAS",
+    "WHATSAPP",
+    "CRM",
+    "AUTOMAÇÕES",
+    "ANÁLISE",
+  ],
+};
 export const services: Service[] = [
   {
-    id: "presenca",
+    id: "site",
     number: "01",
-    label: "PRESENÇA",
-    title: "Sites & landing pages",
+    label: "SITE",
+    title: "O ponto de partida do seu domínio digital.",
     description:
-      "Posicionamento, SEO e experiência construídos para transformar visitantes em oportunidades.",
+      "Sites rápidos, personalizados e preparados para transformar pesquisa em visita, pedido ou reserva.",
     capabilities: [
-      "Sites institucionais",
-      "Landing pages",
-      "Experiência & SEO",
+      "Site para restaurante",
+      "Descoberta local",
+      "Experiência mobile",
     ],
-    outcome: "Seja encontrado. Seja escolhido.",
+    outcome: "Um endereço à altura da sua casa.",
   },
   {
-    id: "venda",
+    id: "cardapio",
     number: "02",
-    label: "VENDA",
-    title: "E-commerce",
+    label: "CARDÁPIO DIGITAL",
+    title: "Seu cardápio não deveria ficar escondido.",
     description:
-      "Uma operação digital pronta para vender enquanto sua equipe cuida do negócio.",
-    capabilities: [
-      "Lojas virtuais",
-      "Catálogo & checkout",
-      "Integração de pedidos",
-    ],
-    outcome: "Sua próxima venda pode acontecer agora.",
+      "Uma experiência rápida e acessível pelo celular, Google, QR Code ou redes sociais. Da vontade de conhecer à vontade de pedir.",
+    capabilities: ["Cardápio por categoria", "QR Code", "Atualização simples"],
+    outcome: "Facilite a próxima escolha.",
   },
   {
-    id: "operacao",
+    id: "delivery",
     number: "03",
-    label: "OPERAÇÃO",
-    title: "Sistemas sob medida",
+    label: "DELIVERY",
+    title: "Venda sem entregar sua relação com o cliente.",
     description:
-      "Substitua planilhas, tarefas repetitivas e processos fragmentados por uma operação centralizada.",
-    capabilities: ["Sistemas internos", "Dashboards", "Gestão de operações"],
-    outcome: "Menos abas. Mais controle.",
+      "Um canal próprio que complementa os marketplaces e reduz a dependência de uma única plataforma para vender.",
+    capabilities: [
+      "Canal direto",
+      "Fluxo de pedidos",
+      "Relacionamento com o cliente",
+    ],
+    outcome: "Mais caminhos para o seu pedido.",
   },
   {
-    id: "escala",
+    id: "reservas",
     number: "04",
-    label: "ESCALA",
-    title: "Automação & integrações",
+    label: "RESERVAS",
+    title: "Menos mensagens. Mais mesas ocupadas.",
     description:
-      "Conecte ferramentas, dados e processos para crescer sem multiplicar trabalho manual.",
+      "Fluxos digitais que organizam reservas, dão clareza para o cliente e reduzem o trabalho manual da equipe.",
     capabilities: [
-      "Automação de processos",
+      "Disponibilidade",
+      "Confirmação",
+      "Organização do atendimento",
+    ],
+    outcome: "Receba melhor, desde o primeiro contato.",
+  },
+  {
+    id: "sistemas",
+    number: "05",
+    label: "SISTEMAS",
+    title: "Quando a planilha começa a limitar o negócio.",
+    description:
+      "Construímos o próximo passo: sistemas internos que organizam os dados e ajudam a enxergar a operação inteira.",
+    capabilities: [
+      "Financeiro & estoque",
+      "CRM & reservas",
+      "Dashboards & operação",
+    ],
+    outcome: "Uma operação mais organizada.",
+  },
+  {
+    id: "automacoes",
+    number: "06",
+    label: "AUTOMAÇÕES",
+    title: "O repetitivo não precisa continuar manual.",
+    description:
+      "Integrações e automações para conectar suas ferramentas, informações e processos. Sua equipe ganha tempo para cuidar da casa.",
+    capabilities: [
       "Integrações",
       "Fluxos de atendimento",
+      "Processos conectados",
     ],
-    outcome: "O trabalho flui. O negócio cresce.",
+    outcome: "Deixe o trabalho fluir.",
   },
 ];
-
-export const systemStatement = {
-  before: ["SEU NEGÓCIO NÃO", "PRECISA DE MAIS", "FERRAMENTAS."],
-  after: ["PRECISA DE", "UM SISTEMA."],
-  stages: ["SITE", "PROCESSO", "SISTEMA", "ESCALA"],
+export const journey = {
+  title: ["UM BOM RESTAURANTE", "NÃO DEVERIA SER", "DIFÍCIL DE ENCONTRAR."],
+  steps: ["ENCONTRAR", "CONHECER", "DESEJAR", "PEDIR", "VOLTAR"],
 };
-
-/** Conceitos demonstrativos; não representam clientes, entregas ou resultados reais. */
+export const discovery = {
+  title: ["QUANDO ALGUÉM PESQUISA,", "VOCÊ PRECISA ESTAR LÁ."],
+  description:
+    "As pessoas procuram onde comer antes mesmo de sair de casa. Construímos páginas estruturadas para ajudar seu negócio a ser entendido pelos mecanismos de busca e receber bem quem chega.",
+  factors: [
+    "Busca local",
+    "SEO",
+    "Performance",
+    "Conteúdo",
+    "Cardápio",
+    "Informações",
+  ],
+  note: "Relevância se constrói com conteúdo, estrutura e uma boa experiência. Sem promessas de posição no Google.",
+};
+/** MESA é o conceito gastronômico já existente. Nenhum projeto entregue a cliente foi fornecido. */
 export const projects: Project[] = [
-  {
-    id: "diamond",
-    title: "DIAMOND",
-    segment: "E-commerce / Varejo",
-    type: "Conceito de aplicação",
-    summary:
-      "Da vitrine física a uma operação que pode vender a qualquer hora.",
-    problem: "Vendas limitadas ao horário da loja e ao atendimento manual.",
-    solution:
-      "Uma loja digital com catálogo editorial, compra direta e pedidos organizados.",
-    objective:
-      "Ampliar os canais de venda e dar autonomia ao cliente para comprar.",
-    capabilities: ["E-commerce", "Direção de arte", "Experiência de compra"],
-  },
   {
     id: "mesa",
     title: "MESA",
-    segment: "Experiência / Gastronomia",
+    segment: "Restaurante / Experiência digital",
     type: "Conceito de aplicação",
     summary: "Da primeira pesquisa à próxima reserva.",
-    problem:
-      "Informações dispersas e pedidos de reserva perdidos entre mensagens.",
+    problem: "Informações dispersas e reservas perdidas entre mensagens.",
     solution:
-      "Uma experiência que reúne cardápio, descoberta local e um caminho claro para reservar.",
-    objective:
-      "Transformar o interesse pelo restaurante em visitas e reservas.",
+      "Site, cardápio e reservas no mesmo endereço. Uma experiência pensada para a descoberta local e o celular.",
+    objective: "Transformar o interesse pela casa em visitas e reservas.",
     capabilities: ["Site institucional", "Cardápio digital", "Reservas"],
   },
-  {
-    id: "axis",
-    title: "AXIS",
-    segment: "Sistemas / Operações",
-    type: "Conceito de aplicação",
-    summary: "Uma operação inteira. Um lugar para decidir.",
-    problem:
-      "Dados em planilhas, tarefas duplicadas e pouca visibilidade sobre a operação.",
-    solution:
-      "Um sistema centralizado para conectar tarefas, equipes e informações.",
-    objective:
-      "Reduzir retrabalho e tornar a operação mais clara e previsível.",
-    capabilities: ["Sistema web", "Dashboard", "Automação"],
-  },
 ];
-
-export const positioning = {
-  eyebrow: "05 — VALOR QUE PERMANECE",
-  headline: ["O OBJETIVO NÃO É", "TER UM SITE.", "É TER UM ATIVO."],
-  statements: [
-    "Seu site deve atrair.",
-    "Seu sistema deve organizar.",
-    "Sua automação deve economizar.",
+export const comparison = {
+  before: [
+    "Instagram como único canal.",
+    "Cardápio espalhado.",
+    "Dependência de marketplaces.",
+    "Reservas no improviso.",
+    "Pouca informação no Google.",
+    "Processos manuais.",
   ],
-  conclusion:
-    "Sua operação digital deve continuar funcionando mesmo quando você não está olhando.",
-  indicators: ["ATRAIR", "CONVERTER", "AUTOMATIZAR", "ESCALAR"],
+  after: [
+    "Domínio próprio.",
+    "Marca centralizada.",
+    "Cardápio acessível.",
+    "Canal direto.",
+    "Dados organizados.",
+    "Processos conectados.",
+  ],
 };
-
 export const process: ProcessStep[] = [
   {
     number: "01",
     title: "DIAGNÓSTICO",
     description:
-      "Entendemos onde seu negócio perde tempo, clientes ou dinheiro.",
-    detail: "O ponto de partida é a operação real da sua empresa.",
+      "Entendemos como as pessoas encontram, escolhem e compram do seu negócio hoje.",
+    detail: "Primeiro, a realidade da sua operação.",
   },
   {
     number: "02",
-    title: "ESTRATÉGIA",
-    description: "Definimos o produto digital que resolve esse gargalo.",
-    detail: "Escopo claro, prioridades certas e uma direção em comum.",
+    title: "ESTRUTURA",
+    description: "Definimos o que realmente precisa existir.",
+    detail: "Escopo claro. Sem ferramentas por hábito.",
   },
   {
     number: "03",
-    title: "CONSTRUÇÃO",
+    title: "DESIGN",
     description:
-      "Design, engenharia e integrações construídos como um único produto.",
-    detail: "Você acompanha a evolução e participa das decisões que importam.",
+      "Construímos uma experiência que representa o nível do seu estabelecimento.",
+    detail: "Do primeiro olhar à próxima escolha.",
   },
   {
     number: "04",
-    title: "LANÇAMENTO",
-    description: "Publicamos, medimos e refinamos.",
-    detail: "Cada ponto de contato é preparado para a operação começar.",
+    title: "DESENVOLVIMENTO",
+    description:
+      "Transformamos o projeto em um produto rápido, responsivo e preparado para produção.",
+    detail: "Cada conexão é testada antes de entrar em operação.",
   },
   {
     number: "05",
-    title: "ESCALA",
-    description:
-      "A estrutura continua preparada para crescer junto com a empresa.",
-    detail: "Novas necessidades encontram uma base pronta para evoluir.",
+    title: "LANÇAMENTO",
+    description: "Colocamos sua estrutura digital no ar.",
+    detail: "Seu endereço pronto para receber.",
+  },
+  {
+    number: "06",
+    title: "EVOLUÇÃO",
+    description: "A estrutura cresce conforme o negócio cresce.",
+    detail: "Uma base que permite o próximo passo.",
   },
 ];
-
-export const clientData: { clients: Client[]; testimonials: Testimonial[] } = {
-  // TODO(clientData): adicionar somente marcas com autorização de uso.
-  clients: [],
-  // TODO(clientData): adicionar depoimentos reais aprovados por seus autores.
-  testimonials: [],
-};
-
-export const testimonialsCopy = {
-  eyebrow: "07 — RELAÇÕES QUE CONSTROEM",
-  headline: ["QUEM CRESCEU", "COM A GENTE."],
-};
-
-export const contact = {
-  eyebrow: "SEU PRÓXIMO MOVIMENTO",
-  headline: [
-    "SE O PRÓXIMO NÍVEL",
-    "DA SUA EMPRESA",
-    "DEPENDE DE TECNOLOGIA,",
-    "VAMOS CONSTRUÍ-LO.",
+export const ownership = {
+  title: [
+    "AS PLATAFORMAS",
+    "PODEM TRAZER CLIENTES.",
+    "MAS A MARCA",
+    "PRECISA SER SUA.",
   ],
-  cta: "Começar um projeto",
-  navigationCta: "Falar sobre um projeto",
-  description: "Conte o que hoje limita sua operação. Nós pensamos no resto.",
+  platforms: [
+    "Use Instagram.",
+    "Use Google.",
+    "Use marketplaces.",
+    "Use WhatsApp.",
+  ],
+  description:
+    "Mas faça todos eles trabalharem para construir algo que pertence ao seu negócio.",
+  signature: ["SEU DOMÍNIO.", "SUA MARCA.", "SEUS CLIENTES."],
+};
+export const contact = {
+  cta: "Construir meu domínio",
+  navigationCta: "Construir meu espaço digital",
+  title: [
+    "SE O SEU RESTAURANTE",
+    "JÁ EXISTE NO MUNDO REAL,",
+    "ESTÁ NA HORA DE",
+    "CONSTRUIR O DIGITAL.",
+  ],
+  description:
+    "Conte para nós onde seu negócio está hoje. Nós mostramos o que ele pode se tornar no digital.",
+  message:
+    "Olá, Guarda-Chuva! Quero construir o domínio digital do meu negócio gastronômico.",
   formEndpoint: null as string | null,
 };
-
 export const footer = {
-  headline: ["BUILD.", "SELL.", "AUTOMATE.", "SCALE."],
-  signature: "Estratégia, design e engenharia. No mesmo sentido.",
+  headline: ["SEU NEGÓCIO.", "SEU DOMÍNIO."],
+  disciplines: ["RESTAURANTES", "BARES", "DELIVERY", "DIGITAL"],
+  signature: "Estratégia, design e tecnologia. À mesa com o seu negócio.",
 };
-
+export const socialLinks = [
+  { label: "Instagram", href: brand.instagram },
+  { label: "WhatsApp", href: getWhatsAppUrl() },
+];
+export const clientData = {
+  clients: [] as { name: string; logo: string }[],
+  testimonials: [] as {
+    quote: string;
+    name: string;
+    role: string;
+    company: string;
+  }[],
+};
 export const seo = {
-  title: "Nomad — Sites, sistemas e estrutura para escalar",
+  title: "Guarda-Chuva — Sites e domínio digital para restaurantes",
   description:
-    "Estúdio de soluções digitais em Belo Horizonte. Desenvolvimento de sites, e-commerce, sistemas web e automação para vender mais e organizar sua operação.",
-  imageAlt: "Nomad — Engenharia digital. Estrutura para escalar.",
-};
-
-export const siteData = {
-  brand,
-  navigation,
-  socialLinks,
-  hero,
-  trust,
-  manifesto,
-  services,
-  systemStatement,
-  projects,
-  positioning,
-  process,
-  clientData,
-  testimonialsCopy,
-  contact,
-  footer,
-  seo,
+    "Sites para restaurantes, bares e deliveries, cardápios digitais, reservas e sistemas. A Guarda-Chuva constrói seu domínio digital em Belo Horizonte e no Brasil.",
+  imageAlt:
+    "Guarda-Chuva. Seu negócio. Seu domínio. Soluções digitais para gastronomia.",
 };

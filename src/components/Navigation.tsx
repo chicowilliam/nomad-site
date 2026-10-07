@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Arrow, BrandMark } from "./Icon";
-import { navigation, contact, brand } from "../data/site";
+import { navigation, contact, brand, getWhatsAppUrl } from "../data/site";
 
 const links = navigation.map(({ label, href }) => [label, href] as const);
 export function Navigation() {
@@ -47,7 +47,12 @@ export function Navigation() {
             </a>
           ))}
         </nav>
-        <a className="nav-cta" href="#contato">
+        <a
+          className="nav-cta"
+          href={getWhatsAppUrl(contact.message)!}
+          target="_blank"
+          rel="noreferrer"
+        >
           {contact.navigationCta}
           <Arrow diagonal />
         </a>
@@ -117,7 +122,13 @@ export function Navigation() {
             </a>
           ))}
         </nav>
-        <a className="button button-light" href="#contato" onClick={close}>
+        <a
+          className="button button-light"
+          href={getWhatsAppUrl(contact.message)!}
+          target="_blank"
+          rel="noreferrer"
+          onClick={close}
+        >
           {contact.navigationCta}
           <Arrow diagonal />
         </a>

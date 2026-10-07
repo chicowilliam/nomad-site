@@ -3,6 +3,17 @@
   "generatedAt": "2026-10-07T00:51:39.234Z",
   "title": "Design System: Guarda-Chuva",
   "extensions": {
+    "currentHome": {
+      "version": "commercial-evolution",
+      "styles": "src/styles/evolution.css",
+      "surface": "#f5f7fa",
+      "wash": "#eaf2ff",
+      "rule": "rgba(16,24,40,.1)",
+      "contact": "Direct WhatsApp; no form rendered",
+      "work": "Actual Guarda-Chuva self-project screenshot; no client claims",
+      "motion": "Channels to domain to solutions to client; desktop ownership pin; seven-step process indicator",
+      "legacyCatalog": "Shadow, form and concept examples below are preserved infrastructure, not rendered home sections. DESIGN.md describes the current composition."
+    },
     "colorMeta": {
       "paper": {
         "role": "neutral",
@@ -376,8 +387,8 @@
       "Do recompor a leitura em 390×844 e 430×932, preservando canais legíveis e legenda separada da fotografia.",
       "Do usar fotos gastronômicas com função editorial e diagramas que expliquem relações reais.",
       "Do preservar teclado, foco visível, labels persistentes e conteúdo completo com movimento reduzido.",
-      "Do identificar Mesa e a busca ilustrativa como conceitos, sem transformá-los em prova de resultados.",
-      "Do manter a ação de contato coerente com os canais configurados e informar quando o briefing é apenas local."
+      "Do apresentar somente trabalho verificável e identificar o site da agência como projeto próprio.",
+      "Do manter ações de contato coerentes com o WhatsApp confirmado, sem alegar envio automático."
     ],
     "donts": [
       "Don't transformar a página em uma grade de cards iguais ou numa interface genérica de SaaS.",

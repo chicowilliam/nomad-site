@@ -24,3 +24,7 @@ Direction: premium gastronomic still life, ivory ceramic plate with a single han
 ## ../og-cover.png
 
 Browser-rendered Guarda-Chuva composition using the gastronomic image and locally hosted Instrument Sans font. Reproduce with `node scripts/generate-social.mjs`.
+
+## project-guarda.webp
+
+Actual Playwright screenshot of this repository's Guarda-Chuva implementation at 1440×900, captured with reduced motion after local fonts loaded. Optimized to WebP. This is the agency's own project, not an external client or fabricated interface.

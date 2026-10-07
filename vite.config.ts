@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             name: brand.displayName,
+            ...(brand.whatsapp ? { telephone: `+${brand.whatsapp}` } : {}),
             description: seo.description,
             ...(canonical ? { url: canonical, image } : {}),
             address: {

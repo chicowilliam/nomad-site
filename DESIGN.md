@@ -7,8 +7,8 @@ colors:
   muted: "#536070"
   blue: "#2864db"
   deep: "#163a70"
-  wash: "#edf4ff"
-  rule: "rgba(16, 24, 40, 0.12)"
+  wash: "#eaf2ff"
+  rule: "rgba(16, 24, 40, 0.1)"
   white: "#ffffff"
   error: "#9f2530"
 typography:
@@ -149,7 +149,7 @@ A primeira organiza declarações e relações em grandes proporções; a segund
 
 ### Hierarchy
 
-- **Display:** título da abertura, com quatro linhas semânticas agrupadas em duas afirmações. No mobile usa `clamp(31px, 8.15vw, 51px)`, entrelinha (1.1) e tracking (-0.05em); há ajuste específico para telas compactas.
+- **Display:** título da abertura, com quatro linhas semânticas agrupadas em duas afirmações. No mobile usa `clamp(34px, 9.4vw, 54px)`, entrelinha (1.01) e tracking (-0.05em); há ajuste específico para telas compactas.
 - **Headline:** títulos de seção; o token é a base, com escalas próprias nas afirmações de domínio, jornada, propriedade e rodapé. No mobile a base usa `clamp(35px, 8.8vw, 55px)` e entrelinha (1.08).
 - **Title:** nomes de soluções no acordeão. No mobile usa `clamp(23px, 6.2vw, 38px)`.
 - **Body:** corpo recorrente; composições usam variações de (13–15px), entrelinhas de (1.8–1.9) e larguras contidas, normalmente (290–470px). Inputs sobem para (16px) até o breakpoint de campos.
@@ -163,17 +163,17 @@ A marca usa peso (550); subtítulos de processo usam (500). Georgia aparece some
 
 A largura geral máxima é (1720px), incluindo gutters fluidos. A hero e composições internas amplas chegam a (1544px). Relações assimétricas como (1.35fr / 1fr), offsets, colunas estreitas de apoio e faixas de largura total variam o ritmo. Não existe uma grade única para todas as seções.
 
-A home atual tem treze seções editoriais: abertura, tese, terreno digital, problema, ecossistema, soluções, jornada, descoberta, conceito Mesa, comparativo, processo, propriedade e contato. Essa sequência é a composição desta página; novas superfícies devem herdar sua gramática, sem copiar obrigatoriamente a sequência.
+A home atual tem quatorze seções: abertura, manifesto, terreno digital, diagnóstico, soluções, ecossistema, trabalho próprio, princípio, processo, propriedade, diferenças, stack, prova navegável e contato. Essa sequência é a composição desta página; novas superfícies devem herdar sua gramática, sem copiar obrigatoriamente a sequência.
 
-O respiro padrão entre seções segue os tokens de spacing, com exceções deliberadas nas transições. Até (1100px), reduz-se a escala intermediária. Até (900px), a navegação vira diálogo. Até (767px), a composição principal passa a uma coluna, o título da hero vem antes da imagem e a descrição/CTA vem depois. O gutter mobile é fixo e reduz novamente até (374px).
+O respiro padrão entre seções segue os tokens de spacing, com exceções deliberadas nas transições. Até (1100px), reduz-se a escala intermediária. Até (900px), a navegação vira diálogo. Até (767px), a composição principal passa a uma coluna, o título e o CTA da hero vêm antes da composição visual. O gutter mobile é fixo e reduz novamente até (374px).
 
-No celular, o ecossistema passa a três colunas de nós, a jornada vira uma linha vertical, o conceito Mesa empilha imagem e explicação, e o processo deixa de ser sticky. O comparativo preserva duas colunas compactas. O formulário empilha introdução e campos até (1024px), depois seus campos até (600px).
+No celular, o ecossistema apresenta canais compactos, centro, domínio, três destinos e cliente em níveis verticais conectados. Serviços mantêm seus argumentos visíveis mesmo fechados. O trabalho próprio usa uma captura real, e o processo deixa de ser sticky. O contato é direto, sem formulário.
 
-Priorize (390×844) e (430×932) sem perder composição em (1440×900) e (1920×1080). A validação atual também cobre (360×640), (375×812), (768×1024) e (1024×768), sem overflow horizontal. Preserve esse limite ao alterar texto, diagrama ou tipografia.
+Priorize (390×844) e (430×932) sem perder composição em (1440×900) e (1920×1080). A validação atual também cobre (360×800), (375×812), (768×1024) e (1024×768), sem overflow horizontal. Preserve esse limite ao alterar texto, diagrama ou tipografia.
 
 ## Elevation & Depth
 
-A interface é plana por padrão. Planos tonais e linhas organizam conteúdo; sombras sutis se restringem à placa de domínio, à consulta ilustrativa e às janelas do mockup. O terreno digital usa uma extrusão sólida, coerente com sua metáfora espacial.
+A interface é plana por padrão. Planos tonais e linhas organizam conteúdo; na evolução comercial, hero e trabalho não usam sombras. O terreno digital é uma planta gráfica, sem extrusão. Os valores abaixo permanecem apenas no acervo legado, não na home atual.
 
 ### Shadow Vocabulary
 
@@ -210,29 +210,29 @@ Etiquetas pequenas identificam Google, Instagram, WhatsApp e delivery; linhas fi
 
 ### Ecosystem
 
-No desktop, canais rodeiam um centro azul e convergem para o domínio por linhas SVG. No celular, os nós passam a uma malha de três colunas, com texto de (11px) e pontos menores. A malha serve a um diagrama específico, não a uma grade genérica de ofertas. O domínio permanece o destino visual.
+No desktop, cinco canais convergem por linhas SVG para a Guarda-Chuva, seguem ao domínio azul e se abrem em cardápio, reserva e delivery antes de chegar ao cliente. No celular, níveis verticais e conectores CSS substituem o SVG largo. Labels de canais têm (11px); conteúdo permanece compreensível sem animação.
 
 ### Solutions
 
-Seis linhas expansíveis, com índice, nome, breve resultado e sinal de expansão. A linha aberta revela descrição, capacidades e CTA; o primeiro item começa aberto. Título e sinal ficam azuis no estado aberto ou hover. O comportamento usa botão, `aria-expanded`, `aria-controls` e `hidden`. No mobile, retire o teaser e distribua o conteúdo em uma coluna.
+Seis módulos expansíveis, com índice, categoria, argumento tipográfico visível e sinal de expansão. A linha aberta revela descrição, capacidades e CTA; o primeiro item começa aberto. Título e sinal ficam azuis no estado aberto ou hover. O comportamento usa botão, `aria-expanded`, `aria-controls` e `hidden`. No mobile, coloque a categoria acima do argumento e distribua a descrição aberta em uma coluna.
 
 ### Journey and editorial motion
 
-As cinco etapas do cliente compartilham um trilho: horizontal a partir de (768px), vertical abaixo desse limite. O pin existe apenas a partir de (1024px); o processo usa sticky CSS separado. Imagens e títulos revelam por máscara; linhas desenham conexões; o parallax da fotografia é discreto e exclusivo do desktop.
+A entrada coreografa tipografia, texto, CTA e composição. A analogia físico/digital se constrói progressivamente. O ecossistema desenha canais, domínio, soluções e cliente. O processo de sete etapas tem indicador de avanço. A seção de propriedade recebe pin apenas a partir de (1024px), sem pin no celular; o processo usa sticky CSS separado. Imagens e títulos revelam por máscara; o parallax da fotografia é discreto e exclusivo do desktop.
 
 `EditorialMotion` carrega o motor em um chunk separado. GSAP, `@gsap/react`, ScrollTrigger e Lenis compartilham um único ticker; Lenis não cria outro RAF. Contexts e matchMedia desfazem listeners, animações e pins em mudança de condição e desmontagem. A abertura do menu pausa Lenis; fontes e imagens provocam recálculo sem ocultar conteúdo.
 
 Com movimento reduzido, não são criados Lenis, revelações decorativas, parallax ou pins. O conteúdo continua visível, as âncoras usam rolagem nativa e a composição estática preserva sua forma. Não use movimento para tornar informação indispensável acessível.
 
-### Concept and illustrative search
+### Trabalho verificável
 
-Mesa combina mockup amplo, descrição editorial e detalhe expansível nativo. Sua identidade pode usar materiais e tipografia próprios dentro da cena. A qualificação como conceito demonstrativo permanece visível; não há case real ou resultado comercial a apresentar. A composição de busca também é identificada como ilustrativa.
+O próprio site é apresentado com captura real, identificação de projeto próprio, problema e implementação. Não representa um cliente externo nem resultados financeiros. Os conceitos Mesa, Diamond e Axis permanecem no acervo, fora da interface. A prova final leva a partes funcionais do site.
 
 ### Contact fields and feedback
 
 Campos transparentes, label persistente, linha inferior, placeholder secundário e foco azul. O erro combina texto vermelho e linha lateral; o botão desabilitado reduz opacidade e informa estado de espera. O formulário mantém validação nativa e feedback acessível.
 
-WhatsApp e domínio oficial continuam sem valores confirmados. O CTA abre WhatsApp quando configurado; no estado atual, expande o briefing e move o foco para o primeiro campo. Sem canal de envio, o visitante baixa um TXT local e recebe uma mensagem explícita de que nada foi enviado. A apresentação acompanha o estado real, sem sugerir contato ou envio inexistente.
+WhatsApp confirmado: +55 31 99464-9759. CTAs levam diretamente ao aplicativo com mensagem contextual; não enviam nada automaticamente. O formulário legado está preservado, mas não é renderizado. O domínio oficial ainda precisa ser configurado para canonical e sitemap.
 
 ## Do's and Don'ts
 
@@ -243,8 +243,8 @@ WhatsApp e domínio oficial continuam sem valores confirmados. O CTA abre WhatsA
 - Do recompor a leitura em 390×844 e 430×932, preservando canais legíveis e legenda separada da fotografia.
 - Do usar fotos gastronômicas com função editorial e diagramas que expliquem relações reais.
 - Do preservar teclado, foco visível, labels persistentes e conteúdo completo com movimento reduzido.
-- Do identificar Mesa e a busca ilustrativa como conceitos, sem transformá-los em prova de resultados.
-- Do manter a ação de contato coerente com os canais configurados e informar quando o briefing é apenas local.
+- Do apresentar somente trabalho verificável e identificar o site da agência como projeto próprio.
+- Do manter ações de contato coerentes com o WhatsApp confirmado, sem alegar envio automático.
 
 ### Don't
 

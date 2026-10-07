@@ -28,30 +28,30 @@ Em outro terminal, com o preview ativo:
 npm run test:e2e
 ```
 
-O teste usa Playwright e Chromium em `/usr/bin/chromium`. `CHROMIUM_PATH` altera o executável, `BASE_URL` altera o endereço e `SCREENSHOTS=false` desativa capturas. Verifica oito resoluções, overflow, imagens, semântica, menu e foco, seis soluções, conceito Mesa, briefing, GSAP, Lenis, resize, movimento reduzido e refresh em âncora. Relatórios e capturas locais ficam em `.impeccable/review/`, ignorada pelo Git. `check` permanece como alias da verificação TypeScript.
+O teste usa Playwright e Chromium em `/usr/bin/chromium`. `CHROMIUM_PATH` altera o executável, `BASE_URL` altera o endereço e `SCREENSHOTS=false` desativa capturas. Verifica oito resoluções, overflow, imagens, semântica, menu e foco, seis soluções, projeto próprio, links WhatsApp, GSAP, Lenis, resize, movimento reduzido e refresh. O teste de WhatsApp intercepta a navegação: não envia mensagens nem comprova disponibilidade da conta. Relatórios e capturas locais ficam em `.impeccable/review/`, ignorada pelo Git. `check` permanece como alias da verificação TypeScript.
 
 ## Conteúdo e contato
 
-Edite `src/data/site.ts`. Não há WhatsApp, domínio, e-mail ou perfil social oficial confirmado no repositório.
+Edite `src/data/site.ts`. WhatsApp confirmado: **+55 31 99464-9759**. Domínio, e-mail e Instagram ainda aguardam informação oficial.
 
 | Campo | Uso |
 | --- | --- |
-| `brand.whatsapp` | Número internacional completo ou URL `https://wa.me/…`; ativa CTA direto |
-| `brand.email` | Canal de e-mail para o briefing |
+| `brand.whatsapp` | Número internacional completo, apenas dígitos; CTAs diretos |
+| `brand.email` | Canal opcional ainda não informado |
 | `brand.instagram` | Link real no rodapé |
-| `contact.formEndpoint` | Endpoint que recebe JSON e confirma o envio por HTTP |
-| `projects` | Conteúdo do conceito Mesa; substituir por cases autorizados |
-| `services` | Soluções e opções do briefing |
+| `contact.formEndpoint` | Reservado ao formulário legado não renderizado |
+| `projects` | Projeto próprio verificável; adicionar apenas cases autorizados |
+| `services` | Soluções, argumentos, capacidades e mensagens contextuais |
 
-O CTA final abre WhatsApp quando configurado. Sem esse canal, abre um briefing local. O formulário prioriza endpoint, WhatsApp, e-mail e download TXT. WhatsApp/e-mail exigem confirmação no aplicativo do visitante. O download não transmite dados. Um endpoint externo precisa permitir CORS quando necessário; nunca coloque segredos no frontend ou em `VITE_*`.
+Navbar, hero, serviços, processo e CTA final abrem conversa no WhatsApp. A mensagem só é enviada mediante ação do visitante no aplicativo. Não há formulário intermediário, backend ou coleta de dados implementada nesta home. Nunca coloque segredos no frontend ou em `VITE_*`.
 
-Mesa é um **conceito demonstrativo**, sem alegação de cliente real, entrega ou resultado comercial. Não inventar prova social.
+O trabalho mostrado é o próprio site, com captura real e identificação explícita de projeto próprio. Os conceitos anteriores permanecem no acervo, fora da interface. Não inventar prova social.
 
 ## Motion e acessibilidade
 
 `EditorialMotion.tsx` separa o motor de animação do bundle inicial de conteúdo. `useEditorialMotion.ts` usa `useGSAP`, contexts e matchMedia. Um único ticker GSAP chama `lenis.raf(time * 1000)`; os eventos de Lenis atualizam ScrollTrigger. O cleanup remove ticker, listeners, instância, pins e timelines.
 
-Headlines revelam por máscara; linhas convergem para o domínio; a jornada do cliente usa pin limitado no desktop e linha vertical sem pin no celular. Imagens têm máscaras e parallax discreto apenas em desktop. `prefers-reduced-motion` mantém conteúdo visível, navegação nativa e remove movimento decorativo. O menu preserva foco, Escape e navegação por teclado.
+Headlines revelam por máscara; a analogia físico/digital é construída progressivamente; linhas convergem para o domínio e se abrem em soluções; o processo possui indicador de avanço. A seção de propriedade usa pin limitado no desktop, sem pin no celular. Imagens têm máscaras e parallax discreto apenas em desktop. `prefers-reduced-motion` mantém conteúdo visível e navegação nativa. O menu preserva foco, Escape e teclado.
 
 ## SEO e publicação
 
@@ -73,4 +73,4 @@ Publique `dist/` em uma hospedagem estática com HTTPS. Configure o domínio e o
 - `public/assets/SOURCES.md`: origem das fotografias e assets preservados.
 - `scripts/generate-social.mjs`: regenera `public/og-cover.png`.
 
-A fotografia do hero e a fotografia do conceito Mesa foram geradas para a composição, otimizadas em WebP. Não representam estabelecimentos reais. O mockup Mesa usa HTML/CSS/SVG do projeto anterior. Impeccable orientou composição, legibilidade, auditoria e documentação; seu launcher não está instalado neste ambiente, por isso as referências foram usadas diretamente.
+A fotografia gastronômica foi gerada para a composição e otimizada em WebP; não representa um estabelecimento real. `project-guarda.webp` é uma captura real desta implementação. `evolution.css` estende os controles e a base visual preservados em `global.css`. Impeccable orientou composição, legibilidade e refinamento; as referências foram usadas diretamente porque o launcher não está instalado no ambiente.

@@ -42,6 +42,7 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
         }
       };
       window.addEventListener("pagehide", rememberScroll);
+      window.addEventListener("guarda:layout", refresh);
       document.fonts.ready.then(() => {
         if (!alive) return;
         refresh();
@@ -91,7 +92,6 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
           all: "all",
           motion: "(prefers-reduced-motion: no-preference)",
           desktop: "(min-width: 1024px)",
-          horizontal: "(min-width: 768px)",
         },
         (context) => {
           if (!context.conditions?.motion) {
@@ -120,6 +120,17 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
           window.addEventListener("guarda:menu", toggleMenu);
           const intro = gsap.timeline({ defaults: { ease: "power3.out" } });
           intro
+            .from(".hero-top > span:first-child", { y: 8, duration: 0.5 }, 0)
+            .from(
+              ".hero-line > span",
+              { yPercent: 105, stagger: 0.075, duration: 0.8 },
+              0.05,
+            )
+            .from(
+              ".hero-description, .hero-actions",
+              { y: 12, stagger: 0.08, duration: 0.7 },
+              0.25,
+            )
             .from(".domain-photo", { rotation: -2, y: 12, duration: 1 }, 0)
             .from(".domain-address", { y: 18, duration: 0.9 }, 0.1);
           root
@@ -184,7 +195,7 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
           });
           root
             .querySelectorAll<SVGPathElement>(
-              ".connection-path, .connection-output",
+              ".connection-path, .connection-output, .connection-branch, .connection-client",
             )
             .forEach((path, index) => {
               const length = path.getTotalLength();
@@ -192,7 +203,7 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
                 path,
                 { strokeDasharray: length, strokeDashoffset: length },
                 { strokeDashoffset: 0, duration: 1, ease: "none" },
-                index * 0.07,
+                index * 0.16,
               );
             });
           connection.from(
@@ -215,9 +226,69 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
             { y: 12, duration: 0.5, ease: "none" },
             1,
           );
+          connection.from(
+            ".eco-solution",
+            { y: -12, stagger: 0.12, duration: 0.6 },
+            1.2,
+          );
+          connection.from(".eco-client", { y: -10, duration: 0.6 }, 1.8);
+          gsap.from(".land-step", {
+            x: 18,
+            stagger: 0.12,
+            duration: 0.7,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".land-comparison",
+              start: "top 80%",
+              once: true,
+            },
+          });
+          root
+            .querySelectorAll<SVGPathElement>(".plan-outline, .plan-route")
+            .forEach((path) => {
+              const length = path.getTotalLength();
+              gsap.fromTo(
+                path,
+                { strokeDasharray: length, strokeDashoffset: length },
+                {
+                  strokeDashoffset: 0,
+                  duration: 1.2,
+                  ease: "power2.out",
+                  scrollTrigger: {
+                    trigger: ".site-plan",
+                    start: "top 80%",
+                    once: true,
+                  },
+                },
+              );
+            });
+          const steps = [
+            ...root.querySelectorAll<HTMLElement>(".process-list > li"),
+          ];
+          const readout = root.querySelector(".process-readout");
+          const updateMeter = gsap.quickTo(
+            ".process-meter > div > span",
+            "scaleX",
+            { duration: 0.4 },
+          );
+          steps.forEach((step, index) => {
+            ScrollTrigger.create({
+              trigger: step,
+              start: "top 58%",
+              end: "bottom 58%",
+              onToggle: (self) => {
+                step.classList.toggle("is-active", self.isActive);
+                if (self.isActive) {
+                  if (readout)
+                    readout.textContent = `${step.dataset.step} / ${step.querySelector("h3")?.textContent}`;
+                  updateMeter((index + 1) / steps.length);
+                }
+              },
+            });
+          });
           const journey = gsap.timeline({
             scrollTrigger: {
-              trigger: ".journey-stage",
+              trigger: ".base-stage",
               start: desktop ? "top 100px" : "top 65%",
               end: desktop ? "+=420" : "bottom 60%",
               pin: desktop,
@@ -225,32 +296,37 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
               invalidateOnRefresh: true,
             },
           });
-          const progressAxis = context.conditions?.horizontal
-            ? "scaleX"
-            : "scaleY";
-          journey.fromTo(
-            ".journey-line span",
-            { [progressAxis]: 0 },
-            { [progressAxis]: 1, duration: 5, ease: "none" },
+          journey.from(
+            ".base-word",
+            { x: 20, stagger: 0.18, duration: 0.6, ease: "none" },
             0,
           );
           journey.to(
-            ".journey-step",
-            { color: "#1f5ed6", stagger: 1, duration: 0.5, ease: "none" },
-            0,
-          );
-          journey.fromTo(
-            ".journey-step i",
-            { scale: 0.6, backgroundColor: "#a5b4c9" },
+            ".base-domain",
             {
-              scale: 1,
-              backgroundColor: "#1f5ed6",
-              stagger: 1,
-              duration: 0.5,
+              backgroundColor: "#2864db",
+              color: "#ffffff",
+              duration: 0.6,
               ease: "none",
             },
-            0,
+            0.9,
           );
+          journey.from(
+            ".base-brand",
+            { y: -15, duration: 0.6, ease: "none" },
+            1.3,
+          );
+          gsap.from(".contact-orbit", {
+            scale: 0.94,
+            rotation: -5,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".contact-v2",
+              start: "top bottom",
+              end: "center center",
+              scrub: 0.7,
+            },
+          });
           if (desktop)
             gsap.to(".domain-photo img", {
               y: 16,
@@ -264,6 +340,8 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
             });
           refresh();
           return () => {
+            steps.forEach((step) => step.classList.remove("is-active"));
+            if (readout) readout.textContent = "01 / CONVERSA";
             window.removeEventListener("guarda:menu", toggleMenu);
             gsap.ticker.remove(tick);
             // Settle native scroll state before destroy so a pending velocity
@@ -278,6 +356,7 @@ export function useEditorialMotion(scope: RefObject<HTMLDivElement | null>) {
       return () => {
         alive = false;
         window.removeEventListener("pagehide", rememberScroll);
+        window.removeEventListener("guarda:layout", refresh);
         images.forEach((image) => image.removeEventListener("load", refresh));
         media.revert();
         delete root.dataset.motion;

@@ -5,7 +5,7 @@ export function DomainVisual() {
   return (
     <figure
       className="domain-collage"
-      aria-label="Canais conectados ao domínio próprio de um restaurante"
+      aria-label="Google, Instagram, WhatsApp, iFood, Maps e cardápio convergem para o domínio próprio e chegam ao cliente"
     >
       <div className="domain-photo">
         <img
@@ -14,109 +14,124 @@ export function DomainVisual() {
           sizes="(max-width: 767px) 65vw, (max-width: 1023px) 50vw, 32vw"
           width="1200"
           height="1500"
-          alt="Composição gastronômica com prato artesanal, guardanapo azul e talheres sobre uma mesa clara"
+          alt="Prato artesanal e linho azul: a experiência do restaurante encontra seu endereço digital"
           fetchPriority="high"
         />
       </div>
       <svg
         className="hero-connections"
-        viewBox="0 0 580 560"
+        viewBox="0 0 580 600"
         aria-hidden="true"
+        fill="none"
       >
-        <path d="M100 75H290V407M493 154H408V407M65 275H170V407M490 415H408" />
-        <circle cx="100" cy="75" r="4" />
-        <circle cx="493" cy="154" r="4" />
-        <circle cx="65" cy="275" r="4" />
+        <path d="M55 80H270V420M510 110H390V420M35 235H190V420M515 280H390V420M65 355H150V420M510 395H430V420M285 475V548H410" />
+        <circle cx="410" cy="548" r="4" />
       </svg>
-      <span className="channel channel-google">
-        Google
-        <Arrow diagonal />
-      </span>
-      <span className="channel channel-instagram">
-        Instagram
-        <Arrow diagonal />
-      </span>
-      <span className="channel channel-whatsapp">
-        WhatsApp
-        <Arrow diagonal />
-      </span>
-      <span className="channel channel-delivery">
-        Delivery
-        <Arrow diagonal />
-      </span>
+      {hero.channels.map((name, i) => (
+        <span className={`channel channel-${i}`} key={name}>
+          {name}
+          <Arrow diagonal />
+        </span>
+      ))}
       <div className="domain-address">
-        <span className="micro">O PONTO DE ENCONTRO</span>
-        <strong>SEU DOMÍNIO.</strong>
+        <span className="micro">SEU RESTAURANTE NO CENTRO</span>
+        <strong>DOMÍNIO PRÓPRIO.</strong>
         <div>
-          <span>Cardápio</span>
-          <span>Reservas</span>
-          <span>Pedidos</span>
+          <span>SUA MARCA</span>
+          <span>SEUS CAMINHOS</span>
           <Arrow />
         </div>
       </div>
-      <figcaption className="micro">
-        {hero.visualCaption}
-        <span>01 / ESTRUTURA PRÓPRIA</span>
-      </figcaption>
+      <div className="hero-client">
+        <span className="micro">O PRÓXIMO PASSO</span>
+        <strong>
+          CLIENTE
+          <Arrow />
+        </strong>
+      </div>
+      <figcaption className="micro">{hero.visualCaption}</figcaption>
     </figure>
   );
 }
-
-const positions = [
-  { x: 500, y: 42 },
-  { x: 90, y: 100 },
-  { x: 90, y: 210 },
-  { x: 90, y: 320 },
-  { x: 910, y: 100 },
-  { x: 910, y: 210 },
-  { x: 910, y: 320 },
-  { x: 230, y: 435 },
-  { x: 770, y: 435 },
+const channelPositions = [
+  { x: 14, y: 14 },
+  { x: 34, y: 7 },
+  { x: 54, y: 14 },
+  { x: 75, y: 7 },
+  { x: 91, y: 14 },
 ];
-
 export function EcosystemVisual() {
   return (
     <div
       className="ecosystem-scene"
-      aria-label="Site, cardápio, Google, delivery, reservas, WhatsApp, CRM, automações e análise conectados"
+      aria-label="Os canais levam ao domínio próprio, que oferece cardápio, reserva e delivery para o cliente"
     >
+      <div className="ecosystem-stage-note micro">01 / ENCONTRAR</div>
       <svg
         className="ecosystem-lines"
-        viewBox="0 0 1000 500"
+        viewBox="0 0 1000 700"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
-        {positions.map(({ x, y }, index) => (
+        {channelPositions.map((p, i) => (
           <path
             className="connection-path"
-            key={index}
-            d={`M${x} ${y} L${x} ${y < 210 ? 175 : 300} L500 ${y < 210 ? 175 : 300} L500 250`}
+            key={i}
+            d={`M${p.x * 10} ${p.y * 7}V180H500V230`}
           />
         ))}
-        <path className="connection-output" d="M500 270V440" />
+        <path className="connection-output" d="M500 265V385" />
+        <path
+          className="connection-branch"
+          d="M500 425V475H180V520M500 475V520M500 475H820V520"
+        />
+        <path
+          className="connection-client"
+          d="M180 550V600H820V550M500 550V665"
+        />
       </svg>
-      {ecosystem.channels.map((name, index) => (
-        <div
-          key={name}
-          className={`ecosystem-node ecosystem-node-${index}`}
-          style={{
-            left: `${positions[index].x / 10}%`,
-            top: `${positions[index].y / 5}%`,
-          }}
-        >
-          <span className="node-dot" />
-          {name}
-        </div>
-      ))}
+      <div className="eco-channels">
+        {ecosystem.channels.map((name, i) => (
+          <div
+            className="ecosystem-node"
+            key={name}
+            style={{
+              left: `${channelPositions[i].x}%`,
+              top: `${channelPositions[i].y}%`,
+            }}
+          >
+            <i />
+            {name}
+          </div>
+        ))}
+      </div>
       <div className="ecosystem-center">
         <BrandMark />
         <span>GUARDA-CHUVA</span>
-        <small>UMA ESTRUTURA. TODAS AS CONEXÕES.</small>
+        <small>ESTRATÉGIA, DESIGN E TECNOLOGIA.</small>
       </div>
       <div className="ecosystem-destination">
-        <span className="micro">O ENDEREÇO É SEU</span>
+        <span className="micro">02 / ESCOLHER</span>
+        <strong>SEU DOMÍNIO.</strong>
+        <small>O ENDEREÇO DA SUA MARCA.</small>
+      </div>
+      <div className="eco-destinations">
+        {ecosystem.destinations.map((item, i) => (
+          <div
+            className="eco-solution"
+            style={{ left: `${18 + i * 32}%` }}
+            key={item}
+          >
+            <span className="micro">0{i + 1}</span>
+            {item}
+            <Arrow />
+          </div>
+        ))}
+      </div>
+      <div className="eco-client">
+        <span className="micro">03 / PEDIR. RESERVAR. VOLTAR.</span>
         <strong>
-          SEU DOMÍNIO
+          SEU CLIENTE.
           <Arrow />
         </strong>
       </div>

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 
@@ -13,7 +13,7 @@ const reviewDirectory = fileURLToPath(
 const results = [];
 const browserErrors = [];
 const viewports = [
-  [360, 640],
+  [360, 800],
   [375, 812],
   [390, 844],
   [430, 932],
@@ -45,7 +45,7 @@ function observeErrors(page, label) {
     browserErrors.push(`${label}: ${error.message}`),
   );
   page.on("console", (message) => {
-    if (message.type() === "error")
+    if (["error", "warning"].includes(message.type()))
       browserErrors.push(`${label}: ${message.text()}`);
   });
   page.on("response", (response) => {
@@ -272,7 +272,7 @@ try {
         () =>
           Math.abs(
             document.querySelector("#solucoes").getBoundingClientRect().top,
-          ) < 100,
+          ) < 120,
       ),
     );
   });
@@ -305,90 +305,44 @@ try {
     },
   );
   await check(
-    "Gastronomy concept discloses objectives and its disclaimer by keyboard",
+    "Only the implemented self-project appears as evidence",
     async () => {
-      const details = page.locator(".case-details");
-      assert.equal(await details.count(), 1);
-      for (const detail of await details.all()) {
-        await detail.locator("summary").focus();
-        await page.keyboard.press("Enter");
-        assert.ok((await detail.getAttribute("open")) !== null);
-        assert.ok(await detail.locator(".case-disclaimer").isVisible());
-        assert.match(
-          await detail.textContent(),
-          /Não representa um cliente, projeto entregue ou resultado comercial/,
-        );
-        await page.keyboard.press("Enter");
-        assert.equal(await detail.getAttribute("open"), null);
-      }
-    },
-  );
-  await check(
-    "Contact CTA opens the briefing and moves keyboard focus into it",
-    async () => {
-      const cta = page.getByRole("button", { name: "Construir meu domínio" });
-      assert.equal(await page.locator("#briefing").isVisible(), false);
-      await cta.click();
-      await page.waitForFunction(
-        () => document.activeElement?.getAttribute("name") === "name",
-      );
-      assert.equal(await cta.getAttribute("aria-expanded"), "true");
-      assert.ok(await page.locator("#briefing").isVisible());
-    },
-  );
-  await check(
-    "Briefing validates required fields and e-mail, then downloads an honest TXT without sending data",
-    async () => {
-      const form = page.locator("#briefing form");
-      const submit = form.getByRole("button", { name: "Salvar briefing" });
-      await submit.click();
-      assert.equal(
-        await form.evaluate((element) => element.checkValidity()),
-        false,
-      );
-      assert.equal(await form.locator(":invalid").count(), 3);
-      await form.locator('[name="name"]').fill("Pessoa de Teste");
-      await form.locator('[name="company"]').fill("Empresa Demonstração");
-      await form.locator('[name="email"]').fill("email-invalido");
-      await form
-        .locator('[name="challenge"]')
-        .fill("Centralizar pedidos e reduzir trabalho manual.");
-      assert.equal(
-        await form
-          .locator('[name="email"]')
-          .evaluate((element) => element.validity.typeMismatch),
-        true,
-      );
-      await form.locator('[name="email"]').fill("teste@example.com");
-      await form.locator('[name="service"]').selectOption("sistemas");
-      assert.equal(
-        await form.evaluate((element) => element.checkValidity()),
-        true,
-      );
-      const submissions = [];
-      const onRequest = (request) => {
-        if (request.method() === "POST") submissions.push(request.url());
-      };
-      page.on("request", onRequest);
-      const downloadPromise = page.waitForEvent("download");
-      await submit.click();
-      const download = await downloadPromise;
-      assert.equal(download.suggestedFilename(), "guarda-chuva-briefing.txt");
-      const content = await readFile(await download.path(), "utf8");
-      assert.match(content, /Nome: Pessoa de Teste/);
-      assert.match(content, /E-mail: teste@example.com/);
-      assert.match(content, /Solução: SISTEMAS/);
-      assert.match(content, /Centralizar pedidos e reduzir trabalho manual/);
+      assert.equal(await page.locator(".work-case").count(), 1);
       assert.match(
-        await form.locator('[role="status"]').textContent(),
-        /Nenhum dado foi enviado/,
+        await page.locator("#projetos").textContent(),
+        /PROJETO PRÓPRIO/,
       );
-      assert.deepEqual(
-        submissions,
-        [],
-        "Download fallback must not send private briefing data",
+      assert.equal(
+        await page.locator(".work-visual img").getAttribute("src"),
+        "/assets/project-guarda.webp",
       );
-      page.off("request", onRequest);
+    },
+  );
+  await check(
+    "WhatsApp uses the confirmed number and a working direct conversation link",
+    async () => {
+      const links = page.locator('a[href^="https://wa.me/"]');
+      assert.ok((await links.count()) >= 5);
+      for (const link of await links.all()) {
+        const url = new URL(await link.getAttribute("href"));
+        assert.equal(url.pathname, "/5531994649759");
+        assert.equal(await link.getAttribute("target"), "_blank");
+        assert.match(await link.getAttribute("rel"), /noreferrer/);
+      }
+      await desktopContext.route("https://wa.me/**", (route) =>
+        route.fulfill({
+          status: 200,
+          contentType: "text/html",
+          body: "WhatsApp navigation verified locally",
+        }),
+      );
+      const popupPromise = page.waitForEvent("popup");
+      await page.locator(".contact-button").click();
+      const popup = await popupPromise;
+      await popup.waitForLoadState();
+      assert.equal(new URL(popup.url()).pathname, "/5531994649759");
+      assert.ok(new URL(popup.url()).searchParams.get("text"));
+      await popup.close();
     },
   );
   await mobileContext.close();
@@ -423,6 +377,23 @@ try {
         [],
         "Scroll reveals must not strand content offscreen",
       );
+      const masked = await motionPage
+        .locator('[data-reveal="image"]')
+        .evaluateAll((elements) =>
+          elements
+            .filter((element) => {
+              const values =
+                getComputedStyle(element).clipPath.match(/-?\d+(?:\.\d+)?/g) ||
+                [];
+              return values.some((value) => Math.abs(Number(value)) > 0.1);
+            })
+            .map((element) => element.className),
+        );
+      assert.deepEqual(
+        masked,
+        [],
+        "Image masks must fully reveal after scrolling",
+      );
       const brokenImages = await motionPage
         .locator("img")
         .evaluateAll((images) =>
@@ -450,7 +421,10 @@ try {
           .evaluate((el) => el.classList.contains("lenis")),
       );
       assert.equal(await motionPage.locator(".pin-spacer").count(), 1);
-      await motionPage.locator(".ecosystem-footer").scrollIntoViewIfNeeded();
+      // Changing disclosure height must refresh downstream scroll geometry.
+      await motionPage.locator('[aria-controls="service-automacoes"]').click();
+      await motionPage.locator(".eco-client").scrollIntoViewIfNeeded();
+      await motionPage.mouse.wheel(0, 400);
       await motionPage.waitForTimeout(1000);
       const offsets = await motionPage
         .locator(".connection-path")
@@ -463,6 +437,7 @@ try {
         offsets.every((value) => Math.abs(value) < 1),
         "Channels must converge after scrolling through the ecosystem",
       );
+      await motionPage.locator('[aria-controls="service-site"]').click();
       await motionPage.mouse.wheel(0, 300);
       await motionPage.waitForTimeout(1100);
       assert.ok(

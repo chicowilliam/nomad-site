@@ -13,24 +13,27 @@ Não vender código nem prometer ganhos financeiros. Apresentar tecnologia como 
 ## Jornada da página
 
 1. Restaurante e endereço: proposta explícita no primeiro viewport.
-2. Atenção nas redes e domínio próprio: argumento comercial.
+2. Manifesto: investimento no ponto físico e estrutura digital própria.
 3. Terreno físico e digital: analogia de construção de valor.
 4. Informações dispersas: reconhecer o problema operacional.
-5. Ecossistema: canais convergem para Guarda-Chuva e domínio.
-6. Site, cardápio, delivery, reservas, sistemas e automações.
-7. Encontrar, conhecer, desejar, pedir e voltar.
-8. Descoberta local e informações acessíveis.
-9. Conceito gastronômico Mesa preservado do acervo.
-10. Antes e depois: peças soltas e estrutura própria.
-11. Diagnóstico, estrutura, design, desenvolvimento, lançamento e evolução.
-12. Plataformas trazem clientes; a marca precisa ser do negócio.
-13. Construir o digital: chamada final e contato.
+5. Soluções: seis argumentos comerciais em módulos editoriais expansíveis.
+6. Ecossistema: canais → Guarda-Chuva → domínio → cardápio, reserva e delivery → cliente.
+7. Trabalho: esta implementação, identificada como projeto próprio.
+8. Princípio: a tecnologia precisa ajudar o restaurante a funcionar.
+9. Processo: conversa, diagnóstico, direção, design, desenvolvimento, publicação e evolução.
+10. Propriedade: usar os canais sem depender exclusivamente deles.
+11. Diferenças: identidade, celular, utilidade, evolução e contato direto.
+12. Stack realmente utilizada, subordinada ao argumento comercial.
+13. Prova navegável: explorar o produto implementado, sem métricas inventadas.
+14. WhatsApp direto: conversar sobre o negócio, sem formulário intermediário.
 
 ## Conteúdo verificável e pendências
 
-O repositório não contém cases reais, métricas, depoimentos nem contato comercial confirmado. Mesa é um conceito demonstrativo, identificado na interface. Não tratar objetivos como resultados alcançados. Variantes Diamond e Axis do componente de mockups permanecem disponíveis no código existente, mas não são exibidas nesta home especializada.
+O repositório não contém cases de clientes autorizados, métricas nem depoimentos. O próprio site Guarda-Chuva é a evidência apresentada, explicitamente identificado como projeto próprio, com captura da implementação. Mesa, Diamond e Axis permanecem no acervo de componentes, mas não são exibidos como portfólio ou prova comercial.
 
-`src/data/site.ts` centraliza marca, conteúdo, serviços, projetos, canais e metadados. `brand.whatsapp`, `brand.email`, `brand.instagram` e `brand.canonicalUrl` aguardam dados oficiais. Sem WhatsApp, o CTA abre um briefing validado que salva um TXT no dispositivo e informa que nada foi enviado. Com um WhatsApp válido, o CTA final abre uma conversa com mensagem preparada.
+`src/data/site.ts` centraliza marca, conteúdo, serviços, projetos, canais e metadados. WhatsApp confirmado pelo proprietário: +55 31 99464-9759. CTAs abrem `wa.me` com mensagem contextual; o visitante decide enviar no aplicativo. Domínio oficial, e-mail e Instagram ainda não foram informados. O formulário legado foi preservado no código, mas não é renderizado.
+
+Os princípios comerciais fornecidos pelo usuário para a referência Solid Tech orientam clareza, processo e prova. A URL externa estava bloqueada pela política de rede do ambiente; não foi usada como fonte de layout ou conteúdo.
 
 ## Critérios de qualidade
 

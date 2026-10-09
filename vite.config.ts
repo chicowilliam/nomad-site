@@ -32,16 +32,15 @@ export default defineConfig(({ mode }) => {
             },
             areaServed: "Brasil",
             knowsAbout: [
-              "Criação de site para restaurante",
-              "Site para bar e delivery",
-              "Cardápio digital",
-              "Sistemas para restaurantes",
+              "Sites institucionais e landing pages",
+              "Lojas virtuais e e-commerce",
+              "Aplicativos e sistemas web",
               "Desenvolvimento web em Belo Horizonte",
-              "Automação de operações gastronômicas",
+              "Automações e integrações",
             ],
             hasOfferCatalog: {
               "@type": "OfferCatalog",
-              name: "Domínio digital para gastronomia",
+              name: "Sites, sistemas e lojas virtuais sob medida",
               itemListElement: services.map((service) => ({
                 "@type": "Offer",
                 itemOffered: {

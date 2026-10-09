@@ -1,25 +1,23 @@
 import { chromium } from "playwright";
 import { readFile } from "node:fs/promises";
-const font = (
+const normal = (
   await readFile(
-    "node_modules/@fontsource-variable/instrument-sans/files/instrument-sans-latin-wght-normal.woff2",
+    "node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2",
   )
 ).toString("base64");
-const photo = (await readFile("public/assets/gastronomy.webp")).toString(
-  "base64",
-);
+const italic = (
+  await readFile(
+    "node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2",
+  )
+).toString("base64");
 const browser = await chromium.launch({
   executablePath: process.env.CHROMIUM_PATH || "/usr/bin/chromium",
-  headless: true,
   args: ["--no-sandbox"],
 });
-const page = await browser.newPage({
-  viewport: { width: 1200, height: 630 },
-  deviceScaleFactor: 1,
-});
-await page.setContent(`<html><head><style>
-@font-face{font-family:Display;src:url(data:font/woff2;base64,${font}) format('woff2');font-weight:400 700}*{box-sizing:border-box}body{margin:0;background:#fafaf8;font-family:Display;color:#101828}main{padding:45px 55px;width:1200px;height:630px;overflow:hidden;position:relative}.brand{font-size:30px;line-height:.87;letter-spacing:-1.5px}h1{font-size:87px;font-weight:450;line-height:1.02;letter-spacing:-5px;margin:74px 0 0;position:relative;z-index:2}em{font-style:normal;color:#2864db}img{position:absolute;width:440px;height:550px;object-fit:cover;right:25px;top:55px;transform:rotate(8deg)}.address{position:absolute;right:52px;bottom:81px;background:#2864db;color:#fff;padding:21px 31px;font-size:25px;transform:rotate(-5deg)}footer{position:absolute;bottom:29px;left:55px;right:55px;display:flex;justify-content:space-between;border-top:1px solid #cdd3dc;padding-top:16px;font-size:12px;letter-spacing:1px}
-</style></head><body><main><div class="brand">guarda-<br>chuva®</div><img src="data:image/webp;base64,${photo}" alt=""><h1>SEU NEGÓCIO.<br><em>SEU DOMÍNIO.</em></h1><div class="address">TODOS OS CAMINHOS<br>LEVAM ATÉ VOCÊ.</div><footer><span>DOMÍNIO DIGITAL PARA GASTRONOMIA</span><span>BELO HORIZONTE → BRASIL</span></footer></main></body></html>`);
+const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
+await page.setContent(
+  `<style>@font-face{font-family:Display;src:url(data:font/woff2;base64,${normal})}@font-face{font-family:Display;src:url(data:font/woff2;base64,${italic});font-style:italic}*{box-sizing:border-box}body{margin:0;background:#08080b;color:#f4f0e8;padding:45px 65px}header{font:700 23px/.95 Arial;letter-spacing:-1px}h1{font:400 108px/.98 Display;margin:58px 0 0;letter-spacing:-2px}em{color:#659fff}footer{font:12px Arial;letter-spacing:2px;border-top:1px solid #ffffff20;margin-top:44px;padding-top:22px;color:#a6a3a0}</style><header>GUARDA<br>CHUVA.</header><h1>Sites, sistemas<br>e lojas virtuais <em>sob medida.</em></h1><footer>DESIGN + DESENVOLVIMENTO · BELO HORIZONTE → BRASIL</footer>`,
+);
 await page.evaluate(() => document.fonts.ready);
 await page.screenshot({ path: "public/og-cover.png" });
 await browser.close();

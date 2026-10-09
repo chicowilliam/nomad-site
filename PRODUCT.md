@@ -2,41 +2,43 @@
 
 ## Produto e público
 
-Página oficial de uma agência de soluções digitais de Belo Horizonte dedicada a restaurantes, bares, cafeterias, hamburguerias, pizzarias e deliveries. O público são proprietários e gestores de negócios gastronômicos que precisam ser encontrados, organizar atendimento, receber pedidos e reservas e reduzir trabalho manual.
+Site institucional de design e desenvolvimento em Belo Horizonte para empresas de todo o Brasil. A Guarda-Chuva constrói sites, sistemas, aplicativos, lojas virtuais e automações sob medida. O público são responsáveis por negócios que precisam vender, organizar a operação e crescer no digital; a proposta não se restringe a restaurantes.
 
 ## Tese comercial
 
-Assim como o estabelecimento tem um endereço físico, ele precisa de um endereço próprio na internet. Instagram, Google, marketplaces e WhatsApp são canais importantes. O domínio digital reúne marca, site, cardápio, reservas, venda direta e operação em uma estrutura própria.
+Entender o negócio, construir a solução apropriada e colocá-la para funcionar. Sites, sistemas e lojas virtuais são explícitos na primeira tela. A linguagem é direta e acessível; tecnologia aparece como capacidade de execução, sem promessas financeiras, posições garantidas em buscadores ou resultados sem evidência.
 
-Não vender código nem prometer ganhos financeiros. Apresentar tecnologia como competência para facilitar descoberta, escolha, pedido e retorno. Delivery próprio complementa marketplaces; não exige abandoná-los. SEO depende de conteúdo, estrutura, relevância, experiência e descoberta local, sem garantia de posição ou atribuição artificial à idade de um domínio.
+## Jornada da home
 
-## Jornada da página
+1. Cabeçalho compacto com marca textual e WhatsApp; navegação interna no desktop.
+2. Hero com proposta, “sob medida.” em itálico, descrição, WhatsApp e link para o trabalho.
+3. Sobre: posicionamento e quatro indicadores conceituais.
+4. Cinco serviços sempre abertos: Sites, Sistemas, Aplicativos, Lojas virtuais, Automações & IA.
+5. Plano quente com o projeto próprio Guarda-Chuva e captura real.
+6. Contato direto e rodapé com âncoras.
 
-1. Restaurante e endereço: proposta explícita no primeiro viewport.
-2. Manifesto: investimento no ponto físico e estrutura digital própria.
-3. Terreno físico e digital: analogia de construção de valor.
-4. Informações dispersas: reconhecer o problema operacional.
-5. Soluções: seis argumentos comerciais em módulos editoriais expansíveis.
-6. Ecossistema: canais → Guarda-Chuva → domínio → cardápio, reserva e delivery → cliente.
-7. Trabalho: esta implementação, identificada como projeto próprio.
-8. Princípio: a tecnologia precisa ajudar o restaurante a funcionar.
-9. Processo: conversa, diagnóstico, direção, design, desenvolvimento, publicação e evolução.
-10. Propriedade: usar os canais sem depender exclusivamente deles.
-11. Diferenças: identidade, celular, utilidade, evolução e contato direto.
-12. Stack realmente utilizada, subordinada ao argumento comercial.
-13. Prova navegável: explorar o produto implementado, sem métricas inventadas.
-14. WhatsApp direto: conversar sobre o negócio, sem formulário intermediário.
+“05 frentes”, “01 conversa”, “WEB” e “BR” descrevem oferta e abordagem. Não representam volume de clientes, projetos entregues ou resultados medidos.
 
-## Conteúdo verificável e pendências
+## Conteúdo verificável e canais
 
-O repositório não contém cases de clientes autorizados, métricas nem depoimentos. O próprio site Guarda-Chuva é a evidência apresentada, explicitamente identificado como projeto próprio, com captura da implementação. Mesa, Diamond e Axis permanecem no acervo de componentes, mas não são exibidos como portfólio ou prova comercial.
+WhatsApp confirmado pelo proprietário: **+55 31 99464-9759** (`5531994649759`). CTAs abrem uma conversa com mensagem contextual; o visitante decide enviá-la no aplicativo. Não há formulário renderizado, backend ou coleta de dados implementada nesta home.
 
-`src/data/site.ts` centraliza marca, conteúdo, serviços, projetos, canais e metadados. WhatsApp confirmado pelo proprietário: +55 31 99464-9759. CTAs abrem `wa.me` com mensagem contextual; o visitante decide enviar no aplicativo. Domínio oficial, e-mail e Instagram ainda não foram informados. O formulário legado foi preservado no código, mas não é renderizado.
+Domínio oficial, e-mail e Instagram não foram informados. Canonical, URL pública e sitemap dependem de configuração real. Não presumir um domínio ou publicar contatos inventados.
 
-Os princípios comerciais fornecidos pelo usuário para a referência Solid Tech orientam clareza, processo e prova. A URL externa estava bloqueada pela política de rede do ambiente; não foi usada como fonte de layout ou conteúdo.
+O único projeto mostrado é o próprio site Guarda-Chuva. Não foram fornecidos cases externos autorizados, métricas, depoimentos ou case de e-commerce verificado. Diamond, Mesa e Axis são conceitos legados, fora da interface e sem valor de prova de entrega.
+
+`src/data/site.ts` guarda marca, proposta, navegação, contato e SEO; `src/data/services.ts` define os cinco serviços; `src/data/projects.ts` define o trabalho verificável. `site.ts` reexporta serviços e projetos. `ContactForm` e `ProjectVisual` permanecem no acervo, sem renderização na home.
+
+## Direção aprovada e referências
+
+A direção atual é editorial escura: Instrument Serif normal/itálico, Instrument Sans local, fundo quase preto, texto quente, azul contido, cinco linhas de serviços e um plano claro arredondado para trabalho. `DESIGN.md` contém os tokens; `.impeccable/surfaces/home.md` registra o contrato da superfície.
+
+O vídeo Solid Tech solicitado não está entre os anexos disponíveis. A URL retornou HTTP 403 do proxy. A implementação foi guiada pelo briefing visual detalhado do usuário; não se alega comparação exata com o vídeo nem fidelidade medida à referência.
 
 ## Critérios de qualidade
 
-Priorizar clareza comercial e acabamento editorial em 390×844 e 430×932, sem perda de impacto em 1440×900 e 1920×1080. Tipografia leve, planos claros, azul preciso, fotografia gastronômica e diagramas têm funções distintas na narrativa. Evitar cards repetidos, neon, efeitos gratuitos e copy genérica.
+Priorizar clareza em 390×844 e 430×932, com composição íntegra em 768px, 1440×900 e 1920×1080; 360px acrescenta cobertura de overflow. Conteúdo semântico, foco visível, teclado, contraste, fontes locais e imagens válidas são requisitos.
 
-Navegação por teclado, foco visível, HTML semântico, contraste, zero overflow e movimento reduzido são requisitos. GSAP e Lenis compartilham um único ticker; pins só no desktop. A experiência precisa preservar conteúdo e posição em resize e atualização da página. Metas de laboratório: Performance ≥90, Accessibility ≥95, Best Practices ≥95 e SEO ≥95. Não são promessas sobre hospedagem ou dispositivos reais.
+GSAP e Lenis compartilham um único ticker, com movimento discreto e nenhum pin. Movimento reduzido preserva conteúdo e rolagem nativa. Âncoras, resize e reload devem preservar uma navegação previsível.
+
+Metas de laboratório: Performance ≥90, Accessibility ≥95, Best Practices ≥95 e SEO ≥95. A rodada final registrada passou lint, TypeScript, build e 12/12 verificações E2E; axe WCAG encontrou zero violações. Lighthouse mobile marcou 97/100/100/100 e CLS 0.000683. Esses resultados pertencem à medição local, não são promessa sobre hospedagem ou dispositivos reais. Evidências e limites estão em `VALIDATION.md`.

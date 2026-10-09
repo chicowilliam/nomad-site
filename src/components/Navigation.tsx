@@ -1,143 +1,37 @@
-import { useEffect, useRef, useState } from "react";
-import { Arrow, BrandMark } from "./Icon";
-import { navigation, contact, brand, getWhatsAppUrl } from "../data/site";
-
-const links = navigation.map(({ label, href }) => [label, href] as const);
+import { brand, contact, getWhatsAppUrl, navigation } from "../data/site";
+import { Arrow } from "./Icon";
 export function Navigation() {
-  const [open, setOpen] = useState(false);
-  const menu = useRef<HTMLDialogElement>(null);
-  const trigger = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    window.dispatchEvent(new CustomEvent("guarda:menu", { detail: open }));
-    if (open) {
-      menu.current?.showModal();
-      document.body.style.overflow = "hidden";
-    } else {
-      menu.current?.close();
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-      window.dispatchEvent(new CustomEvent("guarda:menu", { detail: false }));
-    };
-  }, [open]);
-  function close() {
-    setOpen(false);
-    trigger.current?.focus();
-  }
   return (
-    <>
-      <header className="site-header">
+    <header className="site-header">
+      <div className="header-inner">
         <a
           className="wordmark"
           href="#inicio"
-          aria-label={`${brand.displayName.replace("-", "- ")}® — início`}
+          aria-label={`${brand.displayName} — início`}
         >
-          <BrandMark />
-          <span aria-hidden="true">
-            guarda-
-            <br />
-            chuva<sup>®</sup>
+          GUARDA
+          <span>
+            CHUVA<span className="brand-dot">.</span>
           </span>
         </a>
-        <nav className="desktop-nav" aria-label="Navegação principal">
-          {links.map(([label, href]) => (
-            <a className="text-link" key={href} href={href}>
-              {label}
+        <nav aria-label="Navegação principal">
+          {navigation.map((item) => (
+            <a href={item.href} key={item.href}>
+              {item.label}
             </a>
           ))}
         </nav>
         <a
-          className="nav-cta"
-          href={getWhatsAppUrl(contact.message)!}
+          className="header-contact"
+          href={getWhatsAppUrl(contact.message)}
           target="_blank"
           rel="noreferrer"
         >
-          {contact.navigationCta}
+          <span>Falar no WhatsApp</span>
+          <span className="status-dot" aria-hidden="true" />
           <Arrow diagonal />
         </a>
-        <button
-          className="menu-toggle"
-          ref={trigger}
-          onClick={() => setOpen(true)}
-          aria-label="Abrir menu"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-        >
-          <span />
-          <span />
-        </button>
-      </header>
-      <dialog
-        id="mobile-menu"
-        ref={menu}
-        className="mobile-menu"
-        data-lenis-prevent
-        aria-label="Menu principal"
-        onKeyDown={(event) => {
-          if (event.key !== "Tab") return;
-          const controls = menu.current?.querySelectorAll<HTMLElement>(
-            "a[href], button:not([disabled])",
-          );
-          if (!controls?.length) return;
-          const first = controls[0];
-          const last = controls[controls.length - 1];
-          if (event.shiftKey && document.activeElement === first) {
-            event.preventDefault();
-            last.focus();
-          } else if (!event.shiftKey && document.activeElement === last) {
-            event.preventDefault();
-            first.focus();
-          }
-        }}
-        onCancel={(event) => {
-          event.preventDefault();
-          close();
-        }}
-      >
-        <div className="mobile-menu-top">
-          <span className="wordmark">
-            <BrandMark />
-            <span>
-              guarda-
-              <br />
-              chuva<sup>®</sup>
-            </span>
-          </span>
-          <button
-            onClick={close}
-            className="menu-close"
-            aria-label="Fechar menu"
-          >
-            <span />
-            <span />
-          </button>
-        </div>
-        <nav aria-label="Navegação mobile">
-          {links.map(([label, href], i) => (
-            <a key={href} href={href} onClick={close}>
-              <span className="micro">0{i + 1}</span>
-              {label}
-              <Arrow diagonal />
-            </a>
-          ))}
-        </nav>
-        <a
-          className="button button-light"
-          href={getWhatsAppUrl(contact.message)!}
-          target="_blank"
-          rel="noreferrer"
-          onClick={close}
-        >
-          {contact.navigationCta}
-          <Arrow diagonal />
-        </a>
-        <p className="micro">
-          DOMÍNIO DIGITAL PARA GASTRONOMIA
-          <br />
-          BELO HORIZONTE → BRASIL
-        </p>
-      </dialog>
-    </>
+      </div>
+    </header>
   );
 }

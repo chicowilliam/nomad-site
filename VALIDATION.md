@@ -1,32 +1,35 @@
-# Validação — evolução comercial Guarda-Chuva
+# Validação — Guarda-Chuva, editorial escuro
 
-Executada em 7 de outubro de 2026, no build de produção servido localmente por Vite Preview, Chromium headless.
+9 de outubro de 2026. Build de produção servido localmente por Vite Preview e Chromium headless.
 
-## Gates
+## Gates executados
 
-- `npm run lint`, `npm run typecheck` e `npm run build`: aprovados.
-- Playwright: 360×800, 375×812, 390×844, 430×932, 768×1024, 1024×768, 1440×900 e 1920×1080.
-- Sem overflow horizontal, assets quebrados, erros ou warnings de console.
-- Menu: teclado, foco contido, Escape, retorno de foco e navegação por âncoras.
-- Seis soluções: Enter/Space, estados ARIA e conteúdo expandido.
-- WhatsApp: número confirmado, mensagem contextual, nova aba e navegação interceptada localmente. Nenhuma mensagem enviada; disponibilidade da conta externa não foi auditada.
-- GSAP/Lenis: um ticker, conexões SVG, revelações completas, pin somente desktop, pausa com menu, resize, redução de movimento dinâmica e refresh com/sem fragmento.
-- Inspeção visual: abertura, manifesto, terreno, diagnóstico, serviços, ecossistema, trabalho, princípio, processo, propriedade, diferenças, stack, prova, contato e rodapé; segunda passada tipográfica e terceira passada mobile.
-- Axe WCAG A/AA: nenhuma violação na página mobile e no menu. O nome acessível do link de trabalho também foi corrigido e revalidado no Lighthouse.
+- `npm run lint`, `npm run typecheck`, `npm run build`: aprovados.
+- `npm run test:e2e`: 12/12 verificações aprovadas.
+- Viewports: 360×800, 390×844, 430×932, 768×1024, 1440×900 e 1920×1080.
+- Sem overflow horizontal, títulos cortados, assets quebrados, erros ou warnings de console.
+- Fontes locais Instrument Serif normal/itálico e Instrument Sans carregadas.
+- Header mobile compacto, foco por teclado, skip link e âncoras funcionais.
+- Cinco serviços visíveis sem accordion; lojas virtuais explícitas na abertura e na lista.
+- WhatsApp: número confirmado, mensagem, nova aba e navegação interceptada localmente. Nenhuma mensagem enviada; disponibilidade da conta externa não foi auditada.
+- GSAP e Lenis: um ticker, conteúdo revelado, nenhum pin, resize, ativação/desativação dinâmica de movimento reduzido e restauração de scroll após refresh.
+- Axe WCAG A/AA: nenhuma violação na página mobile.
+- SEO: cinco Services, ProfessionalService, telefone, metadata e ausência de posicionamento restrito a gastronomia. Canonical, robots e sitemap verificados em build separado com `example.com` como fixture; o build final não contém domínio fictício.
 
-## Lighthouse — última rodada
+## Inspeção visual
 
-| Perfil | Performance | Accessibility | Best Practices | SEO | CLS |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Mobile simulado | 92 | 100 | 100 | 100 | 0,00036 |
-| Desktop | 100 | 100 | 100 | 100 | 0,00030 |
+Duas passadas locais em mobile/desktop. Ajustes finais: alvo de toque do CTA do header com 44px e chips de serviços com melhor leitura. Revisão independente: **ship**, sem achados visuais materiais, dentro do escopo do briefing escrito. A revisão cobriu heros e páginas completas nas cinco larguras solicitadas, além de detalhes de serviços, sobre, trabalho e contato.
 
-São medições de laboratório locais, não garantias sobre hospedagem ou dispositivos reais. Uma rodada anterior mediu Performance 94 no mobile; a rodada final permaneceu acima da meta de 90.
+O vídeo Solid Tech não estava disponível nos anexos; a URL externa retornou HTTP 403 pela política de rede. Portanto não foi possível comparar a gravação lado a lado. Não há alegação de equivalência medida à referência ausente.
 
-## SEO e limites
+## Lighthouse mobile
 
-Title, description, Open Graph, Twitter, ProfessionalService, telefone confirmado e catálogo de seis Services verificados. O build sem domínio não inventa canonical. Um build separado em `/tmp`, com `https://example.com` exclusivamente como fixture, confirmou canonical, URLs absolutas, robots e sitemap.
+| Performance | Accessibility | Best Practices | SEO | CLS | LCP |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 97 | 100 | 100 | 100 | 0,000683 | 2,3 s |
 
-O domínio oficial, Instagram e cases de clientes ainda não foram fornecidos. A home usa apenas o projeto próprio como evidência. Solid Tech estava bloqueado pela política de rede: foram aplicados os princípios comerciais descritos pelo usuário, sem alegar inspeção da página externa.
+Medição local de laboratório, não garantia sobre hospedagem ou dispositivos reais. Relatório da sessão: `/tmp/guarda-dark-mobile.json`. Capturas e relatório Playwright: `.impeccable/review/dark/`, ignorados pelo Git.
 
-Capturas e relatório Playwright ficam em `.impeccable/review/`, ignorada pelo Git. Relatórios Lighthouse desta sessão: `/tmp/guarda-evolution-mobile-final.json` e `/tmp/guarda-evolution-desktop-final.json`.
+## Pendências de conteúdo
+
+Domínio oficial, Instagram e cases de clientes não foram fornecidos. O projeto publicado na seção Trabalho é o próprio site, identificado como projeto próprio. Nenhum conceito Diamond/Mesa/Axis é apresentado como cliente ou e-commerce entregue.

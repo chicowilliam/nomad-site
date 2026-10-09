@@ -1,256 +1,216 @@
 ---
 name: Guarda-Chuva
-description: Um endereço próprio na internet para negócios gastronômicos
+description: Sites, sistemas e lojas virtuais sob medida
 colors:
-  paper: "#fafaf8"
-  ink: "#101828"
-  muted: "#536070"
-  blue: "#2864db"
-  deep: "#163a70"
-  wash: "#eaf2ff"
-  rule: "rgba(16, 24, 40, 0.1)"
-  white: "#ffffff"
-  error: "#9f2530"
+  background: "#08080b"
+  text: "#f4f0e8"
+  muted: "#a6a3a0"
+  blue: "#659fff"
+  button: "#3b82f6"
+  button-text: "#080b12"
+  button-hover: "#78adff"
+  line: "rgba(255, 255, 255, 0.09)"
+  paper: "#f2eee6"
+  ink: "#17181e"
+  work-blue: "#215cc5"
+  work-muted: "#62615e"
+  work-line: "rgba(23, 24, 30, 0.14)"
+  chip-text: "#b7b4b0"
 typography:
   display:
-    fontFamily: "Instrument Sans Variable, sans-serif"
-    fontSize: "clamp(52px, 4.62vw, 84px)"
-    fontWeight: 450
-    lineHeight: 1.055
-    letterSpacing: "-0.058em"
+    fontFamily: "Instrument Serif, Georgia, serif"
+    fontSize: "clamp(52px, 15.25vw, 70px)"
+    fontWeight: 400
+    lineHeight: 0.99
+    letterSpacing: "-0.026em"
   headline:
-    fontFamily: "Instrument Sans Variable, sans-serif"
-    fontSize: "clamp(43px, 5.15vw, 88px)"
-    fontWeight: 450
-    lineHeight: 1.05
-    letterSpacing: "-0.055em"
+    fontFamily: "Instrument Serif, Georgia, serif"
+    fontSize: "clamp(54px, 13.7vw, 76px)"
+    fontWeight: 400
+    lineHeight: 0.98
+    letterSpacing: "-0.025em"
   title:
-    fontFamily: "Instrument Sans Variable, sans-serif"
-    fontSize: "clamp(27px, 3.05vw, 50px)"
-    fontWeight: 450
-    letterSpacing: "-0.045em"
+    fontFamily: "Instrument Serif, Georgia, serif"
+    fontSize: "clamp(42px, 12vw, 58px)"
+    fontWeight: 400
+    lineHeight: 1.1
+    letterSpacing: "-0.025em"
   body:
-    fontFamily: "DM Sans Variable, sans-serif"
+    fontFamily: "Instrument Sans Variable, sans-serif"
     fontSize: "14px"
     fontWeight: 400
-    lineHeight: 1.8
+    lineHeight: 1.85
   label:
-    fontFamily: "DM Sans Variable, sans-serif"
+    fontFamily: "Instrument Sans Variable, sans-serif"
     fontSize: "10px"
     fontWeight: 500
-    lineHeight: 1.65
-    letterSpacing: "0.065em"
+    lineHeight: 1.5
+    letterSpacing: "0.1em"
 rounded:
-  square: "0px"
-  node: "50%"
+  pill: "30px"
+  chip: "4px"
+  project: "9px"
+  project-wide: "12px"
+  work: "30px 30px 0 0"
+  work-tablet: "42px 42px 0 0"
+  work-desktop: "52px 52px 0 0"
 spacing:
-  gutter: "clamp(24px, 4.5vw, 88px)"
   gutter-mobile: "24px"
   gutter-compact: "20px"
-  section: "112px"
-  section-tablet: "90px"
-  section-mobile: "68px"
+  gutter-tablet: "40px"
+  gutter-desktop: "72px"
+  section-mobile: "86px"
+  section-tablet: "105px"
+  section-desktop: "130px"
 components:
   button-primary:
-    backgroundColor: "{colors.blue}"
-    textColor: "{colors.white}"
-    rounded: "{rounded.square}"
-    padding: "17px 23px"
+    backgroundColor: "{colors.button}"
+    textColor: "{colors.button-text}"
+    rounded: "{rounded.pill}"
+    padding: "15px 20px"
   button-primary-hover:
-    backgroundColor: "{colors.deep}"
-    textColor: "{colors.white}"
-  button-light:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.square}"
-    padding: "17px 23px"
-  text-link:
-    textColor: "{colors.ink}"
-    padding: "9px 0"
-  contact-input:
+    backgroundColor: "{colors.button-hover}"
+    textColor: "{colors.button-text}"
+  button-ghost:
     backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.square}"
-    padding: "10px 0 13px"
-  navigation:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    height: "94px"
-  channel-tag:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    rounded: "{rounded.square}"
-    padding: "10px 13px"
+    textColor: "{colors.text}"
+    rounded: "{rounded.pill}"
+    padding: "15px 18px"
+  header-contact:
+    backgroundColor: "transparent"
+    textColor: "{colors.text}"
+    rounded: "{rounded.pill}"
+    padding: "11px 13px"
+  capability-chip:
+    backgroundColor: "transparent"
+    textColor: "{colors.chip-text}"
+    rounded: "{rounded.chip}"
+    padding: "6px 8px"
   service-row:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink}"
-    padding: "27px 0"
-  domain-address:
-    backgroundColor: "{colors.blue}"
-    textColor: "{colors.white}"
-    rounded: "{rounded.square}"
-    padding: "19px 24px 18px"
-  ecosystem-node:
+    textColor: "{colors.text}"
+    padding: "31px 0 36px"
+  work-plane:
     backgroundColor: "{colors.paper}"
-    textColor: "{colors.deep}"
-    rounded: "{rounded.square}"
-    padding: "13px 17px"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.work}"
+    padding: "68px 0 70px"
 ---
 
 # Design System: Guarda-Chuva
 
 ## Overview
 
-**Creative North Star: "Um endereço próprio."**
+**Creative North Star: "Editorial escuro, sob medida."**
 
-A Guarda-Chuva traduz estrutura digital em uma composição editorial clara: papel, tipografia leve, fotografia gastronômica e linhas que levam canais a um endereço próprio. A identidade é precisa, acolhedora e segura. A assimetria cria direção; o espaço deixa a proposta respirar.
+A identidade combina fundo quase preto, títulos serifados amplos, texto quente e azul contido. A proporção e o espaço dão força à proposta; itálicos azuis marcam as palavras decisivas. A mudança para um único plano quente e arredondado dá destaque ao trabalho real.
 
-A superfície clara predomina. O azul identifica ações, conexões e propriedade, com uma única pausa de página inteira na afirmação de marca. Fotografias mostram matéria e apetite; diagramas explicam relações. O acabamento vem de proporção, alinhamento e contraste, sem aparência de dashboard SaaS.
-
-O sistema descreve a implementação atual. Os tokens acima foram extraídos de `src/styles/global.css` e dos componentes; são normativos. `PRODUCT.md` guarda público e conteúdo, enquanto este arquivo orienta decisões visuais. As extensões de movimento, profundidade, breakpoints e exemplos renderizáveis ficam em `.impeccable/design.json`.
+Este arquivo documenta a implementação aprovada em `src/styles/global.css` e `src/App.tsx`. O frontmatter contém os tokens normativos da base mobile; exceções responsivas aparecem abaixo. `PRODUCT.md` guarda a verdade comercial e `.impeccable/surfaces/home.md` guarda a estratégia da home. A sidecar `.impeccable/design.json` estende os tokens com movimento, breakpoints e exemplos.
 
 **Key Characteristics:**
 
-- Papel claro predominante e azul usado com intenção.
-- Títulos amplos de peso moderado, composição assimétrica e leitura arejada.
-- Fotografia gastronômica integrada a endereços, linhas e nós.
-- Superfícies retas, índices discretos e divisões finas.
-- Mobile recomposto e movimento subordinado à leitura.
+- Fundo escuro predominante e contraste quente.
+- Instrument Serif normal/itálico com Instrument Sans local.
+- Índices pequenos, divisórias finas e serviços sempre legíveis.
+- Um plano claro arredondado para o trabalho.
+- Movimento curto, secundário e dispensável para leitura.
 
 ## Colors
 
-Um papel levemente quente recebe tinta azulada, azul nítido e planos azulados quase brancos. A família é clara e precisa, com contraste suficiente para leitura.
+O azul tem valores próprios para texto sobre escuro, botão e texto sobre papel.
 
 ### Primary
 
-- **Azul de endereço** (`blue`): CTAs, trechos decisivos de títulos, conexões, nós e a placa de domínio.
-- **Azul profundo** (`deep`): hover de CTA, legenda da composição e informação estrutural.
-- **Azul de fundo** (`wash`): terreno digital, comparativo, busca ilustrativa e ecossistema mobile.
+- **Azul editorial** (`blue`): itálicos, foco, pontos e detalhes sobre escuro.
+- **Azul de ação** (`button`): CTA principal, sempre com `button-text` escuro; hover usa `button-hover`.
+- **Azul sobre papel** (`work-blue`): títulos em itálico, categoria, hover e foco dentro do trabalho.
 
 ### Neutral
 
-- **Papel** (`paper`): fundo principal, navegação e etiquetas.
-- **Tinta** (`ink`): títulos e conteúdo principal.
-- **Texto de apoio** (`muted`): parágrafos, metadados e descrições.
-- **Linha estrutural** (`rule`): divisões finas e relações entre blocos; preserve sua transparência.
-- **Branco** (`white`): texto e ícones sobre azul.
+- **Quase preto** (`background`): fundo principal e rodapé.
+- **Texto quente** (`text`): títulos e texto de destaque.
+- **Apoio** (`muted`): descrições e metadados.
+- **Linha escura** (`line`): separadores discretos, preservando a transparência.
+- **Papel quente** (`paper`), **tinta** (`ink`), **apoio sobre papel** (`work-muted`) e **linha sobre papel** (`work-line`): conjunto exclusivo do plano de trabalho.
+- **Texto de capacidade** (`chip-text`): pequenas etiquetas de recursos.
 
-O vermelho de erro (`error`) pertence exclusivamente ao feedback do formulário. A paleta quente do conceito Mesa pertence à cena demonstrativa e não substitui as cores da agência.
-
-**The Azul com função Rule.** Use azul para ação, conexão e domínio próprio. A grande superfície azul pertence à seção de propriedade; preserve o predomínio claro no restante da página.
+**The Azul por superfície Rule.** O plano de trabalho redefine localmente `--blue`, `--muted` e `--line`; preserve o contraste de cada superfície.
 
 ## Typography
 
-**Display Font:** Instrument Sans Variable, com fallback sans-serif.
+**Display Font:** Instrument Serif, Georgia, serif, peso 400 normal e itálico.
 
-**Body Font:** DM Sans Variable, com fallback sans-serif. Ambas são locais; não dependem de um provedor de fontes em runtime.
-
-A primeira organiza declarações e relações em grandes proporções; a segunda sustenta leitura, navegação e controles. Tracking compacto, caixa alta editorial e entrelinha curta dão caráter aos títulos, sem aumentar excessivamente o peso.
+**Body Font:** Instrument Sans Variable, sans-serif. As fontes são servidas localmente pelo bundle; DM Sans foi removida.
 
 ### Hierarchy
 
-- **Display:** título da abertura, com quatro linhas semânticas agrupadas em duas afirmações. No mobile usa `clamp(34px, 9.4vw, 54px)`, entrelinha (1.01) e tracking (-0.05em); há ajuste específico para telas compactas.
-- **Headline:** títulos de seção; o token é a base, com escalas próprias nas afirmações de domínio, jornada, propriedade e rodapé. No mobile a base usa `clamp(35px, 8.8vw, 55px)` e entrelinha (1.08).
-- **Title:** nomes de soluções no acordeão. No mobile usa `clamp(23px, 6.2vw, 38px)`.
-- **Body:** corpo recorrente; composições usam variações de (13–15px), entrelinhas de (1.8–1.9) e larguras contidas, normalmente (290–470px). Inputs sobem para (16px) até o breakpoint de campos.
-- **Label:** índices e notas em caixa alta, com números tabulares. Metadados decorativos podem ser menores. Os nomes do ecossistema mobile usam (11px), peso (500), tracking neutro e nunca herdam a escala mínima de microtexto.
+- **Display:** hero mobile em três linhas semânticas, com “sob medida.” em itálico azul. A partir de 600px usa `clamp(76px, 12vw, 128px)`; a partir de 1024px, `clamp(108px, 8.3vw, 128px)`. Abaixo de 375px usa 15vw.
+- **Headline:** títulos de seção usam o token base, 80px a partir de 600px e 96px a partir de 1024px. Trabalho usa `clamp(67px, 17vw, 94px)`, depois 96px/112px; contato usa `clamp(52px, 13.8vw, 74px)`, depois 80px/100px.
+- **Title:** serviços usam o token base, 49px em tablet e 52px no desktop; telas abaixo de 375px usam 42px.
+- **Body:** descrições recorrentes em 14px/1.85. Texto de apresentação chega a 16px; parágrafos de Sobre usam 15–16px/1.9. Larguras de leitura são contidas, normalmente 390–480px.
+- **Label:** índices em caixa alta e números tabulares. Metadados variam de 7–10px; não use essa escala para descrições ou controles principais.
 
-A marca usa peso (550); subtítulos de processo usam (500). Georgia aparece somente no mockup Mesa, como parte da identidade do conceito.
-
-**The Escala antes de peso Rule.** Dê força ao título por tamanho, quebra e espaço. Preserve o peso moderado da família display; não compense uma hierarquia fraca com negrito pesado.
+O texto de Sobre usa sans de 25px, 27px e 34px, sem imitar um título display. A marca compacta usa sans de peso 650. Hierarquia vem de escala, quebra e espaço.
 
 ## Layout
 
-A largura geral máxima é (1720px), incluindo gutters fluidos. A hero e composições internas amplas chegam a (1544px). Relações assimétricas como (1.35fr / 1fr), offsets, colunas estreitas de apoio e faixas de largura total variam o ritmo. Não existe uma grade única para todas as seções.
+A `.shell` tem máximo de 1280px. Gutters por lado: 24px na base mobile, 20px abaixo de 375px, 40px a partir de 600px e 72px a partir de 1024px. O cabeçalho tem máximo próprio de 1360px e gutters desktop de 48px.
 
-A home atual tem quatorze seções: abertura, manifesto, terreno digital, diagnóstico, soluções, ecossistema, trabalho próprio, princípio, processo, propriedade, diferenças, stack, prova navegável e contato. Essa sequência é a composição desta página; novas superfícies devem herdar sua gramática, sem copiar obrigatoriamente a sequência.
+O ritmo geral de seções é 86px/105px/130px por breakpoint, com ajustes deliberados: Serviços começa com menos espaço; Trabalho recebe 68px/70px na base e 110px/105px no desktop. O hero tem altura mínima de 790px mobile e 920px a partir de 600px, com espaço amplo acima do título.
 
-O respiro padrão entre seções segue os tokens de spacing, com exceções deliberadas nas transições. Até (1100px), reduz-se a escala intermediária. Até (900px), a navegação vira diálogo. Até (767px), a composição principal passa a uma coluna, o título e o CTA da hero vêm antes da composição visual. O gutter mobile é fixo e reduz novamente até (374px).
+A navegação fixa mede 80px na base e 90px no desktop. Links internos do cabeçalho aparecem somente a partir de 1024px; no celular permanecem marca e WhatsApp direto, sem diálogo. Âncoras consideram offset de 92px.
 
-No celular, o ecossistema apresenta canais compactos, centro, domínio, três destinos e cliente em níveis verticais conectados. Serviços mantêm seus argumentos visíveis mesmo fechados. O trabalho próprio usa uma captura real, e o processo deixa de ser sticky. O contato é direto, sem formulário.
-
-Priorize (390×844) e (430×932) sem perder composição em (1440×900) e (1920×1080). A validação atual também cobre (360×800), (375×812), (768×1024) e (1024×768), sem overflow horizontal. Preserve esse limite ao alterar texto, diagrama ou tipografia.
+Serviços usam índice + conteúdo no celular; a partir de 600px, índice/título/descrição; no desktop, quatro colunas de índice, título, descrição e capacidades. São cinco linhas sempre abertas, sem cards nem acordeão. Sobre tem indicadores conceituais em uma grade 2×2. O trabalho usa texto em duas colunas a partir de 600px e captura em largura total.
 
 ## Elevation & Depth
 
-A interface é plana por padrão. Planos tonais e linhas organizam conteúdo; na evolução comercial, hero e trabalho não usam sombras. O terreno digital é uma planta gráfica, sem extrusão. Os valores abaixo permanecem apenas no acervo legado, não na home atual.
-
-### Shadow Vocabulary
-
-- **Placa de domínio** (`0 12px 22px #163a7010`): separa a placa azul da fotografia.
-- **Consulta ilustrativa** (`0 7px 20px #163a7007`): pequena sobreposição sobre o plano pálido.
-- **Terreno próprio** (`-10px 12px 0 #163a70`): extrusão geométrica, sem blur.
-- **Janela de conceito** (`0 3cqw 6cqw #0002`): profundidade contextual dentro do mockup Mesa.
-
-**The Profundidade localizada Rule.** Mantenha a interface plana. Reserve sombra para objetos sobrepostos e cenas demonstrativas com uma relação espacial concreta.
+Não há sombras de interface. A profundidade vem de contraste tonal, divisórias e troca de superfície. O cabeçalho usa fundo translúcido escuro e blur de 12px; sua borda aparece após 24px de rolagem. Uma grade estática mascarada, três pontos e um gradiente radial azul de baixa opacidade dão textura ao hero. Não são um canvas nem uma animação contínua.
 
 ## Shapes
 
-Retângulos de cantos retos, linhas técnicas de (1px), setas finas e pequenos nós circulares formam a linguagem. Bordas não transformam cada grupo de conteúdo em um card. A hero termina com um pequeno recorte diagonal; a fotografia, as etiquetas e a placa de endereço recebem rotações contidas, como peças de uma composição impressa.
-
-A fotografia gastronômica foi criada para esta composição: prato, tecido azul, talheres e mesa clara. Seu corte mantém o alimento reconhecível em cada viewport. A legenda fica abaixo do objeto, com espaço próprio, e não atravessa a placa ou a fotografia.
+CTAs em cápsula de 30px contrastam com linhas de serviço abertas e finas. Chips têm 4px de raio. A captura tem 9px no mobile e 12px a partir de 600px, com proporção 1.6. O plano de trabalho arredonda somente os cantos superiores em 30px/42px/52px. Pontos e o controle gráfico sobre a captura são circulares.
 
 ## Components
 
 ### Buttons and links
 
-O CTA principal é um retângulo azul com texto branco, seta diagonal e altura mínima de (54px), reduzida a (52px) na base mobile. O CTA final é maior. Hover traz o azul profundo de baixo para cima e desloca texto/seta poucos pixels. Foco usa contorno azul (2px) com afastamento (5px); sobre a navegação inversa o contorno fica branco.
+O CTA principal tem texto escuro sobre azul, altura mínima de 50px, padding 15px 20px e fonte de 12px. A partir de 600px usa altura mínima de 54px, padding 17px 25px e fonte de 13px. O secundário tem borda branca de 16% de opacidade; hover muda texto e borda para azul. Setas deslocam 2px no hover.
 
-A variante clara existe no CSS; o CTA do diálogo mobile é sobrescrito para azul. Links de texto usam sublinhado que cresce e seta discreta. Use links para navegar e botões para expandir ou executar ações.
+O foco visível usa contorno de 2px, afastado 5px. O trabalho usa o azul local no foco. Links de projeto têm linha inferior e seta; os CTAs WhatsApp abrem uma conversa em nova aba, sem enviar mensagem automaticamente.
 
 ### Navigation
 
-Cabeçalho fixo, marca à esquerda, links e ação à direita. Uma linha aparece após a rolagem. Sobre a seção de propriedade, cabeçalho e conteúdo assumem a inversão azul/branco. A altura é (94px) no desktop e (84px) no celular.
+Marca textual em duas linhas, ponto azul, links internos no desktop e cápsula de contato com alvo mínimo de 44px. O estado rolado aumenta a opacidade do fundo e mostra uma divisória. No celular não há menu oculto, botão de expansão ou modal. O rodapé mantém as âncoras acessíveis. O skip link aparece ao receber foco.
 
-O menu mobile mantém `dialog` nativo, nome acessível, foco contido, Escape, fechamento ao seguir uma âncora e retorno de foco ao controle de abertura. Controles de abrir/fechar têm (44px). O diálogo ocupa (100dvh) e impede a rolagem da página enquanto aberto.
+### Service rows and capability chips
 
-### Channel tags and domain address
+Cinco artigos sempre abertos: Sites, Sistemas, Aplicativos, Lojas virtuais e Automações & IA. Descrição e capacidades ficam disponíveis sem interação. Hover em ponteiro fino desloca o título 6px e reforça linha, índice e etiquetas. Lojas virtuais tem índice e divisória azuis; “virtuais” e “IA” aparecem em itálico. Chips são informação, sem semântica de filtro ou botão.
 
-Etiquetas pequenas identificam Google, Instagram, WhatsApp e delivery; linhas finas convergem para a placa azul de domínio. São elementos explicativos, sem comportamento de filtro ou link. A placa contém título amplo, uma nota funcional e uma linha de capacidades. Mantenha a legenda fora da sobreposição.
+### Work plane
 
-### Ecosystem
+O plano quente contém somente o site Guarda-Chuva, identificado como SITE INSTITUCIONAL · PROJETO PRÓPRIO. A imagem é uma captura real, com dimensões intrínsecas, lazy loading e texto alternativo. Link e captura retornam ao início do próprio site. Hover da imagem amplia apenas 1.015×. Não há portfólio fictício nem case de e-commerce verificado.
 
-No desktop, cinco canais convergem por linhas SVG para a Guarda-Chuva, seguem ao domínio azul e se abrem em cardápio, reserva e delivery antes de chegar ao cliente. No celular, níveis verticais e conectores CSS substituem o SVG largo. Labels de canais têm (11px); conteúdo permanece compreensível sem animação.
+### Editorial motion
 
-### Solutions
+`EditorialMotion` carrega GSAP, ScrollTrigger e Lenis em chunk separado. Um único ticker GSAP chama `lenis.raf`; Lenis usa duração 0.75s, sem RAF automático nem sincronização de touch. Entradas movem texto 6–14px, linhas começam em escala horizontal 0.75 e a captura usa máscara de 12% com raio de 9px. Durações de 0.6–0.75s, easing `power3.out`, entradas de seção executadas uma vez.
 
-Seis módulos expansíveis, com índice, categoria, argumento tipográfico visível e sinal de expansão. A linha aberta revela descrição, capacidades e CTA; o primeiro item começa aberto. Título e sinal ficam azuis no estado aberto ou hover. O comportamento usa botão, `aria-expanded`, `aria-controls` e `hidden`. No mobile, coloque a categoria acima do argumento e distribua a descrição aberta em uma coluna.
+Não existem pins, parallax ou narrativa controlada pela rolagem. Cleanup remove ticker, listeners e instância Lenis; matchMedia desfaz animações quando muda a preferência. Fontes e imagens atualizam ScrollTrigger. A posição de reload é registrada em sessionStorage quando disponível; âncoras são resolvidas após fontes carregarem.
 
-### Journey and editorial motion
-
-A entrada coreografa tipografia, texto, CTA e composição. A analogia físico/digital se constrói progressivamente. O ecossistema desenha canais, domínio, soluções e cliente. O processo de sete etapas tem indicador de avanço. A seção de propriedade recebe pin apenas a partir de (1024px), sem pin no celular; o processo usa sticky CSS separado. Imagens e títulos revelam por máscara; o parallax da fotografia é discreto e exclusivo do desktop.
-
-`EditorialMotion` carrega o motor em um chunk separado. GSAP, `@gsap/react`, ScrollTrigger e Lenis compartilham um único ticker; Lenis não cria outro RAF. Contexts e matchMedia desfazem listeners, animações e pins em mudança de condição e desmontagem. A abertura do menu pausa Lenis; fontes e imagens provocam recálculo sem ocultar conteúdo.
-
-Com movimento reduzido, não são criados Lenis, revelações decorativas, parallax ou pins. O conteúdo continua visível, as âncoras usam rolagem nativa e a composição estática preserva sua forma. Não use movimento para tornar informação indispensável acessível.
-
-### Trabalho verificável
-
-O próprio site é apresentado com captura real, identificação de projeto próprio, problema e implementação. Não representa um cliente externo nem resultados financeiros. Os conceitos Mesa, Diamond e Axis permanecem no acervo, fora da interface. A prova final leva a partes funcionais do site.
-
-### Contact fields and feedback
-
-Campos transparentes, label persistente, linha inferior, placeholder secundário e foco azul. O erro combina texto vermelho e linha lateral; o botão desabilitado reduz opacidade e informa estado de espera. O formulário mantém validação nativa e feedback acessível.
-
-WhatsApp confirmado: +55 31 99464-9759. CTAs levam diretamente ao aplicativo com mensagem contextual; não enviam nada automaticamente. O formulário legado está preservado, mas não é renderizado. O domínio oficial ainda precisa ser configurado para canonical e sitemap.
+Com movimento reduzido, conteúdo permanece estático e legível, Lenis não é criado, rolagem é nativa e transformações de hover são removidas.
 
 ## Do's and Don'ts
 
 ### Do
 
-- Do usar tipografia, espaço, linhas e alinhamento para construir hierarquia.
-- Do manter papel claro predominante e reservar grandes planos azuis para a afirmação de propriedade.
-- Do recompor a leitura em 390×844 e 430×932, preservando canais legíveis e legenda separada da fotografia.
-- Do usar fotos gastronômicas com função editorial e diagramas que expliquem relações reais.
-- Do preservar teclado, foco visível, labels persistentes e conteúdo completo com movimento reduzido.
-- Do apresentar somente trabalho verificável e identificar o site da agência como projeto próprio.
-- Do manter ações de contato coerentes com o WhatsApp confirmado, sem alegar envio automático.
+- Do preservar a predominância escura, texto quente e itálicos azuis.
+- Do manter os cinco serviços abertos e o e-commerce explícito na proposta.
+- Do recompor colunas, quebras e espaço no mobile.
+- Do preservar foco visível, navegação por teclado e movimento reduzido.
+- Do mostrar somente trabalho verificável com seu vínculo real.
 
 ### Don't
 
-- Don't transformar a página em uma grade de cards iguais ou numa interface genérica de SaaS.
-- Don't introduzir neon, glow, blobs ou glassmorphism na identidade.
-- Don't usar negrito pesado como linguagem dominante nem substituir o par tipográfico por uma fonte universal.
-- Don't reduzir nomes de canais à escala de microlegenda para fazê-los caber no celular.
-- Don't aplicar pin, parallax ou rolagem suave quando o visitante pede movimento reduzido.
-- Don't inventar clientes, métricas, depoimentos, contatos oficiais ou confirmação de envio.
+- Don't restaurar a antiga identidade clara ou o posicionamento exclusivo para gastronomia.
+- Don't substituir a tipografia por DM Sans ou títulos sans genéricos.
+- Don't transformar serviços em cards, acordeão ou conteúdo dependente de hover.
+- Don't criar menu mobile modal, pins ou loops decorativos.
+- Don't inventar clientes, resultados, depoimentos ou fidelidade à referência inacessível.
